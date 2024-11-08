@@ -9,7 +9,7 @@ The file is mainly intended for users of MAMEUI, so some procedures will referen
 
 MAME (and by extension, all of its derivatives) has plenty of bugs, missing features, and ways to crash. The ones that affect startup will be documented.
 
-Since this project is only just getting started, there will be lots of ommisions and errors. You may submit a Pull Request (PR) to add information or correct mistakes. You can't log an issue - you're expected to supply a solution rather than just complaining.
+Since this project is only just getting started, there will be lots of omissions and errors. You may submit a Pull Request (PR) to add information or correct mistakes. You can't log an issue - you're expected to supply a solution rather than just complaining.
 
 All text is to be in English with standard ASCII characters.
 
