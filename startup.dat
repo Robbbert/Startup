@@ -1,0 +1,2952 @@
+#     STARTUP.DAT
+#
+#     by Robbbert
+#
+#     started on 2024-11-28.
+#
+#     This file will contain the following:
+#
+#     ARCADE machines: How to initialise them for first-time use
+#
+#     CONSOLES: A few consoles require setting the date etc
+#
+#     COMPUTERS: How to load software in a general sense - there's no info for specific games.
+#
+#     In all cases, the information is only supplied where the operation is not obvious.
+#
+#  ----------------------------------------------------------------------------------------------------------------
+#
+#
+#     SYSTEMs INFOs
+#
+#
+$info=mz700
+$mame
+SHARP MZ-700
+============
+
+Last updated for 0.273
+
+
+Cassettes
+---------
+
+L to load. Game may run itself.
+
+There's problems loading files that are longer than ~ 2 minutes.
+
+$end
+$info=mz80a
+$mame
+SHARP MZ-80A
+============
+
+Last updated for 0.273
+
+Also MZ-1200, but it isn't emulated.
+
+
+
+
+Cassettes
+---------
+
+L - to load
+
+If it doesn't run by itself, it's probably a Basic program.
+So, load an interpreter (SA-5510 appears to work well), then enter LOAD, load the tape, then RUN.
+
+
+
+
+Floppies
+--------
+
+Not emulated.
+
+
+
+
+
+Monitor
+-------
+
+MZ80A Monitor Commands:
+B - turn key beep on/off
+F - boot from Floppy (press enter at the question)
+J - jump (goto)
+L - load a cassette
+$end
+$info=mz80b
+$mame
+SHARP MZ-80B
+============
+Last updated for 0.273
+
+Doesn't boot up
+$end
+$info=mz80k
+$mame
+Last updated for 0.273
+
+SHARP MZ-80K
+============
+
+
+
+Seems to be graphics problems. Maybe some of these are meant for another machine.
+
+
+
+Cassettes
+---------
+
+LOAD - to load. It may run by itself.
+
+If it doesn't, it's considered not working at this time.
+
+
+
+
+Floppy Disk
+-----------
+
+There's lots of disks and utilities, but MAME doesn't support it.
+$end
+$info=mz800
+$mame
+SHARP MZ-800
+=============
+
+Last updated for 0.273
+
+
+
+Cassettes
+---------
+
+Press C at the menu.
+
+They don't load correctly - screen gets filled with garbage.
+
+Nothing can be run.
+$end
+$info=mz1500
+$mame
+SHARP MZ-1500
+=============
+
+
+
+
+
+Cassettes
+---------
+
+Press C at the menu.
+
+They don't load correctly - screen gets filled with garbage.
+
+Nothing can be run.
+
+
+
+
+Floppy Disk
+-----------
+
+Shows in the IPL menu, but not emulated.
+$end
+$info=mz2000
+$mame
+SHARP MZ-2000, MZ-2200, MZ-2500
+===============================
+
+
+
+
+Floppies
+--------
+
+Use in MZ-2500 only - the others reject the disk then crash.
+
+
+
+
+Cassettes
+---------
+
+Not supported by MZ-2500.
+Only WAV files work (others not detected).
+Basic programs give a File Mode error.
+Many others give a Loading Error.
+$end
+$info=aquarius
+$mame
+MATTEL AQUARIUS
+===============
+
+
+Make sure to have 32k of RAM installed.
+
+
+
+Cartridges
+----------
+
+Run by themselves. Note that adding or removing a cart does
+strange things to the cart numbering, so confusion and bugs
+can result.
+
+Sometimes a cart won't show in media view, so start the system
+and remove it via newui.
+
+
+Cassettes
+---------
+
+CLOAD - to load a tape
+
+
+
+
+
+Homebrew
+--------
+
+These consist of a loader and a main program.
+
+Load and run the loader, then mount the main program tape.
+$end
+$info=pc8001mk2sr
+$mame
+NEC PC-8001MK2SR
+================
+
+
+
+The D88 disks will not boot and are not usable.
+
+
+Cassette doesn't read.
+$end
+$info=pc6001mk2sr
+$mame
+NEC PC-6001 MK 2 SR
+-------------------
+
+
+Not Working.
+
+
+
+Disk
+----
+
+Disks are rejected
+
+
+Cassette
+--------
+Press enter at question
+
+CLOAD
+
+Tape then loads itself. When done, press F5.
+
+The tape loader is some weird hack, so wav/flac are not supported.
+
+
+
+Machine reboots or hangs after tape has loaded.
+$end
+$info=pc6001mk2
+$mame
+NEC PC-6001 MK 2
+----------------
+
+
+Not Working.
+
+
+
+Disk
+----
+
+Not supported
+
+
+Cassette
+--------
+Press enter at question
+
+CLOAD
+
+Tape then loads itself. When done, press F5.
+
+The tape loader is some weird hack, so wav/flac are not supported.
+
+
+
+Machine reboots or hangs after tape has loaded.
+
+$end
+$info=z1013
+$mame
+ROBOTRON Z-1013
+===============
+
+The 8x4 keyboard contains letters A-W, enter, cursor right/left, space, and
+4 shift keys.
+S1 - X-Z, numbers
+S2 - a-w
+S3 - x-z, punctuation
+S4 - control keys
+
+Control Keys:
+G - Graphics
+A - Alpha
+T - clear screen
+U - enter
+P - cursor left
+Q - cursor right
+
+Monitor commands (debug)
+R - registers
+B - breakpoint
+E - execute
+G - resume after breakpoint
+N - single-step
+
+Monitor commands (general)
+H - switch to hex keyboard (H to Q become 0 to 9)
+A - switch back to normal alpha keyboard
+C - Compare memory blocks
+D - Dump memory
+F - Find bytes in memory
+T - Copy memory block
+M - Modify bytes (; to exit)
+I - reboot
+J - Jump to address
+K - Fill memory (K by itself fills all of memory)
+L - Load Cassette
+S - Save Cassette
+W - window (example: W EF00 EFFF)
+
+Due to no input checking, misuse of commands can crash the system.
+
+
+
+Snapshot
+--------
+
+These should start themselves when loaded, however very few do.
+
+The ones that don't start are regarded as not working.
+$end
+$info=kc85_2
+$mame
+ROBOTRON HC900, KC85-2
+======================
+
+
+
+
+For some reason KCC images are assigned to both cassette and quickload.
+
+SSS images appear to be a different format and won't load.
+
+Games generally only work on one of the computers, so they will be suffixed
+with [2],[3],[4].
+
+
+Quickload
+---------
+
+The program may start itself, or may add extra names to the menu. Just enter the
+name of the most appropriate one.
+
+If it does neither, then it's assumed to not work.
+
+
+
+Cassette
+--------
+
+To load a tape, type LOAD <enter>, tape starts, at the end it should run itself.
+
+I assume the JUMP command could be used to go to an address, but it always returns ERROR,
+so the jump needs to be done in the debugger.
+
+Image types tested to work are KCC and TAP.
+$end
+$info=crvision
+$mame
+CREATIVISION, DICK SMITH WIZZARD
+================================
+
+
+Press FIRE -> hit Right-Shift.
+
+
+
+Cartridge
+---------
+
+Run by themselves.
+
+
+
+Cassette
+--------
+
+Must load "basic" cart from swlist, then:
+
+CLOAD
+
+It loads one line at a time. If it says ERROR, then something went wrong.
+Otherwise, do RUN.
+$end
+$info=laser110,laser200,laser210,laser310
+$mame
+LASER 200, 210, 300, 310. DICK SMITH VZ-200, VZ-300
+===================================================
+
+
+
+For testing, use VZ-300 and 16k of RAM.
+
+
+
+Snapshot
+--------
+
+A popup will indicate if it's M/L or BASIC.
+
+If M/L it will run itself, if Basic type RUN.
+
+
+
+
+Cassette
+--------
+
+CLOAD - to load the tape
+
+Filetype:
+
+B - binary, will run itself
+T - Basic. Type RUN.
+$end
+$info=x68000
+$mame
+SHARP X68000
+============
+
+
+
+Floppy disk
+-----------
+
+
+Run themselves.
+
+At this time non-booters are considered not working.
+
+If it says "Press button to start", press A.
+
+
+
+
+
+Hard Disk
+---------
+
+Unknown how to access them.
+
+Looks very complicated and seems it doesn't work in mame.
+$end
+$info=laser350
+$mame
+
+VTECH LASER 350, 500, 700
+=========================
+
+
+Cartridge
+---------
+
+Not working?
+
+
+
+
+Cassette
+--------
+
+CLOAD then RUN
+$end
+$info=pasopia7
+$mame
+TOSHIBA PASOPIA 7
+=================
+
+
+
+Cassette
+--------
+
+CLOAD
+
+Don't press Insert - data gets left out.
+
+then RUN
+
+
+Unknown if compatible with Pasopia.
+
+
+
+
+Floppy disk
+-----------
+
+Can be mounted, but are supposed to auto-run, which
+doesn't work. No idea what commands exist in Basic
+for disk control.
+
+Looks like FILES, SAVE, LOAD should work, but the
+disk doesn't seem to be recognised.
+
+
+
+
+Inufuto
+-------
+
+Load tape xx01, CLOAD
+Load tape xx02, RUN
+$end
+$info=pasopia
+$mame
+TOSHIBA PASOPIA
+===============
+
+
+
+Cassette
+--------
+
+CLOAD
+
+Don't press Insert - data gets left out.
+
+then RUN
+
+
+
+Inufuto
+-------
+
+Load tape xx01, CLOAD
+Load tape xx02, RUN
+$end
+$info=bml3
+$mame
+HITACHI BML3
+============
+
+
+
+
+Cassette
+--------
+
+LOAD - basic
+
+LOADM - M/L
+
+Games marked with [mk5] will only work on bml3mk5.
+
+
+
+Inufuto
+-------
+
+LOADM"",,R
+
+
+Loads on the screen and won't run.
+$end
+$info=bmjr
+$mame
+
+HITACHI BMJR (aka L2)
+=====================
+
+
+
+File types
+----------
+B - binary, use the monitor
+S - basic
+
+
+
+Cassette
+--------
+
+LOAD - to load.
+
+
+
+Inufuto
+-------
+
+MON
+L
+(enter name of file)
+G
+(press space)
+
+Game will start.
+
+
+Other
+-----
+
+The Basic has a CALL instruction, but no USR.
+
+
+The monitor E command goes back to Basic.
+$end
+$info=cpc464,cpc464p,gx4000,cpc6128p
+$mame
+Amstrad
+=======
+
+Keys: " is shift-2, backspace is Insert, | is shift {
+
+
+
+CPC6128
+-------
+
+Make sure that disk A is 3.5, not 3.
+
+Disk: Insert disk start machine then enter CAT it will list the directory.
+      Then RUN "program" (closing quote optional) (not case sensitive)
+
+Tape: |TAPE, then RUN" - after loading it will run itself (*.cdt, *.wav)
+
+ROM:  Insert ROM, start machine, will run itself
+
+
+GX4000
+------
+Only takes ROMs, usage same as above (*.cdr)
+
+
+CPC464
+------
+Only takes tapes, but runs out of memory no matter how much is chosen.
+
+
+
+Inufuto tapes
+-------------
+
+|TAPE
+RUN
+When it says to press PLAY, hit Enter.
+After the first block, hit Enter again.
+
+It will load and run.
+$end
+$info=hunter2
+$mame
+HUNTER 2
+========
+
+
+
+No software interfaces.
+
+
+
+These text files can successfully pasted in.
+
+
+The clock doesn't work because the time is stuck at 00:00:00 - an emulation issue.
+
+The demo bombs out with a syntax error.
+
+Graphics demo not tested.
+$end
+$info=fm8
+$mame
+FUJITSU FM-8
+============
+
+
+
+
+Cassette
+--------
+
+See FM7's usage.txt
+
+FM7 tapes will load but not run.
+
+
+
+
+Floppies
+--------
+
+
+None to test with. FM7 floppies won't run.
+$end
+$info=fm77av
+$mame
+FUJITSU FM-77AV
+===============
+
+
+
+Cassette
+--------
+
+See FM7's usage.txt
+
+FM7 tapes will run.
+
+
+
+
+Floppies
+--------
+
+FM7 floppies seem to run, or at least start up.
+
+
+None of the 77AV-specific floppies can be used.
+$end
+$info=fm7
+$mame
+FUJITSU FM-7
+============
+
+
+
+Floppies
+--------
+
+Run themselves.
+
+MAME only accepts 341/682KB D77 disks.
+
+To access floppies: FILES "0:" for A drive, "1:" for B drive etc.
+                    RUN "(drive)file"
+
+
+
+Cassettes
+---------
+
+If Basic, LOAD then RUN
+
+If M/L, LOADM"",,R  (LOADM followed by EXEC may work)
+
+You have to guess which one; Bad File Mode indicates it's wrong.
+
+The system is intolerant of imperfections, the load will be
+terminated by I/O Error.
+
+Not many tapes are accepted, and then only a few of those work.
+
+May need to use LOADM"CAS0:(file)", LOAD"CAS0:(file)" .
+If no disks, can RUN"(CAS0:)" .
+
+
+Inufuto games
+-------------
+
+LOADM"",,R  press Scroll-Lock, press F2. Game starts by itself.
+The fire button is continuously shooting.
+
+The D88 files don't work.
+
+
+
+Monitor
+-------
+
+G - go
+M - modify memory
+R - modify registers
+D - hex dump memory
+$end
+$info=fm16beta
+$mame
+FUJITSU FM-16b
+==============
+
+
+
+Black screen.
+$end
+$info=fm11
+$mame
+FUJITSU FM-11
+=============
+
+
+
+Black screen.
+$end
+$info=msx
+$mame
+MSX usage
+
+
+Need to use the LEFT shift key
+
+
+
+Cartridge
+---------
+Runs by itself
+
+
+Floppy Disk (use hbf1xdj)
+-----------
+Runs by itself
+
+
+
+
+Cassette (use vg8010)
+--------
+RUN "CAS:
+
+or
+
+CLOAD
+
+or
+
+BLOAD "CAS:" ,R
+$end
+$info=multi8
+$mame
+Mitsubishi Multi-8
+==================
+
+
+Keyboard is quite troublesome and incomplete.
+
+
+The only media supported is WAV cassette.
+
+
+To load - CLOAD"x" , where "x" is the program name.
+If you don't know the name, specify something random, and
+it will show the name as it skips it.
+
+
+The "Multi-8 Demo (1983)(Mitsubishi).wav" has 3 programs.
+Everything is in Japanese.
+
+AP-1: 2nd question wants 1 to 10
+SHUKEI: No idea what this is
+DEMO: The only thing that actually has some crude graphics.
+
+
+
+Not detected
+------------
+Cannon Ball
+Ruptus
+
+
+
+
+For Inufuto games:
+
+MON
+R
+G8000
+
+(but doesn't load)
+$end
+$info=jr100
+$mame
+PANASONIC JR-100
+================
+
+
+Cassette
+--------
+
+
+LOAD - to load a tape.
+
+
+
+
+Quickload
+---------
+
+Loads a PRG file into Basic.
+Can then LIST or RUN.
+
+
+
+
+
+Kisya is a graphic of a train passing Mt Fuji.
+
+Pallon Bomber is a crude Balloon Bomber.
+
+
+
+NOTE for INUFUTO games
+----------------------
+MLOAD  (if using cassette)
+A=USR($300)
+
+Paste: A=US R($30 0)
+$end
+$info=itt3030
+$mame
+ITT 3030
+========
+
+
+
+Press B to initiate the boot process.
+
+
+The message: "Na - du olle 0 auf A:"
+simply means Drive is A: with User 0.
+It's not an error.
+
+
+All (nw) disks need to check if they are
+usable in Drive B: .
+
+
+
+From swlist:
+
+The computer is marked as not working, so to load a disk you need to tap B slowly until the cursor appears.
+After the disk boots, entering rubbish can lock up the machine. The keyboard is somewhat unusual.
+To backspace, press F9. The shift key doesn't work, so to shift, hit capslock, hit the shifted key, then capslock to go back to normal.
+Example, to get a ':', capslock, press . then capslock again.
+$end
+$info=osborne1
+$mame
+OSBORNE-1
+=========
+
+
+
+Mostly working.
+
+NEUVO disks do not work, even in the neuvo variant.
+
+The (nw) disks cannot be read. Normally they would
+go into the B drive and run from there.
+$end
+$info=ccs
+$mame
+CCS various cards
+=================
+
+
+
+MAME rejects the only existing disk.
+$end
+$info=amust
+$mame
+AMUST EXECUTIVE
+===============
+
+
+
+Unable to boot any floppy.
+$end
+$info=altair
+$mame
+ALTAIR
+======
+
+
+
+Floppies are not supported.
+
+
+Oddly, BIN files are. What kind of files are they?
+$end
+$info=dps1
+$mame
+ITHICA DPS-1
+============
+
+
+
+Works ok. Take note that some disks use different baud rates for
+terminal communication.
+$end
+$info=nabupc
+$mame
+NABU PC
+=======
+
+
+No software support.
+$end
+$info=md2,md3
+$mame
+MORROW MICRO-DECISION 2 and 3
+=============================
+
+
+
+Cannot boot any disk.
+$end
+$info=pulsarlb
+$mame
+PULSAR LITTLE BIG BOARD
+=======================
+
+
+
+No disks work.
+$end
+$info=super6
+$mame
+SUPER 6
+=======
+
+
+
+Doesn't boot any disk.
+$end
+$info=sbrain
+$mame
+SUPERBRAIN
+==========
+
+
+
+I think this used to work, but it does nothing now.
+$end
+$info=wicat
+$mame
+WICAT
+=====
+
+
+Unable to get any disk to boot.
+$end
+$info=xor100
+$mame
+XOR 100
+=======
+
+
+
+No swlist.
+
+
+
+My disks either crash MAME or are rejected.
+$end
+$info=magnum
+$mame
+DULMONT MAGNUM
+==============
+
+
+
+No swlist.
+
+No support for software.
+$end
+$info=altos486
+$mame
+ALTOS 486
+=========
+
+
+
+No software list.
+
+
+Does nothing with my boot disk.
+$end
+$info=altos8600
+$mame
+ALTOS 8600
+==========
+
+
+Won't boot any of my disks.
+
+From the swlist, xenix begins then gets stuck in a loop - and it's really slow.
+
+The DIAG disk works.
+$end
+$info=concept
+$mame
+CONCEPT
+=======
+
+
+No software to test with. No swlist.
+$end
+$info=dim68k
+$mame
+DIMENSION 68000
+===============
+
+
+
+Some disks from the swlist will boot.
+
+My boot disk begins but then encounters a fatal error.
+
+All the Teledisk disks give a disc error.
+$end
+$info=ht68k
+$mame
+TINY GIANT 68k
+==============
+
+
+The 2 working disks are the same as the ones
+in the swlist.
+
+MAME rejects all the other disks.
+$end
+$info=hp48gx,hp48sx,hp49g,hp49gp
+$mame
+HP 48 series calculators
+========================
+
+
+
+MAME doesn't support any of the usual software.
+$end
+$info=kaypro10,kaypro484,kayproii,kaypronew2,robie
+$mame
+KAYPRO (various CP/M models)
+============================
+
+
+
+Filenames start with [x] where
+
+A = keyproii aka kaypro83
+B = 284
+C = 2X,484
+D = IV
+E = 10 (also usable by 2X,484)
+F = 4X,Robie (ROM 1.7R)
+G = NEW2,1,OMNI4 (ROM 2.01)
+
+
+Note that some versions don't work partly or at all.
+
+
+Some disks don't have boot tracks, so need to be
+mounted in B drive. These are marked as [Bdrive].
+
+The older disks end with _b (bootable) or _nb (not bootable).
+$end
+$info=excali64
+$mame
+EXCALIBUR 64
+============
+
+
+
+Floppies
+--------
+
+All RAW floppies work and are bootable to CP/M or ZCPR3.
+
+If DIR doesn't work, try L
+
+Disks with ext IMG.RAW are not bootable, so put them in Drive B.
+
+Most disks contain RUN.COM which is a Basic loader
+
+RUN (name-of-basic-program-without-ext). EG  RUN GAME runs GAME.BAS
+
+
+
+
+Cassettes
+---------
+
+Start up RUN as above, press Ctrl-C.
+
+Now you can CLOAD and then load a tape.
+
+All tapes work.
+
+
+Another way - boot machine without any disks, hit enter, you are in Basic.
+
+
+
+
+BAS files
+---------
+
+Paste them into Basic, then RUN.
+$end
+$info=dual68k
+$mame
+DUAL 68k
+========
+
+
+
+MAME has no software interfaces configured.
+$end
+$info=dmax8000
+$mame
+DATAMAX 8000
+============
+
+
+
+MAME can't read the disk.
+$end
+$info=mbs1
+$mame
+HITACHI S1 (mbs1)
+=================
+
+
+
+Cassette
+--------
+
+LOAD
+
+Doesn't detect any cassette, therefore useless.
+$end
+$info=fp200
+$mame
+CASIO FP-200
+============
+
+
+
+MAME doesn't support any software.
+
+
+The system says there's no memory free, so unable to write a program.
+$end
+$info=radio86
+$mame
+RADIO-86
+========
+
+
+
+
+I
+play
+G
+
+
+Almost all tapes give a checksum error.
+
+
+Basic programs are considered nw at this time.
+$end
+$info=primoa32
+$mame
+PRIMO
+=====
+
+
+Use primoa64.
+
+
+Snap/Quick
+----------
+
+Before loading any pp file, make sure that cdos.pss is also loaded.
+
+
+To run other pss file, make sure that pp is unloaded.
+
+
+
+
+
+Cassette
+--------
+
+LOAD - to load a file. Then RUN it.
+      If there's nothing there, don't know yet.
+
+
+GET [nnnn] - seems like a jump to M/L (maybe?)
+$end
+$info=vec1200
+$mame
+VECTOR-1200
+===========
+
+
+System not working.
+$end
+$info=ut88
+$mame
+UT88
+----
+
+
+Use the computer, ignore the trainer (UT88 mini).
+
+
+Load a tape
+-----------
+
+I
+play
+G
+$end
+$info=kramermc
+$mame
+KRAMER MC
+=========
+
+Homebrew computer.
+
+No support for software at this time.
+$end
+$info=xegs
+$mame
+ATARI XE/XL
+===========
+
+Most disks do not work, but don't rush - it can take a while to start.
+
+If it says press Start, press F1.
+
+
+
+If presented with Basic, to get a directory:
+ DOS
+ If there's a small one-line menu, press D
+ DIR
+$end
+$info=mt65
+$mame
+Tangerine Microtan 65
+=====================
+
+
+M65 files - they run themselves.
+---
+
+
+HEX files - only a few do anything. After checking, most seem to be buggy.
+---
+Pattern and Phase Pattern are working.
+
+
+
+Monitor commands
+----------------
+B    set breakpoints
+C    copy a block of memory
+G    go                      (GFC00 - reboot system)
+L    list a block of memory  (L0,2 - list 2 rows of memory (16 bytes), starting at 0)
+M    memory modify/examine   (M2000,6,3 - put 3 into 2000 (no idea what 2nd parameter does))
+N    cancel S command
+O    calculate offset for use in branch instructions (unknown syntax)
+P    proceed while in single-step mode
+R    registers modify/examine  (calls up M command?)
+S    turn on single-step mode
+BAS  Basic cold start
+WAR  Basic warm start
+
+
+
+Tape commands
+-------------
+The above list isn't quite right.
+
+This list is for files with .A name (don't enter the .A part, no quotes or spaces)
+
+C    Set tape to 300 baud
+F    Set tape to 2400 baud (default at power-on)
+
+With baud now set,
+
+F,name    Load tape
+E,name    Verify
+Daaaa,bbbb,name    Save to tape   aaaa = beginning, bbbb = end, name = filename.
+
+After saving, add the name and go address to the filename in windows.
+
+After loading, G the go address which is often 400.
+
+Additional monitor commands
+---------------------------
+Ixxxx - Disassemble from xxxx
+Txxxx - Enter assembler at address xxxx
+
+
+BASIC
+-----
+Hit enter on all the questions.
+LOAD - load a tape, hit enter on all questions, but if you want a slow tape enter N at FAST?
+$end
+$info=vesta,korvet
+$mame
+PK8000, PK8020
+==============
+
+
+PK8000
+------
+
+LOAD"" to list files
+LOAD"filename" to load
+
+Can only load tapes that it made.
+
+
+
+PK8020
+------
+
+Can boot CP/M but not see any files.
+
+Can boot some disks, but there's lots of retries.
+
+
+LOAD"CAS:" to load according to a readme.
+
+Save makes a blank tape. LOAD sees filename but can't load the
+only file we have.
+
+
+KORVET
+======
+
+
+The disk is CP/M-80, but after it starts, a disk error occurs.
+$end
+$info=vector06
+$mame
+VECTOR-06C
+==========
+
+
+Not really working.
+
+
+The default device is Floppy Disk. To choose something else, hold F1 through F5 (see below) and hit F11.
+
+F1 - Cassette
+F2 - Cassette (or Cart if detected)
+F3 - Basic
+F4 - Monitor
+F5 - Test
+(anything else - nothing).
+
+Once done, some blocks will fill in at the bottom of the screen. Let go all keys.
+
+Then to run the choice, press F12.
+
+boot from FDD:
+ press F12 after initial boot was load (indicated in screen lower part)
+ hold Ctrl ("YC" key) during MicroDOS start to format RAM disk (required by some games)
+
+48k MicroDos one-letter commands:
+B   crash?
+D   dir
+E   erase
+K   ?
+O   some kind of status display
+U   user
+
+
+
+Cassette
+--------
+
+Haven't been able to read any tapes as yet.
+
+Pressing F12 while cassette is selected only fills the screen with garbage.
+$end
+$info=pmd851
+$mame
+PMD-85
+======
+
+
+
+Take note of the filenames - each ends with a 2-digit key enclosed in square brackets, e.g.[00].
+
+Some have an additional type:
+ B - basic
+ 26 - unknown
+If none specified then it's M/L.
+
+If the 2nd parameter has 4 digits then it's the start address.
+
+
+
+Load the tape: MGLD nn <enter>
+------------------------------
+
+So, get the key [nn], enter MGLD nn (it says ?) then start the tape.
+
+If the tape is ok, you get some info
+
+nn/t "name"
+
+nn = the key
+t = type
+ ? (3F) - M/L
+ > (3E) - Basic
+ & (26) - unknown app
+
+
+At the end it will either run by itself, or say ? again.
+
+
+Run the program: JUMP 0000 <enter>
+----------------------------------
+
+Use the start address if specified, otherwise try 0000.
+
+
+
+
+--------------------------------------------------------------------
+
+
+BASIC
+-----
+
+NOTE: Loading of Basic programs isn't working at this time.
+
+PMD851 - BASIC nn to run basic
+
+Others: BASIC starts by default.
+
+LOAD nn - load a basic program.
+
+The MGLD nn command can still be used to load M/L programs.
+
+
+--------------------------------------------------------------------
+
+
+Getting info by looking in files
+--------------------------------
+
+Use HxD to open any filetype (except WAV), look for
+a string of 55 bytes, the first byte after is nn, the next
+is tt. nn must be converted to decimal, and tt to character.
+
+So, if it says 16 3E, that means the key is 22, type is Basic.
+$end
+$info=mato
+$mame
+MATO
+====
+
+
+Supposed to be the same as the PMD85, but it wouldn't load a tape.
+
+The only files have no extension and look like HEX files, which
+is not supported.
+$end
+$info=tvc64
+$mame
+TVC64
+=====
+
+
+
+Cassette
+--------
+
+Make sure the hbf slot is removed first.
+
+LOAD
+
+Most cassettes are multi-part and don't work (see note in swlist).
+Even those that appear to load fully mostly stop responding, perhaps they are
+actually waiting to load another file? No way to know.
+
+
+
+Disks
+-----
+
+Make sure that -exp1 hbf slot is done.
+
+Then LOAD"*" - the game starts itself but the problem of freezing still occurs.
+
+Seems no way to get a directory or choose something to run.
+
+
+
+* = num-*
+" = shift-2
+$end
+$info=tim011
+$mame
+TIM-011
+=======
+
+
+Make sure drive B is enabled.
+
+
+Working floppies boot into cp/m.
+
+
+Non-working floppies need to be in B: after booting cp/m on A:
+BUT they seem to be broken/unusable.
+
+$end
+$info=pecom32
+$mame
+PECOM
+=====
+
+
+PLOAD (must be uppercase) then start the tape.
+
+Screen turns blue. When data is found, screen flashes in an epilepsy-inducing way.
+
+At the end, type RUN
+$end
+$info=mikrosha
+$mame
+MIKROSHA
+========
+
+
+To load a tape:
+I
+play
+G
+
+
+The I command will time out in a few seconds if tape doesn't start.
+$end
+$info=lviv
+$mame
+LVIV
+====
+
+
+
+Make sure natural keyboard is selected.
+
+
+
+Cassettes
+---------
+
+There are 3 options: LOAD, CLOAD, and BLOAD"",R
+
+Try one, if nothing shows after the first block then cancel
+with (F3 or F10 or F11 or Down key), then try again.
+
+
+Most programs that use BLOAD will start themselves.
+
+Otherwise use RUN.
+
+If it looks like it tried to auto-start but hung,
+try pressing Enter a few times.
+
+EXEC exists but haven't found a program that needs it.
+
+
+
+
+Snapshot
+--------
+
+SAV files are just static screenshots, and are thus useless.
+$end
+$info=partner
+$mame
+PARTNER
+=======
+
+
+
+Tapes
+-----
+
+I
+play
+G
+
+
+
+Disks
+-----
+
+Don't know yet.
+$end
+$info=ondrav
+$mame
+Ondra Vili
+==========
+ 
+When driver is started just press Enter key
+and play the tape
+Program will autostart
+
+
+
+$end
+$info=ondrat
+$mame
+Ondra Tesla
+===========
+L - to load tape - but it doesn't work.
+
+$end
+$info=homelab2
+$mame
+HOMELAB
+=======
+
+
+All testing is to be done on homelab3 or 4.
+
+Working ones will have [2] or [4] to indicate which
+system it is meant for. Those marked with [4] should
+also work on Homelab3.
+
+
+Quickload
+---------
+
+The filename should contain the information on
+how to start the game - often CALL $5000 .
+
+If there's no info, look at the popup to get
+the start address, and add it to the filename.
+
+Most files load at 0x4016, which indicates it
+is a Basic program, however it causes the machine
+to reboot. This is because they should be loaded
+as a cassette rather than a quickload, but that
+facility is lacking.
+
+Homelab2 doesn't support hex numbers - use
+the equivalent decimal instead.
+
+Inputs on the homebrew games don't work on
+homelab2.
+
+
+Brailab
+=======
+
+These have [BL] in the name, but it is
+expected that they should work on Homelab3.
+$end
+$info=orao
+$mame
+ORAO
+====
+
+
+Said to be compatible with GALEB tapes.
+
+
+Use orao103 - it's the only one that works.
+$end
+$info=galaxy
+$mame
+GALAXY
+======
+
+
+
+Programs may not be compatible between Galaxy and Galaxy-Plus.
+Make sure to use the correct system.
+
+
+OLD - to load
+
+then
+
+RUN
+$end
+$info=b2m
+$mame
+B2M
+===
+
+
+
+Uses floppies.
+
+At one time it could boot a floppy but that no longer works.
+$end
+$info=apogee
+$mame
+APOGEE
+======
+
+Needs more RAM
+
+
+
+Cassettes
+---------
+
+I
+start tape
+G
+$end
+$info=segaai
+$mame
+SEGA AI
+=======
+
+Not really sure what the point of this device is.
+
+The software consists of music flac files which the computer will play.
+
+BUT, the files can be played in any audio player such as WMP - no need for emulation.
+$end
+$info=segacd,segacd2
+$mame
+SEGA CD
+=======
+
+
+This works with all my games.
+
+
+
+Press Ctrl on the first 2 screens.
+
+When the game starts up, when it says to press Start, press 1.
+$end
+$info=x1
+$mame
+SHARP X-1
+=========
+
+
+
+Carts
+-----
+
+None work
+
+
+
+
+
+
+Cassettes
+---------
+
+Load and run themselves.
+
+If it says "File mode error", boot Basic from disk, type LOAD? to get filename, then LOAD"filename" then RUN.
+Filenames are case-sensitive.
+
+
+
+
+
+Floppies
+--------
+
+Load and run themselves
+$end
+$info=dmv
+$mame
+NCR Decision-Mate V
+===================
+
+
+Elite Planet Browser.cpm works in the quickload.
+
+All the floppies work.
+
+The Ladder.zip is already included on the 580test.mfi, which also has other text games.
+$end
+$info=ep64
+$mame
+ENTERPRISE 64/128
+=================
+
+
+Do not unzip the files here. They contain multiple files that should
+be placed on floppy disk images before being used.
+
+Closing quotes are required.
+You can move the cursor up and reuse an old command.
+
+_ = shift 0
+: = quote key
+" = shift 2
+
+
+Floppies
+--------
+In Slots, -exp exdos, this will also add 1 drive.
+
+From swlist, load "basic21". This contains DOS and Basic.
+
+Supports subfolders.
+
+DOS commands start with a colon, Basic commands don't.
+
+:dir - directory
+
+run "full name of program"
+
+See the EXDOS manual for all commands.
+
+Preferred names for starting:
+- has ext BAS
+- called START
+- has ext COM or APP
+- has a program ending with _BG
+
+
+
+
+Tapes
+-----
+
+Make sure that the -exp slot is empty.
+
+Load any version of Basic
+
+LOAD
+
+$end
+$info=pb100
+$mame
+CASIO PB-100 PROGRAMMABLE CALCULATOR
+====================================
+
+
+Similar looking to the Sharp handheld calculators.
+
+
+Not emulated in MAME.
+$end
+$info=x07
+$mame
+CANON X07
+=========
+
+Handheld with only 4 lines of text.
+
+
+Starts in Basic
+
+CLOAD to load a tape.
+
+
+
+If you get a message at start about the nvram, let it init the system.
+
+
+
+
+BAS files
+---------
+Normally these would simply be pasted in, but the shift key isn't working
+on the natural keyboard, so the programs end up as all rubbish.
+
+$end
+$info=rx78
+$mame
+BANDAI RX-78
+============
+
+
+
+Carts
+-----
+
+Run by themselves.
+
+
+
+
+Cassettes
+---------
+
+Firstly need to find out if the tape is for Basic,
+so load "basic" from swlist. Then use LOAD.
+
+If you get error 18 then it's a M/L program,
+so MON then L then the program name that Basic gave you.
+
+When it's finished you're back to Basic. RUN to start it.
+
+
+
+If you don't use the Basic cart, the system will start in
+Monitor and expect a tape, L is already printed for you to
+press enter. Note that a tape will immediately begin playing
+at start, even before you hit enter.
+
+At end it will say something like
+LOADING GRM0044 3780 01D4 2005
+2005 EC00
+
+Use the J command to run it, in this case (don't know)
+
+
+
+
+Note: GRM.wav is already converted to a cart (graphmaths in swlist)
+      Other wavs are test files and are loaded from Basic.
+$end
+$info=jaguarcd
+$mame
+ATARI JAGUAR CD
+===============
+
+This system cannot use any CDs. Even though a swlist is connected, it only has carts.
+
+
+Nothing in here works. It appears all the .nrg images are corrupt (7zip can't open them), and .cdi format is not supported.
+
+
+Looks like the .nrg images are encrypted, and need to be burnt to a real CD then put into a real Jagcd unit.
+$end
+$info=tt030
+$mame
+ATARI FALCON TT030
+==================
+
+
+This system is completely non working.
+
+Don't bother trying to unzip or tidy the files.
+
+Most extensions are unsupported.
+$end
+$info=st
+$mame
+ATARI ST
+========
+
+
+
+The only floppies supported are st/stx.
+
+Some games start themselves, but others may just show the desktop.
+
+In the desktop, click the DRIVE A icon, then click on File,Open
+
+Once you get the file list, choose either the TOS or PRG file, and double-click really fast. Now it should work.
+
+The disk system supports folders, so make sure you don't end up in the wrong place. Don't know how to get back.
+
+Some games want [medium] screen, so click on Options,Set Preferences and select Medium.
+
+The user interface is horrible, mouse is required, keys don't do anything.
+$end
+$info=mc10,alice32,alice90
+$mame
+TANDY MC-10, ALICE32, ALICE90
+=============================
+
+
+Set RAM to 32K.
+
+Backspace is left-shift A
+
+
+
+Cassette
+--------
+
+CLOAD then Scroll-Lock then F2.
+
+Some tapes give FM Error, so use CLOADM followed by EXEC.
+
+Make sure that WAV files don't start playing before CLOAD begins, or
+IO Error will keep happening.
+
+$end
+$info=gc
+$mame
+NINTENDO GAME CUBE
+==================
+
+
+Mame does not support any software.
+$end
+$info=oric1
+$mame
+TANGERINE Oric1, Atmos, Telstrat
+================================
+
+
+Telestrat
+---------
+
+Completely not working. It wants a boot disk at start,
+but it never reads it and just hangs there. There's an
+option to use the microdisc or jasmin controllers but
+they crash MAME.
+
+If you use the inbuilt controller the maximum disk size
+is 526KB - any more will get rejected.
+
+
+
+Atmos
+-----
+
+Only works with tapes.
+
+
+
+
+Oric-1
+------
+
+* Need to use jasmin or microdisc before floppies can be used.
+  Microdisc is preferred. Set up at least 2 drives so that the
+  non-bootable games can be run.
+
+* Most disks will self-start. If not, enter DIR then the name
+  of a COM file. You can run a BAS file by including the extension.
+
+* To change drives, enter B- (for example). Whenever referring to
+  a drive, use - (instead of :).
+
+* Disks that have 99 tracks (1238KB) are rejected.
+
+* Non-boot games will have the instructions in the filename.
+
+  So, [B- INSECT] means to boot Sedoric in A and the game in B.
+  Enter B- (to select B) then INSECT to start the game.
+
+* OK disks can be selected from the "SW Files" and will auto-run.
+
+---------------------------------------
+
+oric1 -ext jasmin -flop (path)
+or
+oric1 -ext microdisc -flop (path)
+
+---------------------------------------
+
+Other emulators:
+
+Euphoric - dos based, full screen. Not usable. Might work under dosbox.
+
+
+Oricutron - win32, works with bugs. If it starts hanging on exit, reboot computer.
+            quits if unusual disk size presented.
+
+            Sendoric - DIR to list files, type name of COM file to execute (same as MSDOS).
+            All other DOS's - All disk commands must be prefixed by ! even if it doesn't say so.
+
+
+
+
+Cassettes
+---------
+
+CLOAD"" - tape starts itself. When finished, if it doesn't self-start, then use RUN.
+
+$end
+$info=jr200
+$mame
+PANASONIC JR-200
+================
+
+
+Cassette
+--------
+
+
+
+No software interfaces exist as yet.
+
+
+LOAD - to load to tape (when it gets coded in).
+
+
+There is a dipswitch to choose baud rates.
+
+
+
+NOTE for INUFUTO games
+----------------------
+MLOAD  (if using cassette)
+A=USR($900)
+$end
+$info=jupace
+$mame
+Jupiter Ace
+-----------
+
+
+Make sure 32k ram is enabled.
+Paste only works with lowercase
+VLIST is the command to find all existing verbs. The name from a tape is also a verb.
+Left-shift is to get uppercase.
+Right-shift is for symbols. Right-shift M -> period.
+
+
+
+Cassette
+--------
+
+load and see what names show up. Then, if it was "Dict" do load name, else if it was "Bytes" do 0 0 bload name.
+Tape filenames are case-sensitive.
+
+
+
+
+Snaps
+-----
+
+These are .ace files. Just load it and in theory it should start.
+$end
+$info=dai
+$mame
+DAI COMPUTER
+============
+
+Press Enter.
+
+
+LOAD then RUN for most tapes.
+
+
+
+Some need monitor commands but we'll never know what.
+$end
+$info=cfx9850
+$mame
+CASIO CFX-9850
+==============
+
+
+No media is supported by MAME.
+$end
+$info=fp1000,fp1100
+$mame
+CASIO FP-1000 and FP-1100
+=========================
+
+
+System not working.
+
+Bad text
+Bad keyboard
+
+Unable to do anything.
+$end
+$info=mc1000
+$mame
+MC1000
+======
+
+
+Set RAM to 48K
+Turn joystick 1 to ON
+
+
+
+Cassette
+--------
+
+Use LOAD or TLOAD, just have to guess.
+$end
+$info=mindset
+$mame
+MINDSET
+=======
+
+
+Press Alt+F12 at the first screen.
+
+This computer runs MS-DOS 2.11
+
+Most other disks don't boot so put them in drive B:
+
+$end
+$info=nascom1,nascom2
+$mame
+NASCOM 1 and 2
+==============
+
+Each type of file is suitable for only one system.
+
+
+
+Snapshot
+--------
+
+NAS files - a literal memory hex dump
+
+A file may work on Nascom 1 or 2, but not both.
+
+After loading, you enter E and the start address.
+
+Most programs start at 1000.
+
+RAM exists from 800 to CFFF - any program with addresses
+outside this range are classed as not working.
+
+Some homebrews set the SP register to E000 - change this to C000.
+
+
+
+Floppy disk
+-----------
+
+These are for the CP/M version (nascom2c) only.
+
+The disk parameters are not quite right as the
+system can have difficulty reading disks.
+
+Backspace is ] key.
+colon is quote key.
+
+
+
+
+Cassette
+--------
+
+The commonly used formats (cas, tap) are not supported.
+
+$end
+$info=smc777
+$mame
+SONY SMC-777 and SMC-70
+=======================
+
+
+
+Quickload
+---------
+
+Make sure CP/M from the swlist is loaded first, then use newui to load a COM file.
+
+All the working ones are in the snp_ok folder.
+
+
+
+
+Floppy Disk
+-----------
+
+D88 - ok
+
+DSK - none work.
+
+1DD - some work, many retries, bad sectors, or getting stuck.
+
+Some games ignore inputs.
+
+One game has graphics problem.
+$end
+$info=attache
+$mame
+OTRONA ATTACHE
+==============
+
+
+This doesn't boot, but after it gets stuck, hit F3.
+
+The 2 homebrew disks must go into drive B as they have no system tracks.
+$end
+$info=exl100,exeltel
+$mame
+EXL 100, and EXELTEL
+--------------------
+
+
+EXELTEL does not support any software.
+
+EXL100 supports WAV and BIN.
+
+Only 1 BIN worked.
+
+
+Cassette
+--------
+
+Must use exelbas from the swlist.
+
+Then type these keys one at a time:  L O A D shift 3 1 shift 3 enter esc scroll-lock F2
+
+After it finishes loading, then RUN
+
+$end
+$info=pc9801
+$mame
+NEC PC-9801
+-----------
+
+
+
+Floppies
+--------
+
+The driver is in bad shape. You get a flashing SHUTDOWN message at start.
+Press F3 to get it to run.
+
+There's graphics problems.
+
+
+
+Hard Drives
+-----------
+
+Unknown how to access.
+$end
+$info=pc8801
+$mame
+NEC PC-8801
+-----------
+
+
+
+
+Cassettes
+---------
+
+LOAD"*" - guess this might load the next file, but not documented.
+          Appears the cassette system isn't working.
+
+
+
+
+Floppies
+--------
+
+Looks like they should auto-run.
+$end
+$info=pc8001
+$mame
+NEC PC-8001
+-----------
+
+Use pc8001mk2, because the pc8001 won't autorun the games.
+
+
+Floppies
+--------
+
+NEC basic - FILES to list the directory
+
+Dash-80 - FILES "1"
+
+
+
+Cassette
+--------
+
+CLOAD"*" - there's nothing in the manual to say to load the next file, whatever it is
+         however it should list files as they are skipped. But nothing happens, so
+         I think that loading doesn't work.
+$end
+$info=pc6001,pc6601
+$mame
+NEC PC-6001 and PC-6601
+-----------------------
+
+
+
+The disks only available for the PC-6601.
+
+No disk can be detected.
+
+
+
+Cassette
+--------
+Press enter at question
+
+CLOAD
+
+Tape then loads itself. When done, press F5.
+
+The tape loader is some weird hack, so wav/flac are not supported.
+
+$end
+$info=pcfx
+$mame
+NEC PCFX
+--------
+
+None of these games work, and there's no swlist.
+
+
+At the menu, press 5 to move to your option, then 1 to action it.
+
+Any other key is likely to end at a blank screen.
+$end
+$info=pce,sgx,tg16
+$mame
+NEC PC-Engine CDs
+-----------------
+
+These CDs are all working with tg16,pce,sgx.
+
+You must load the swlist item 'scdsys' first. Then you can load the cue file of any CD.
+Press 1 (the RUN button) to start the game.
+
+
+If it crashes, it's because the file specified in the CUE doesn't exist.
+
+(in swlist) means the bin/chd is already in a list so therefore it isn't here.
+ Don't try to run the .cue because it will crash.
+
+$end
+$info=spec128,specpl2a,specpl3e,spectrum
+$mame
+Sinclair Spectrum
+=================
+
+
+
+Cassette is the only option.
+
+J shift-P shift-P - load"", then press Scroll-Lock then F2 to start the tape.
+
+When loaded, it might run itself, or it says 0/0, so press R
+
+Some games expect input without a prompt, so just guess.
+
+R - run
+
+K - list
+
+Shift-0 = backspace
+
+
+
+Spectrum 128
+------------
+Press enter on tape loader, Scroll-lock, F2
+$end
+$info=zx81
+$mame
+Sinclair ZX-81
+==============
+
+
+
+Cassette is the only option.
+
+J shift-P shift-P - load"", then press Scroll-Lock then F2 to start the tape.
+
+When loaded, it might run itself, or it says 0/0, so press R
+
+Some games expect input without a prompt, so just guess.
+
+R - run
+
+K - list
+
+Shift-0 = backspace
+$end
+$info=zx80
+$mame
+Sinclair ZX-80
+==============
+
+
+
+Cassette is the only option.
+
+W - load, then press Scroll-Lock then F2 to start the tape.
+
+R - run
+
+Shift-0 = backspace
+$end
+$info=ngp,ngpc
+$mame
+NEO-GEO POCKET
+==============
+
+How to set it up for the first time
+
+- Start emulation with a software item
+
+- If blank white screen, press F1
+
+- Go through the configuration steps as presented
+
+- When the game starts, press F1 which will save the settings and turns off the console
+
+- Quit MAME.
+
+- Next time you start the console, the game will run by itself and you won't have to set up anything.
+
+$end
+$info=sol20
+$mame
+PTC SOL 20
+==========
+
+
+
+Cassette
+--------
+
+GE to load
+
+XE to load and run
+
+
+Info shows when load is finished
+
+progname progbyte start size
+
+If preceeded by ERROR, then a load error occurred
+
+
+
+If start address is 1AD9, then the game is for BASIC/5.
+
+If start address is 3C20, then it's for EXTENDED BASIC.
+
+
+
+
+In BASIC, use GET to load a file. Annoyingly you need to
+supply other parameters as well.
+
+GET name,type
+
+name is the progname
+type is C or S (not sure yet).
+
+
+
+
+Paste
+-----
+Most of the unsupported stuff is text and can be pasted in.
+$end
+$info=pockstat
+$mame
+SONY POCKET STATION
+===================
+
+
+Wait for date settings to appear, then
+
+Up-arrow, Ctrl, Right-arrow, Ctrl
+$end
+$info=m5
+$mame
+SORD M5
+=======
+
+
+Supposed to fix paste, change 0x702D : 1E -> 7 (not tested)
+
+
+
+Cartridge
+---------
+
+Runs by itself
+
+
+
+
+
+Floppy Disk
+-----------
+
+Need BASIC-F
+
+
+
+
+Cassette
+--------
+
+Depending on the version of Basic used, different commands apply.
+
+Try BASIC-I or BASIC-G.
+
+
+Try OLD  - should load a tape made with LIST"filename"
+
+Try CHAIN - same as OLD but runs the program as well.
+
+Try TAPE - not documented, load and execute machine language file (see examples below)
+
+Try LOAD - should load a tape made with SAVE"filename"
+
+But, many tapes either not detected, or detected then nothing loaded.
+
+
+
+---------------------------------------------------------------------
+
+
+Barricade  	BARRICADE  	A  	 	
+Barrier Attack 	B.ATTACK 	A 		
+Baseball 	BASEBALL 	B 		
+Biorhythm Diagnosis 	BIORHYTHM 	A 		
+Blackjack 	BLACKJACK 	A 		
+Cowboy 	COWBOY 	A 		
+Graphic Designer 	P-EDITOR 	B 		
+Jogging 	JOGGING 	A 		
+Last Day of the Earth 	NEUTRON 	A 		
+Mini Star Trek 	STARTREK 	A 		
+Music Tone 	M-TONE 	A 		
+Number Search 	N.SEARCH 	A 		
+Sidewinder 	S.WINDER 	A 		
+Slot Machine 	SLOT 	A 		
+Snaky 	SNAKY 	A 		
+Solitaire 	SOLITAIRE 	A 		
+Three Circles 	3-CIRCLES 	A 		
+Tower of Hanoi 	HANOI 	A 		
+TV Adjust 	TVADJUST 	B 		
+Zac Banic 	ZACBANIC 	B 		
+
+Depending on the type of tape, enter following commands to load/run the program on the tape:
+* Type A : "chain" + [enter]
+* Type B : "tape" + [enter]
+$end
+$info=videopac,videopacp
+$mame
+Philips Odyssey2, G7000, G7400, Videopac, Videopac+
+===================================================
+
+Most games run on all systems. Some will have enhanced
+graphics when run on the G7400/Videopac+.
+
+Any game that requires Videopac+ will have [VP+] in the name.
+
+Most games when started will ask you to SELECT GAME. Press 1.
+
+It should run ok after that, although you might need to get
+the instructions.
+
+If it freezes, goes black or grey, then it's no good.
+Or, if a car goes halfway across before returning to the
+SELECT GAME screen, it's no good too.
+$end
+$info=p2000t
+$mame
+Philips P2000
+=============
+
+Configure RAM for 48k.
+
+
+
+Cassette
+--------
+
+CAS file will load and execute itself at switch-on.
+
+
+
+
+Floppy disk
+-----------
+
+Not supported.
+
+
+
+
+Cartridge
+---------
+
+Not supported.
+$end
+$info=vg5k
+$mame
+Philips VG-5000
+===============
+
+
+
+Cassette
+--------
+
+CLOAD to load the tape.
+
+If the game doesn't run by itself, use RUN.
+
+
+The k7 loader rejects machine-language programs (M at offset 0x0a).
+
+
+
+
+Cartridge
+---------
+
+Not supported.
+
+$end
+$info=mtx500,mtx512
+$mame
+Memotech MTX500/512
+===================
+
+
+Quickload
+---------
+
+RUN files - run by themselves
+
+
+
+Snapshot
+--------
+
+MTX files - wait for program to load then type RUN.
+            It may then do more loading, you'll hear cassette sounds.
+
+Over half of these don't work. Perhaps there's other ways of starting them.
+
+Of those that are obviously for the MTX, most of them want to load more,
+or don't respond to the keyboard.
+
+In the end, there's not much that actually works.
+
+
+
+WAVE files
+----------
+
+WAV files - LOAD""
+
+It might run itself, or you type RUN.
+
+
+
+
+ROM files
+---------
+
+None of them work. Either get black screen or ignored.
+Appears they are not for MTX.
+
+
+
+Floppy Disks
+------------
+
+Unsupported.
+$end
+$info=cgenie
+$mame
+Colour Genie EG2000
+
+
+
+Cassette
+--------
+CLOAD
+
+or
+
+SYSTEM
+
+(same idea as TRS-80 Level 2)
+
+
+
+
+With SYSTEM, enter tape name from header (max 6 chars, space terminates)
+   then press Scroll Lock, F2, hold Insert until loaded, then /
+
+Most games start by pressing S, even if they say nothing.
+
+
+Floppy Disk
+-----------
+DIR doesn't exist, use CMD"I" instead
+
+RUN"full-filename"
+
+Errors are numbers and can't find a manual.
+
+24 error = file not found
+34 error = unable to run this program
+All files will be tested on COCO3, as the earlier machines don't have full support of BASIC keywords.
+
+CASSETTES
+---------
+
+For a BASIC program, try CLOAD followed by RUN.
+
+For a Binary program, try CLOADM followed by EXEC.
+
+The wrong command will give a FM ERROR upon reading the tape header.
+
+
+
+FLOPPY DISKS
+------------
+
+Use DIR to list the contents.
+
+For a BASIC program, try RUN"name-of-program
+
+For a Binary program, try LOADM"name of program  , followed by EXEC.
+
+A wrong command may give a FM ERROR like above.
+
+If files not found you get a NE ERROR. You may need to specify the full name.
+
+
+
+HARD DRIVES
+-----------
+
+Unknown how to use these.
+$end
+$info=samcoupe
+$mame
+Sam Coupe tapes.
+
+To Load a tape: LOAD "" , then turn on Play in the media menu.
+
+
+Screen Squash: starts loading as Basic: Scruncher, then says No Dos.
+$end
+#  The End
