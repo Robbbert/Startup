@@ -13,6 +13,6 @@ Since this project is only just getting started, there will be lots of omissions
 
 All text is to be in English with standard ASCII characters.
 
-At this time (2024-11-08), there's no support from emulators. An initial file will be uploaded once we have some information to show. At around this time, MAMEUI will add support.
+At this time (2024-11-29), there's no support from emulators. MAMEUI will begin support in 0.273 version release.
 
-Last Update: 2024-11-08
+Last Update: 2024-11-29
