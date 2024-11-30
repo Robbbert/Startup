@@ -20,13 +20,576 @@
 #     SYSTEMs INFOs
 #
 #
+$end
+$info=4004clk
+$mame
+4004 Nixie Clock
+
+When switched on, the display is blank with 4 flashing dots. Press 1 to start the clock. The clock has 4 displays
+
+    1. Date
+    2. Days to retirement
+    3. Time
+    4. Time to retirement.
+
+    To select a display, press 1, press 2, press 1 to choose the display. (0 = cycle through displays 1,2,3.)
+    To set the time, press 1 twice, press 2. Press 2 to set the hours (24 hour time), press 1, press 2 to set the minutes, press 1, press 2 to set the seconds, press 1.
+    To set the date, press 1 3 times, then press 2. The screen format is American (MM:DD:YY). Press 2 to set the year, then press 1 for the month, then the day, then a leap-year digit(?).
+    To set the days to retirement, press 1 4 times.
+    To set the time to retirement, press 1 5 times.
+
+$end
+$info=abc80,abc800c,abc802,abc806
+$mame
+LUXOR ABC-80 series
+===================
+LOAD CAS:   to load a tape
+SAVE CAS:   to save a tape
+
+The manual states you can SAVE name, but this doesn't work.
+
+Cassette works in ABC80 only
+
+$end
+$info=a2600
+$mame
+ATARI 2600 (VCS)
+================
+
+You need to attach the external cassette cartridge.
+
+For example:
+>mame a2600 scharger -cass "name of cassette file"
+
+Once done, press PLAY when asked.
+
+$end
+$info=ac1
+$mame
+
+L      to load a tape
+S a b  to save a region of memory (a to b) to tape
+
+$end
+$info=acrnsys1
+$mame
+ACORN SYSTEM 1
+==============
+-   (modify) Memory display and modification    l   (load) Reads a block of bytes from tape
+X   (go) Run program starting at an address     r   (return) Resume after a breakpoint
+p   (point) Inserts or removes breakpoint       (up) Increment displayed address
+s   (store) Writes a block of bytes to tape     (down) Decrement displayed address
+
+Pasting:
+        0-F : as is
+        (inc) : ^
+        (dec) : V
+        M (memory) : -
+        G (Go) : X
+
+Test Paste:
+        -0100^11^22^33^44^55^66^77^88^99^-0100^
+        Now press up-arrow to confirm the data has been entered.
+
+
+Example usage: Turn on. Press -. Mode letter will show 'A'. Type in an address
+               (example FE00). Press - (or any command key). Contents will show
+               on the right. Use Up & Down keys to cycle through addresses.
+
+To save a tape, press S then enter start address, press S, enter end address+1,
+               start recording and press S. The save only takes a few seconds.
+
+To load a tape, the display must just have dots, (reset if necessary), start
+               playing tape and immediately press L. The last digit will flicker
+               as the bytes load. At the end, the dots will show again. There's
+               no error checking, so if it doesn't work, reset and try again.
+
+Note that left-most digit is not wired up, and therefore will always be blank.
+$end
+$info=acrnsys2,acrnsys3_6809
+$mame
+LOAD"x"                to load a tape
+SAVE"x" a b [c]        to save a region of memory (a to b) with optional go address c
+
+Doesn't work.
+
+$end
+$info=adam
+$mame
+COLECO ADAM
+===========
+
+To load a tape, mount it and reboot. It will load itself, and the program will run.
+
+$end
+$info=aim65
+$mame
+ROCKWELL AIM-65
+===============
+If you want to use the TTY, you must do these things:
+- Use the KB/TTY dipswitch to choose TTY
+- Use the TAB menu to choose "Keyboard Mode"
+- Make sure that both keyboards are "Enabled"
+- Quit to save the settings, then restart
+- Press DELETE to start using the terminal
+- For subsequent runs, just press DELETE to get started.
+
+L to load a tape, and D to save. Answer the questions: OUT=T, FNAME=1, T=1, MORE=N, IN=T
+$end
+$info=alphatro
+$mame
+ALPHATRONIC PC
+==============
+
+CLOAD    to load a tape
+CSAVE"x" to save
+$end
+$info=amico2k
+$mame
+    Pasting:
+        0-F : as is
+        ^ (inc) : ^
+        AD : -
+        DA : =
+        GO : X
+
+    Test Paste:
+        =11^22^33^44^55^66^77^88^99^-0000
+        Now press up-arrow to confirm the data has been entered.
+$end
+$info=cpc464,cpc464p,gx4000,cpc6128p
+$mame
+Amstrad
+=======
+
+Keys: " is shift-2, backspace is Insert, | is shift {
+
+
+
+CPC6128
+-------
+
+Make sure that disk A is 3.5, not 3.
+
+Disk: Insert disk start machine then enter CAT it will list the directory.
+      Then RUN "program" (closing quote optional) (not case sensitive)
+
+Tape: |TAPE, then RUN" - after loading it will run itself (*.cdt, *.wav)
+
+ROM:  Insert ROM, start machine, will run itself
+
+
+GX4000
+------
+Only takes ROMs, usage same as above (*.cdr)
+
+
+CPC464
+------
+Only takes tapes, but runs out of memory no matter how much is chosen.
+
+LOAD"" or RUN"" - to load tape
+SAVE"x"         - to save
+
+
+
+Inufuto tapes
+-------------
+
+|TAPE
+RUN
+When it says to press PLAY, hit Enter.
+After the first block, hit Enter again.
+
+It will load and run.
+$end
+$info=apexc
+$mame
+APEXC
+=====
+After mounting a cylinder file, hit Enter to make it run.
+$end
+$info=apfimag
+$mame
+APF IMAGINATION MACHINE
+=======================
+Tapes can only be processed through BASIC. So, load the basic cart from the software list,
+and then load the tape.
+
+CLOAD     to load the tape
+CSAVE     to save.
+
+A tape can only be successfully loaded if the machine it was recorded on has the same amount
+of RAM as the destination machine.
+
+Even then, tape loading is unreliable and there's no error if things go wrong.
+$end
+$info=dn3500
+$mame
+APOLLO DN series
+================
+When the prompt appears, hit enter to get a message, then you can issue commands.
+$end
+$info=agat7
+$mame
+Press Ctrl F10 to get a prompt.
+R  to load a tape
+W  to save.
+$end
+$info=agat9
+$mame
+Press Ctrl F10 to get a prompt.
+
+Tape commands are unknown.
+$end
+$info=apple1
+$mame
+APPLE 1
+=======
+To load and run a tape:
+Some programs run from the monitor prompt, while Basic programs must be loaded in the monitor and run from Basic.
+
+Monitor programs:
+1. Type C100R, press <Enter>. This gives the prompt A9*.
+2. Now enter the load instructions as per the usage, e.g E000.EFFFR but don't press <Enter> yet.
+3. Start the tape via the Tab menu Tape Control (NOT by pressing F2), wait for the leader tone then press <Enter>.
+4. When it's finished you are back to the \ prompt.
+5. Enter the "enter at" information, press <Return> to run the program.
+
+Basic programs:
+1. You must already have loaded and run Basic (use basica from the software list). Do a soft reset (Scroll-Lock then F3) to get back to the monitor.
+2. Now enter the load instructions as per the usage, e.g 4A.00FFR300.FFFR but don't press <Enter> yet.
+3. Start the tape via the Tab menu Tape Control (NOT by pressing F2), wait for the leader tone then press <Enter>.
+4. When it's finished you are back to the \ prompt.
+5. Go back to Basic by typing E2B3R <Enter>
+6. Now you can LIST or RUN the program.
+
+To save a tape, you need to be in the monitor.
+C100R
+Press the Record button
+start address.end addressW (for example 2000.21FFW)
+When the prompt comes back, press Stop on the tape recorder.
+$end
+$info=apple2
+$mame
+APPLE 2
+=======
+Press Ctrl B then hit Enter to get into Basic.
+
+Then you can LOAD or SAVE.
+
+Currently the tape refuses to Play, so tapes are therefore broken.
+$end
+$info=apple2e
+$mame
+APPLE 2E
+========
+Press Ctrl F12 to get into Basic.
+
+Then you can LOAD or SAVE.
+
+$end
+$info=applix
+$mame
+APPLIX 1616
+===========
+TLOAD   to load a tape (it goes onto the disk rather than memory)
+TSAVE fname    to save back to tape.
+$end
+$info=atom
+$mame
+ACORN ATOM
+==========
+LOAD"X"   - to load. Must use eact name, or use *LOAD. Use *CAT to find out the name.
+SAVE"X"   - to save.
+
+UEF is broken.
+TAP files are really ATM files.
+$end
+$info=avigo
+$mame
+For first-time usage, it's advisable to enable the mouse so that it can control the crosshair.
+
+Follow the setup prompts until done.
+
+The inputs stop working at times, making it quite difficult to use. The crosshair still moves though, even when the machine appears to be frozen.
+$end
+$info=babbage
+$mame
+Pasting:
+        0-F : as is
+        INC : ^
+        AD : -
+        DA : =
+        GO : X
+
+Here is a test program to turn on the LEDs.
+Copy the text and Paste into the emulator.
+    =3E^=0F^=D3^=13^=3E^=07^=D3^=13^=3E^=00^=D3^=12^=76^-1000X
+$end
+$info=bob85
+$mame
+Pasting:
+        0-F : as is
+        NEXT : ^
+        SMEM : -
+        GO : X
+
+Test Paste:
+        -0600^11^22^33^44^55^66^77^88^99^--0600^
+        Now press up-arrow to confirm the data has been entered.
+$end
+$info=cvicny
+$mame
+Keys:
+    0-9,A-F : hexadecimal numbers
+    ADR : enter an address to work with. After the 4 digits are entered,
+          the data at that address shows, and you can modify the data.
+    + (inc) : Enter the data into memory, and increment the address by 1.
+    GO : execute the program located at the current address.
+
+Pasting:
+    0-F : as is
+    + (inc) : ^
+    ADR : -
+    GO : X
+
+Test Paste:
+    11^22^33^44^55^66^77^88^99^-0800
+    Now press up-arrow to confirm the data has been entered.
+$end
+$info=dauphin
+$mame
+Keys:
+    0-9,A-F hexadecimal numbers
+    UP - (NXT) to enter data and advance to the next address
+    MINUS - (ADR) to change the address to what is shown in the data side
+    Special keys:
+        Hold UP, hold 0, release UP, release 0 - execute program at the current address (i.e. 2xx)
+        Hold UP, hold 1, release UP, release 1 - execute program at address 0C00 (rom MONA)
+        Hold UP, hold 2, release UP, release 2 - play a tune with the keys
+        Hold UP, hold 3, release UP, release 3 - decrement the address by 2
+        Hold MINUS, hold any hex key, release MINUS, release other key - execute program
+          at the current address-0x100 (i.e. 1xx).
+
+If you want to scan through other areas of memory (e.g. the roms), alter the
+data at address 2F9 (high byte) and 2FA (low byte).
+
+How to Use:
+    The red digits are the address, and the orange digits are the data.
+    The address range is 200-2FF (the 2 isn't displayed). To select an address,
+    either press the UP key until you get there, or type the address and press
+    minus. The orange digits show the current data at that address. To alter
+    data, just type it in and press UP.
+
+To play the reflexes game, hold UP, press 1, release UP, release 1.
+    The display will show A--0 (or some random number in the last position).
+    Press any odd-numbered key (B is convenient), and read off the reaction time.
+    After a short delay it will show '--' again, this is the signal to react.
+    It doesn't seem to reset the counters each time around.
+
+Test Paste:
+    Paste this: 11^22^33^44^55^66^77^88^99^00-
+    Now press up-arrow to review the data that was entered.
+$end
+$info=emma2
+$mame
+Keys:
+0-9,A-F: hex input
+M      : memory mode (modify address, or modify data)
+G      : go
+R      : single step (not emulated)
+P      : insert a forced break
+S      : save to cassette
+L      : load from cassette
++      : up (use UP-arrow key)
+-      : down (use DOWN-arrow key)
+
+Pasting example:
+M0020M01^02^03^04^05^06^07^08^09^M000020
+Press up arrow to see your input.
+
+To save, press S, enter beginning address, press S, enter end address+1,
+press S, start the recorder, press 0 for 300 baud or 1 for 1200 baud. The
+data is saved.
+
+To load, press L, press play, while leader is playing press 0 or 1 as above.
+When a row of dots appears, the data has been loaded.
+$end
+$info=instruct
+$mame
+Quick usage:
+    - Look at memory: Press minus key. Enter an address. Press UP key to see the next.
+    - Look at registers: Press R. Press 0. Press UP key to see the next.
+    - Set PC register: Press R. Press C. Type in new address, Press UP.
+    - Load a tape: Press L, enter file number (1 digit), press UP. On
+      completion of a successful load, HELLO will be displayed.
+
+Pasting a test program: (page 2-4 of the user manual, modified)
+    - Paste this: QRF0^751120F005000620FA7EF97A84011F0003-0P
+    - You should see the LEDs flashing as they count upwards.
+$end
+$info=mcg85
+$mame
+Press Space to make the machine start up.
+$end
+$info=exp85
+$mame
+Setting Up
+==========
+The terminal must be set for
+    - Baud: 9600
+    - Format: 7E1
+If it isn't, adjust the settings, then restart the system.
+
+Once started, press Space. The system will start up.
+All input must be in upper case.
+
+Microsoft Basic is executed entering the following 2 commands in the monitor prompt:
+    .XS nnnn-F87F mmmm-C000 <CR>
+    .G <CR>
+
+where nnnn is the previous value of the stack pointer, and mmmm is the previous value of the program counter.
+
+BASIC will request the amount of RAM memory available, 8192 (bytes) must be entered.
+$end
+$info=elf2
+$mame
+Although this machine is marked as working, it hasn't worked for many years.
+$end
+$info=mk14
+$mame
+Keys:
+
+UP: MEM increments the currently displayed address, (and goes into data entry mode in V1 bios).
+= : TERM changes to "data entry" mode. In this mode, entering hex digits will change the byte at the currently displayed address
+- : ABORT changes to "address entry" mode. In this mode, entering hex digits will change the address.
+X : GO runs the program from the currently displayed address. On exit, the instruction after the program is displayed
+
+Pasting:
+        0-F : as is
+        MEM : ^
+        TERM: =
+        AB :  -
+        GO :  X
+
+Example program: ("organ" from p82 of the manual)
+-F20=C4^0D^35^C4^00^31^C4^08^C8^F6^C5^01^E4^FF^98^08^8F^00^06^E4^07^07^90^EB^B8^E6^9C^EE^90^E5^-F20X
+Pressing keys will produce different tones.
+$end
+$info=pro80
+$mame
+Cassette start address is always 1000. The end address must be entered into 13DC/DD (little-endian).
+Then press W to save. To load, press L. If it says r at the end, it indicates a bad checksum.
+$end
+$info=mkit09
+$mame
+Pasting:
+    0-F : as is
+    (inc) : ^
+    (dec) : V
+    M (memory) : -
+    G (Go) : X
+
+Test Paste:
+    -0000 00^11^22^33^44^55^66^77^88^99^--0000
+    Now press up-arrow to confirm the data has been entered.
+$end
+$info=mpf1,cs113
+$mame
+Keys:
+        0-9,A-F : hexadecimal numbers
+        ADR : enter an address to work with. After the 4 digits are entered,
+              the data at that address shows, and you can modify the data.
+        +   : Enter the data into memory, and increment the address by 1.
+        GO  : execute the program located at the current address.
+
+Pasting:
+        0-F : as is
+        +   : ^
+        -   : V
+        ADDR : -
+        DATA : =
+        GO : X
+        PC : P
+
+Test Paste:
+        -1800=11^22^33^44^55^66^77^88^99^-1800
+        Now press up-arrow to confirm the data has been entered.
+$end
+$info=savia84
+$mame
+Pasting:
+        0-F : as is
+        DA : ^
+        AD : -
+        GO : X
+
+Here is a test program. Copy the text and Paste into the emulator.
+    -1800^3E^55^D3^F9^76^XX1800^
+$end
+$info=selz80,dagz80
+$mame
+Test sequence: Press -, enter an address, press = to show contents, press
+               up/down-arrow to cycle through addresses.
+
+Paste test: -=11H22H33H44H55H66H77H88H99HK-1000=
+Now press UP to see that the data has been entered.
+$end
+$info=tk80
+$mame
+When booted, the system begins at 0000 which is ROM. You need to change the
+address to 8000 before entering a program. Here is a test to paste in:
+8000-11^22^33^44^55^66^77^88^99^8000-
+Press the right-arrow to confirm data has been entered.
+
+Operation:
+4 digits at left is the address; 2 digits at right is the data.
+As you increment addresses, the middle 2 digits show the previous byte.
+You can enter 4 digits, and pressing 'ADRS SET' will transfer this info
+to the left, thus setting the address to this value. Press 'WRITE INCR' to
+store new data and increment the address. Press 'READ INCR' and 'READ DECR'
+to scan through data without updating it. Other keys unknown/not implemented.
+$end
+$info=zapcomp
+$mame
+Based on the technical descriptions and assembly listings of the book:
+
+        "Build Your Own Z80 Microcomputer" by Steve Ciarcia (1981) published by BYTE/McGRAW-HILL
+
+Basic usage instructions:
+    SHIFT + 0: view and edit memory values (Enter to escape)
+    SHIFT + 1: view and edit register values
+    SHIFT + 2: execution mode
+
+For more info, please check chapter 6 "Monitor software" in the book and/or the assembly listings of the ZAP monitor software available at appendix D.
+
+Here is a test to paste in:
+    -0400^11^22^33^44^55^66^77^88^99^X-0400
+You can confirm the entries by pressing UP
+$end
+$info=hektor2
+$mame
+Hektor/Hektor 2 monitor commands:
+    - E - execute editor
+    - G - (go to) execute from addr
+    - T - test subsystems
+    - H - (high-level language) enter BASIC
+    - W - (warm start) re-enter BASIC
+$end
+$info=hektor3
+$mame
+Hektor III usage notes:
+    - t  - system test
+    - a1 - audio test (plays The Entertainer)
+    - a3 - graphic test
+    - ay - run analyser software in ROM1
+    - az - run analyser software in ROM2
+$end
 $info=mz700
 $mame
 SHARP MZ-700
 ============
-
-Last updated for 0.273
-
 
 Cassettes
 ---------
@@ -206,7 +769,7 @@ Cassettes
 ---------
 
 CLOAD - to load a tape
-
+CSAVE"x"  to save
 
 
 
@@ -290,6 +853,16 @@ The tape loader is some weird hack, so wav/flac are not supported.
 
 Machine reboots or hangs after tape has loaded.
 
+$end
+$info=a5105
+$mame
+ROBOTRON A5105
+==============
+
+CLOAD - load a tape
+CSAVE"x" - save a tape
+
+but, it doesn't work.
 $end
 $info=z1013
 $mame
@@ -620,49 +1193,6 @@ The Basic has a CALL instruction, but no USR.
 
 The monitor E command goes back to Basic.
 $end
-$info=cpc464,cpc464p,gx4000,cpc6128p
-$mame
-Amstrad
-=======
-
-Keys: " is shift-2, backspace is Insert, | is shift {
-
-
-
-CPC6128
--------
-
-Make sure that disk A is 3.5, not 3.
-
-Disk: Insert disk start machine then enter CAT it will list the directory.
-      Then RUN "program" (closing quote optional) (not case sensitive)
-
-Tape: |TAPE, then RUN" - after loading it will run itself (*.cdt, *.wav)
-
-ROM:  Insert ROM, start machine, will run itself
-
-
-GX4000
-------
-Only takes ROMs, usage same as above (*.cdr)
-
-
-CPC464
-------
-Only takes tapes, but runs out of memory no matter how much is chosen.
-
-
-
-Inufuto tapes
--------------
-
-|TAPE
-RUN
-When it says to press PLAY, hit Enter.
-After the first block, hit Enter again.
-
-It will load and run.
-$end
 $info=hunter2
 $mame
 HUNTER 2
@@ -967,15 +1497,6 @@ CCS various cards
 
 
 MAME rejects the only existing disk.
-$end
-$info=amust
-$mame
-AMUST EXECUTIVE
-===============
-
-
-
-Unable to boot any floppy.
 $end
 $info=altair
 $mame
@@ -2385,9 +2906,11 @@ OTRONA ATTACHE
 ==============
 
 
-This doesn't boot, but after it gets stuck, hit F3.
+This doesn't boot due to a regression, but after it gets stuck, hit F3, then it will work.
 
 The 2 homebrew disks must go into drive B as they have no system tracks.
+
+The cursor is missing and there's a scroll issue.
 $end
 $info=exl100,exeltel
 $mame
@@ -2949,4 +3472,1155 @@ To Load a tape: LOAD "" , then turn on Play in the media menu.
 
 Screen Squash: starts loading as Basic: Scruncher, then says No Dos.
 $end
+#
+# PINBALL
+#
+$info=allied
+$mame
+  Hold down X while inserting a coin.
+  At the start of each ball, the display will be flashing. You need to
+  hit Z, and then you can get a score. When the ball indicator goes out,
+  your game is over.
+
+  Game doesn't have any backup battery, so all info is lost at poweroff.
+$end
+$info=agsoccer,wrldtour,usafootb,usafootf,mystcast,pstlpkr,punchy,dinoeggs
+$mame
+Here are the key codes to enable play:
+
+Game                                     NUM    Start game                          End ball
+-------------------------------------------------------------------------------------------------
+A G Soccer-Ball                           01    Hold N, hit 8                       (timed game)
+Al's Garage Band Goes On A World Tour     03    Hold ABC, hit 1                     ABC
+USA Football (head to head)               05    Hold N and Quote, hit 8             (timed game)
+Punchy the Clown                          06    Hold EF, hit 1                      (mnw)
+Mystery Castle                            08    Hold CDE, hit 1                     (mnw)
+Pistol Poker                              10    Hold CDE, hit 1                     (mnw)
+USA Football (redemption)                 11    Hold A, hit 1                       (mnw)
+$end
+$info=atarians,aavenger,midearth,specrider,time2000
+$mame
+Outhole for each game:
+- spcrider: M  (solenoid 5)
+- midearth: M  (solenoid 1)
+- atarians: G  (solenoid unknown)
+- time2000: J  (solenoid 12)
+- aavenger: X  (solenoid 4)
+$end
+$info=babypac,granny
+$mame
+- To exit the pinball back to the video:
+    Babypac: press O or P;
+    Granny: press X.
+$end
+$info=eballchp,beatclk,ladyluck,motrdome,strngsci,specforc,blackblt,cityslck,hardbody,prtyanim,hvymetap,esclwrld,dungdrag,black100,trucksp3,atlantip
+$mame
+Setting Up:
+- The default settings don't work on most machines. Use the number pad for all inputs.
+   After starting or restarting, wait for flashing scores before pressing anything.
+   Each number pair is entered as: first number, Enter, 2nd number, Enter, Enter.
+   See the manual for more details.
+- 0B38: F1, 16 40, 17 1, 23 3, 24 3, 25 3, 26 3, 27 3, 29 1, 30 1, 47 1, esc.
+- 0C70: Press F1, 62 1, esc. Start again. F1, 62 0, 16 40, 17 1, 24 3, 25 3,
+    26 3, 27 3, 29 1, 30 1, esc. Start again.
+- 0E34: Press F1, 44 65, esc. Start again.
+- 0H05, 0H07, 2001, 2006: no setup necessary.
+- Others: Press F1, press / to choose Feature Options, Enter, 65, Enter, Enter, esc.
+
+Here are the key codes to enable play:
+
+Game                                       NUM  Start game                    End ball
+--------------------------------------------------------------------------------------------------
+Eight Ball Champ                          0B38  1                             X
+Beat the Clock                            0C70  1                             X (timed game, no ball display)
+Motordome                                 0E14  1                             X
+Lady Luck                                 0E34  1                             X
+Special Force / Special Force Girls       0E47  Hold TUV, hit 1               TUV
+Black Belt / Karate Fight                 0E52  1                             X
+City Slicker                              0E79  Hold U and ; hit 1            U;
+Hardbody / Super Sport                    0E94  (stuck switch)
+Party Animal                              0H01  Hold Left Down Right, hit 1   Down Left Right
+Heavy Metal Meltdown                      0H03  Hold ;'/. and hit 1           Hold ;'/. and hit X twice
+Escape from the Lost World                0H05  Hold DX, hit 1                DX
+Dungeons and Dragons                      0H06  Hold Left Down Right, hit 1   Down Left Right
+Blackwater 100                            0H07  Hold Enter ][, hit 1          Jiggle ]X[
+Diesel Demon / Ramp Warrior / Truck Stop  2001  Hold Right Down, hit 1        Hold Right Down, hit X
+Atlantis                                  2006  Hold Left Down Right, hit 1   Down Left Right
+$end
+$info=bttf_a28,kiko_a10,lwar_a83,mnfb_c29,poto_a32,play_a24,robo_a34,ssvc_a26,simp_a27,tmac_a24,torp_e21
+$mame
+Here are the key codes to enable play:
+
+Game                                   NUM    Start game                 End ball
+---------------------------------------------------------------------------------------------
+Laser War                             5001    Hold BCD, hit 1            BCD
+Secret Service                        5002    Hold Up Left Right, hit 1  Up Left Right
+Torpedo Alley                         5003    Hold CDE, hit 1            CDE
+Time Machine                          5004    Hold CDE, hit 1            CD
+Playboy 35th Anniversary              5005    Hold CDE, hit 1            CDE
+Robocop                               5006    Hold CDE, hit 1            CDE
+Monday Night Football                 5007    Hold CDE, hit 1            CDE
+Phantom of the Opera                  5008    Hold CDE, hit 1            CDE
+King Kong                              --     Hold CDE, hit 1            CDE
+$end
+$info=rab_320,aar_101,btmn_106,ckpt_a17,gnr_300,hook_408,jupk_513,lah_112,lw3_208,mj_130,trek_201,stwr_106,tftc_303,tmnt_104,tomy_400,wwfr_106,batmanf,baywatch,frankst,mav_402,ctcheese
+$mame
+Here are the key codes to enable play:
+- Some games need you to hit H after the ball enters the shooter lane.
+- If the game wants you to choose something at start of ball 1, hit a Shift key.
+
+Game                                   NUM    Start game                          End ball
+---------------------------------------------------------------------------------------------
+Back to the Future                    5009    Hold CDE, hit 1                     CDE
+Checkpoint                            5010    Hold CDE, hit 1                     CDE
+Batman                                5011    Hold CDE, hit 1                     CDE
+The Simpsons                          5012    Hold CDE, hit 1                     CDE
+Star Trek                             5014    Hold CDE, hit 1                     CDE
+Teenage Mutant Ninja Turtles          5017    Hold CDE, hit 1                     CDE
+Tales from the Crypt                  5018    Hold ABCDE, hit 1                   Hold ABCD, hit F
+Hook                                  5019    Hold CDE, hit 1                     CDE
+Jurassic Park                         5020    Hold ABCDEF, hit 1                  ABCDEF
+Adv. of Rocky & Bullwinkle & Friends  5022    Hold CDE, hit 1                     CDE
+WWF Royal Rumble                      5023    Hold ABC, hit 1                     Hold ABC, hit F
+Star Wars                             5024    Hold CDE, hit 1                     CDE
+Lethal Weapon 3                       5026    Hold CDE, hit 1                     CDE
+Last Action Hero                      5027    Hold ABC, hit 1                     BCF
+The Who's Tommy Pinball Wizard        5028    Hold ABC, hit 1                     Hold ABC, hit F
+Guns n' Roses                         5029    Hold A, hit 1                       ABCDEF
+Aaron Spelling                         --     Hold CDE, hit 1                     CDE
+Maverick the Movie                    5031    Hold CDE, hit 1                     Hold CDE, hit F
+Baywatch                              5033    Hold BCD, hit 1                     Hold BCD, hit F
+Mary Shelley's Frankenstein           5036    Hold A, hit 1 then H then Shift     Hold A, hit F
+Batman Forever                        5038    Hold CDEF, hit 1                    CDEF
+Cut the Cheese (redemption)           5048    6                                   INP17-40 (40=toilet)
+$end
+$info=rotation
+$mame
+Machine Operation:
+1. Press .(period key) (this sets up nvram and the displays will flash 400000)
+2. Insert a coin, credit will be registered
+3. Hold X and start game. When 00 is flashing, release X
+4. Press any of A thru U to simulate scoring shots
+5. Press and hold X to simulate losing the ball
+6. When score starts flashing, release X and go to step 4 to play next ball
+
+Note: You can start play at any of the 4 stations, and the table will rotate
+      as needed. Multiplayer works as well.
+
+The manual explains the tests available, and also how to set number of balls,
+high score, etc., with the diagnostic keyboard.
+$end
+$info=gp_110,famlyfun,startrip,vegasgp
+$mame
+When first turned on, you need to press num-0 to enter the setup program, then keep
+pressing num-0 until 05 shows in the balls display. Press the credit button to set
+the first high score at which a free credit is awarded. Then press num-0 to set the
+2nd high score, then num-0 to set the 3rd high score. Keep pressing num-0 until you exit
+back to normal operation. If this setup is not done, each player will get 3 free
+games at the start of ball 1.
+$end
+$info=sshootep,coneyis,lizard,suprnova,sshootr2,gwarfare,mbossy,attila,agent777,cpthook,ladyshot,andromep,cyclopes
+$mame
+When first turned on, you need to press num-0 to enter the setup program, then keep
+pressing num-0 until 06 shows in the credits display. Press the credit button to set
+the first high score at which a free credit is awarded. Then press num-0 to set the
+2nd high score, then num-0 to set the 3rd high score. Keep pressing num-0 until you exit
+back to normal operation. If this setup is not done, each player will get 3 free
+games at the start of ball 1.
+
+Status:
+- All games are working without sound, except:
+- gwarfare stops responding to inputs after a while
+- mbossy rom missing, black screen
+- andromep, andromepa, cyclopes, cyclopes1: To start, hold CX hit 1. End ball, CX
+$end
+$info=lca,silvslug,vegas,deadweap,tfight,nudgeit,bellring,carhop,hoops,cactjack,clas1812,surfnsaf,opthund,tt_game,ccruise
+$mame
+Setting up:
+- Press num-0
+- Press num-1
+- Press 1 (to load factory defaults)
+- Press 1 (to select English)
+- Press num-0 until the credit settings appear (settings #9,10,11)
+- On each of the 3 coin slots, press num1/num2 to set to 1 credit.
+- Press F3 or 0
+- Now you can play
+
+Quick setup for surfnsaf,opthund,tt_game,ccruise:
+- Press 0 A num1 num1 to load factory defaults
+- Press 0 until you get to Game Pricing, press A to get Universal. Press 0 a few times then F3 to save.
+- Now press 7 to insert a coin.
+Further setup if needed:
+- Use A and B to cycle up and down (instead of num1/num2)
+- num1 selects default setting
+- 0 to choose another setting
+- F3 to save and reboot
+
+Here are the key codes to enable play:
+
+Game                 NUM  Start game                                       End ball
+--------------------------------------------------------------------------------------------------
+Lights Camera Action 720  1 then W                                         V
+Silver Slugger       722  1 then jiggle ; and quote                        ;
+Vegas                723  1 then B                                         A
+Deadly Weapon        724  1 then Q                                         I then Q
+Car Hop              725  1 then P and ]                                   P then ]
+Title Fight          726  1 then [ and left                                [ (wait for message) then left
+Hoops                727  1 then Q and Z                                   [ then Z (may have to jiggle ] and [, or try multiple times)
+Cactus Jack          729  1 then ; and quote                               ;
+Class of 1812        730  1 then ; and quote                               up
+Nudge-it            N102  1 then B and M                                   unknown (Redemption machine)
+Bell Ringer         N103  1 then A                                         unknown (Redemption machine)
+
+** From here, num1 = start button, 7 = coin, 0 = test/setup
+Surf'n Safari        731  num1 then num2 then P                            num2 then P
+Operation: Thunder   732  num1 then G and O                                G then hold O for a few seconds
+tt_game              7**  unknown                                          unknown
+Caribbean Cruise    C102  1, enter, hold \ and right until message goes    \
+
+
+Status:
+- All games (except tt_game) are playable
+- Various sounds are missing in some games, usually because the cpu concerned runs into the weeds.
+
+ToDo:
+- Display flickers a bit
+- tt_game: roms missing therefore no sound
+$end
+$info=smbp,smbmush,cueball,sfightii,teedoffp,gladiatp,wipeout,rescu911,wsoccer,stargatp,shaqattq,freddy,bighurt,waterwld,snspares,andretti,barbwire,brooks
+$mame
+Setting up must be done before you can play. Press NUM-0, press Left Flipper 3 times, press Right
+ Flipper, Press 1 to accept Factory Settings, press 1, quit and restart.
+
+Here are the key codes to enable play:
+
+Game                                     NUM  Start game                           End ball
+--------------------------------------------------------------------------------------------------
+Super Mario Brothers                     733  (not working)
+Cue Ball Wizard                          734  Hit 1, press YZ (black screen)       YZ
+Street Fighter II                        735  (not working)
+Tee'd Off                                736  Hit 1, press EM (bad gfx)            EM
+Gladiators                               737  Hit 1, press LT                      L
+Wipe Out                                 738  Hit 1, press MU                      M
+Rescue 911                               740  Hit 1, press LT                      L
+World Challenge Soccer                   741  Hit 1, press GO                      jiggle GO
+Stargate                                 742  (not working)
+Shaq Attack                              743  Hit 1, press LM                      M
+Freddy A Nightmare on Elm Street         744  Hit 1, press KL                      L
+Frank Thomas Big Hurt                    745  Hit 1, press EM                      jiggle EM
+Waterworld                               746  Hit 1, press RS                      R
+Mario Andretti                           747  Hit 1, press FN                      N
+Barb Wire                                748  Hit 1, press GO                      G
+Brooks & Dunn                            749  (unfinished prototype)
+Super Mario Brothers Mushroom World     N105  (not working)
+Strikes n Spares                        N111  (not working, press F3 to see the screen)
+machinaZOIS Virtual Training Center           Hit 1, press LM                      M
+
+Status:
+- Some machines are playable
+- Strikes n Spares: sound, needs 2 DMD screens.
+- Brooks & Dunn: roms are missing. Program was not finished, game will never work.
+$end
+$info=panthera,spidermn,circusp,cntforce,starrace,jamesb,timeline,forceii,pnkpnthr,marsp,vlcno_ax,vlcno_1c,blckhole,blckhols,hh,eclipse
+$mame
+Here are the key codes to enable play: (may need to hit X to start a ball)
+
+Game                              NUM  Start game                            End ball
+-------------------------------------------------------------------------------------------------------------
+Panthera                          652  1                                     X
+Le Grand 8 (Panthera conversion)  ---  1                                     X
+The Amazing Spider-man            653  1                                     X
+Circus                            654  1                                     X
+Counterforce                      656  1                                     X
+Star Race                         657  1                                     X
+James Bond                        658  1                                     X
+Timeline                          659  1                                     X
+Force II                          661  1 then PgDn and Down                  Down then PgDn
+Pink Panther                      664  1 then PgDn and Down                  PgDn
+Mars God of War                   666  1 them Home and \                     Home then \ (wait for flash or match)
+Volcano                           667  1 then M=                             M then = (wait for flash or match)
+Black Hole                        668  1 then R (wait for score to flash)    L then R (wait for flash or match)
+Haunted House                     669  1                                     X
+Eclipse                           671  1 then RW                             X
+Critical Mass
+
+Status:
+- All machines are playable but read notes below.
+- jamesb is a timed game
+- If 'tones' is selected, sound might not work.
+- Mars (all versions): no sound, audio cpu runs into the weeds
+- Volcano (all versions): Unstable, certain inputs will freeze the machine (E for example)
+$end
+$info=dvlsdre,dvlsdre2,rocky,spirit,punk,striker,krullp,qbquest,sorbit,rflshdlx,goinnuts,amazonh,rackempp,raimfire,jack2opn,touchdn,alienstr,thegames,eldorado,icefever,caveman
+$mame
+Caveman is missing its joystick. Need the manual. The video-pinball interface has not been written.
+ If you turn on DIPS6,7,8, you can enter test mode, insert coins and start a game.
+ But once in-game, no inputs work.
+
+Note: If DIP28 is set to Novelty, then Match doesn't work.
+
+Here are the key codes to enable play: (may need to hit X to start a ball)
+
+Game                 NUM  Start game                                       End ball (X often works, even when not connected)
+-----------------------------------------------------------------------------------------------------------------
+Devil's Dare         670  1, then hold .enter hit pad-                     .enter hit pad-
+Rocky                672  1                                                X
+Spirit               673  1, then Y and \                                  X then \ (wait for sound)
+Punk!                674  1, then - and num*                               - then num* (wait for sound)
+Striker              675  1, then S and num2                               X
+Krull                676  1, then jiggle X and Y until you hear a sound    X
+Qbert's Quest        677  1, then X (wait for sound), then Z               X
+Super Orbit          680  1                                                X
+Royal Flush Deluxe   681  1                                                X
+Going Nuts           682  1 then num- then num*                            num- then num*
+Amazon Hunt          684  1                                                X
+Rack 'Em Up          685  1 then hold num-enter, hit X                     X
+Ready Aim Fire       686  1                                                X
+Jacks to Open        687  1                                                X
+Touchdown            688  1                                                X
+Alien Star           689  1, then K and \                                  \ then K
+The Games            691  1                                                X
+El Dorado            692  1                                                X
+Ice Fever            695  1 then unknown                                   X
+Caveman            PV810  1 then unknown                                   X
+
+Status:
+- All games (except caveman) are playable
+- Lots of issues with the sound
+$end
+$info=bountyh,triplay,rock,tagteamp,raven,hlywoodh,genesisp,amazonh2,sprbreak,goldwing,mntecrlo,arena,victoryp,diamondp,txsector,bighouse,robowars,excalibr,badgirls,hotshots,bonebstr,nmoves,amazonh3,mmaster,topsound
+$mame
+The test rom says U4 is faulty. Using MOS6532 fixes this error, but the games ramdomly slam-tilt instead.
+
+When asked to enter your initials, use the Advance buttons to select a letter, and the Start button to enter it.
+
+Here are the key codes to enable play: (may need to hit X to start a ball)
+
+Game                 NUM  Start game                                       End ball
+--------------------------------------------------------------------------------------------------
+Amazon Hunt II       684C 1                                                X
+Amazon Hunt III      684D 1                                                X
+Bounty Hunter        694  1                                                X
+Chicago Cubs         696  1                                                X
+Rock                 697  1                                                X
+Tag Team Wrestling   698  1 then End and F1                                X
+Raven                702  1                                                X
+Hollywood Heat       703  1 then jiggle F4 and Del until sound is heard    X (wait for score to count up) then Del
+Rock Encore          704  1                                                X
+Genesis              705  1 then jiggle F1 and num-                        X then num-
+Spring Break         706  1 then F2 and num- and End and Del               X then Del
+Gold Wings           707  1 then quote and del and pad+                    Del and quote and num+
+Monte Carlo          708  1 then jiggle [ and End                          End
+Arena                709  1 then jiggle M and Del                          Del
+Victory              710  1 then Del (wait for sound) then num+            Del (wait for sound) then num+
+Diamond Lady         711  1 then Del and Quote                             Del then Quote
+TX-Sector            712  1 then Del and num+                              Del and num+
+Big House            713  1 then jiggle Del and minus                      Del
+Robo-War             714  1 then Del and num+                              Del
+Excalibur            715  1 then hold F4 and hit Del                       Del
+Bad Girls            717  1 then hold F2 and X, hit End, get a message     End
+Hot Shots            718  1 then hold F4 and hit Del                       Del
+Bone Busters Inc     719  1 then num- and num+                             num+
+Night Moves         C101  1 then jiggle quote del num+ [                   num+ then jiggle same keys as before
+Master               ---  1 then jiggle F1 and num-                        X then num-
+Top Sound            ---  1                                                X
+
+Status:
+- All games are playable
+- Various sounds are missing in some games, usually because the cpu concerned runs into the weeds.
+- bighouse: after game ends, the display freezes. Game keeps running though.
+$end
+$info=icecold
+$mame
+How to play
+1. Insert coin (it says Cr 1)
+2. Press Start
+3. Wait for Play light
+4. Press num-1 which corresponds to the first light on the top row.
+5. Continue steps 3 and 4, but pressing num-2, etc as the light advances.
+   For the last light, press num-0.
+6. To miss, press the wrong button, it says OOPS.
+7. After 3 misses, the game ends.
+$end
+$info=brvteam,canasta,lapbylap,pinmoonl,pinclown,corsario,mundial,atleta,larana,ind250cc
+$mame
+Setting up:
+- First time run, the displays will all show zero. Hit F3. The game will now be working.
+- If you want to change the "Handicap" (High Score) setting, you may have to wipe the NVRAM before it will take.
+
+La Rana is not a pinball machine - it looks like an upright arcade game with a frog's mouth and some holes on a lower panel, while some indicators are on the upper panel. The main scores are on the marquee. Each of 4 players has 3 digits. There's other buttons on the marquee too. The game has no screen.
+   It can be played by pressing 5 (insert coin), press 1 (start) for each player, press A (start timer), press various keys to score. Don't press X or the game instantly ends. When the timer runs out it switches to the next player, or ends.
+$end
+$info=leking,olympic
+$mame
+Multiball key code is XZ - need to jiggle these keys at start of game.
+$end
+$info=petacon,petacona,pimbal
+$mame
+- Pimbal is multiball, so press XY to end a ball.
+- petacon, petacona: There is no ball digit, it's a set of 5 lamps like EM machines.
+    The ball digit segments E,F,G,H indicate which player's turn, by flashing.
+$end
+$info=lckydraw
+$mame
+To play, either set game to free play, or insert a coin. Press start. Press letters A thru S to
+score. Press X to lose the ball (the outhole).
+$end
+$info=arizona,atla_ltd,discodan,hustlerp,marqueen,kkongltd,vikngkng,force,bhol_ltd,spcpoker,hhouse
+$mame
+Status:
+- All games can accept coins and start up
+- System 3 2-players games are playable.
+- hhouse, press 2 to start
+
+System 3:
+- Games are 2 players, except zephy and cowboy which have 3.
+- All 2-player games are playable. 3-player games inputs not responding.
+- May need to hit X when the first ball starts, to enable scoring.
+$end
+$info=macgalxy,macjungl,spctrain,spcpnthr,mac_1808,macjungn,nbamac,glxplay,kidnap,glxplay2
+$mame
+Although the coin slots are not working, you can add credits by changing 0xC011 in the memory view.
+
+Status:
+- Some games are playable
+-- macgalxy (Outhole is Z and X)
+-- macjungl (Outhole is E)
+-- glxplay2 (Outhole unknown)
+- Other machines can generally accept credits and start, but then cannot score.
+$end
+$info=pentacup
+$mame
+Status:
+- Rev.1: Working. At start of ball, hold X and tap Z, so that the player light becomes steady, then release both keys. This enables sensors.
+- Rev.2: Starts up then does nothing
+$end
+$info=missamer
+$mame
+- It will display the error "cccc" on cold boot. Just push F3 once to reset and initialize
+- Blinking tilt led means "normal operation"
+$end
+$info=dakar,motrshow,macattck,wcup90
+$mame
+How to set up the machine (motor show, dakar, wcup90):
+- These machines need to be loaded with default settings before they can accept coins
+- Press NUM-0 key
+- Press again until you see test 25 (Motor Show) or test 23 (Dakar)
+- In the dipswitch menu turn off the Ram Protect switch
+- Press Left shift and Right shift together (game stops responding)
+- Turn the Ram Protect Switch back on
+- Press F3 or reboot
+- The default settings have been saved to nvram and you can insert coins
+
+
+Status:
+- Most games are playable. All games are multiball, here are the key codes:
+                    Start Game                            End Ball
+    Motor Show      Hold AS, hit 1, release keys          Hold A, hit X. release keys
+    Dakar           Hold ASD, hit 1, release keys         Hold AS, hit X, release keys
+    Mac Attack      Hold AS, hit 1, release keys          Hold AS, hit X, release keys
+    World Cup 90    Hold ASX, hit 1, release keys. It's a timed game, you can't lose the ball.
+- Balls indicates number of balls left, so 1 = last ball.
+
+Fast Track:
+- There's no video, however it can still be set up and played. Do these steps slowly, with several seconds between each one.
+1. Start the game. Use the tab, dipswitch menu to turn the "Ram Protect" switch Off.
+2. In the game, press NUM-0.
+3. Press both shift keys together.
+4. Use the Tab menu again to turn the "Ram Protect" back to On.
+5. While still in the Dipswitch menu, choose Reset.
+6. The setup has been saved, so to play in the future, start from here.
+7. You can insert a coin (it will say Start Your Engines).
+8. Follow the instructions for Motor Show (above), to start a game and play.
+$end
+$info=cosflnsm,firebird,gamesnsm
+$mame
+Setting up the machine (the simple way):
+- Turn Diag6 dip on, choose Reset
+- You get the test menu. Press num-4, then num-1 then num-Enter. It will slowly set itself up.
+- When the menu reappears, turn Diag6 dip off, and choose Reset.
+- The machine now seems to be working, and you can insert coins, but then it reboots.
+
+If the display says FLiPPEr you can go into the test menu and then exit.
+
+Status:
+- See above. Unable to start a game.
+- gamesnsm keeps rebooting itself at start
+- Pressing the coin input buttons restarts the machine.
+$end
+$info=odin,odin_dlx,solarwap,poleposn,wolfman,nemesisp,odisea,sonstwar,sonstwr2,hangonp
+$mame
+- odin, odin_dlx, solarwap, poleposn, wolfman, nemesisp, odisea, sonstwar, sonstwr2, hangonp: Playable.
+- When the machine is started, wait several seconds for the startup tune - then you can insert a coin.
+- Most games require a ball in the outhole before starting a game (hold down X and press 1).
+$end
+$info=bigtown,spcgambl,chance
+$mame
+- All games are working
+- When starting a game, hold X until you hear the outhole sound.
+- All game except Chance: When starting a ball, hit Z to increment the ball number. Skipping this step can lead to weird bugs happening.
+$end
+$info=antar,storm,evlfight,attack,blkfever,cerberup,madrace,zira
+$mame
+Test mode:
+- Hold down NUM-0 and hit F3. The displays will show the digits one at a time. The number of any stuck switch will show in the credit area. Pressing Start will do a test of the solenoids (04 will show during this test). Press F3 to exit.
+
+Adjustments:
+- While game is over, press NUM-0. Keep pressing to go through the bookkeeping and the setup. See the manual for specifics.
+
+Status:
+- antar, storm, evlfight, attack, blkfever: Working
+- Mad Race: J is the outhole. Working, no sound.
+- Zira: not working
+- Cerberus: not working (can't even coin up)
+- Hold down the outhole key (usually X), when starting a game.
+$end
+$info=spain82,megaaton,nautilus,theraid,ufo_x,kz26,rock2500,starfirp,trailer,fldragon,phntnshp,sklflite,flashman,ridersrf,ironball,terrlake,msdisco
+$mame
+First time:
+- The default settings are fine, so start with a clean slate
+- Wait for it to say No Ball, then hold down X.
+- Keep holding X, insert credits, and press start. When it says ball 1, let go immediately.
+- If you hold down X longer than you should, it says Coil Error, and the game is ended. You
+  should let go the instant the ball number increments.
+
+Setting up:
+The manual is not that clear, there's a lot we don't know, this *seems* to work...
+- Start machine, wait for it to say No Ball, and it may play a tune
+- Press num-1 (to simulate opening the front door)
+- Press 1, it says BooP (Bookkeeping)
+- Press num-1 and the credits number increments to 8, then 01 and on to 17 (2 pushes per number)
+- When it gets to 01, the display says Adjust
+- To adjust a setting, press 1 to choose a digit, then tap 9 until it is correct.
+- The settings in the manual do not fully line up with what we see in the display.
+
+Small FAQ:
+- If game shows "Test" just after start, try cleaning the nvram etc. If it still does it, when
+  the red screen shows, hold down num-1 until "No Ball" starts flashing, then release the key.
+- Game says "No Ball". Press and hold X.
+- Game says "Coil Error". You held down X too long.
+
+Status:
+- flashman, fldragon, ironball, kz26, nautilus, phntmshp, ridersrf, rock2500, starfirp, theraid,
+   trailer, terrlake: playable
+- sklflite: can insert coin, cannot start game
+- spain82: see notes below
+- megaaton: playable, ball number doesn't show. If it says Test, see FAQ above.
+- ufo_x: playable. Make sure to release X after the last ball ends, or you get "Coil Error".
+         If you can't seem to score any points, hit minus to kick it into gear.
+
+ToDo:
+- Sometimes the machine starts up in a non-responsive state. Exit and restart.
+- Skill Flight: not working
+- Miss Disco: not working (no manual available). Uses different hardware. No sound rom.
+- Spain82: can start a game but it's not really playable (no manual available).
+   The test buttons are unknown. The ball number doesn't show.
+   So, after starting the machine, make sure the displays cycle between blank and 700000. If it
+   just sits there it has hung up, exit and restart. Insert a coin, hold X and press 1. Now,
+   you need to jiggle F and G and perhaps other nearby keys until the 0 starts flashing. You
+   can then score. At outhole time, need to press F,G,X to register the fact. If you hit X too
+   many times the machine reboots itself. The machine has 2 capture holes and therefore multiball.
+   At ball 2, the playfield becomes unresponsive.
+- Meg Aaton: Ball number doesn't show. Can suddenly reboot in the middle of a game. Match digits are reversed.
+$end
+$info=heavymtl
+$mame
+When starting a game, hold down X and press 1.
+$end
+$info=grand_l4,hs_l4,rdkng_l4
+$mame
+If it says FACTORY SETTING, hit F3.
+
+Here are the key codes to enable play:
+
+Game              NUM  Start game                End ball
+---------------------------------------------------------------------------------
+Grand Lizard      523  Hold DEF hit 1            DEF
+High Speed        541  Hold BCD hit 1            BCD
+Road Kings        542  Hold [] hit 1             []
+$end
+$info=f14_l1,fire_l3,milln_l3,pb_l5
+$mame
+If it says FACTORY SETTING, hit F3.
+
+Here are the key codes to enable play:
+
+Game              NUM  Start game                                End ball
+-------------------------------------------------------------------------------------------------------------------------------
+Pin-bot           549  Hold IJ hit 1                             unknown
+F-14 Tomcat       554  Hold CDEF hit 1 then X to enable scoring. CDEF (wait for next ball to start) hit X
+Millionaire       555  Hold YZ hit 1                             wait for wop-wop noise to end, then hit . hold Z hit . hold Y
+Fire!             556  Hold PGUP PGDN Space hit 1                PGUP PGDN Space
+$end
+$info=bcats_l5,bnzai_l3,bguns_l8,bk2k_l4,cycln_l5,esha_la3,eatpm_l4,jokrz_l6,mousn_l4,polic_l4,spstn_l5,swrds_l2,taxi_l4,tsptr_l3,whirl_l3
+$mame
+If it says FACTORY SETTING, hit F3.
+
+Here are the key codes to enable play:
+
+Game                          NUM  Start game             End ball
+---------------------------------------------------------------------------------------------
+**** Williams ****
+Space Station                 552  Hold CDE hit 1         CDE
+Taxi                          553  Hold CDE hit 1         CDE
+Big Guns                      557  Hold CDE hit 1         CDE
+Swords of Fury                559  Hold CDE hit 1         CDE (may have to try a few times)
+Black Knight 2000             563  Hold CDE hit 1         CDE
+Cyclone                       564  Hold B hit 1           B
+Banzai Run                    566  Hold BCD hit 1         BCD
+Jokerz!                       567  Hold CDE hit 1         CDE
+Earthshaker                   568  Hold CDE hit 1         CDE
+Police Force                  573  Hold CD hit 1          CD
+Whirlwind                     574  Hold CDE hit 1         CDE
+Bad Cats                      575  Hold B hit 1           B
+**** Bally (Midway) ****
+Transporter the Rescue       2008  Hold CDE hit 1         CDE
+Mousin' Around!              2009  Hold CDE hit 1         CDE
+Elvira & the Party Monsters  2011  Hold CDE hit 1         CDE
+$end
+$info=bbnny_l2,diner_l4,dd_l2,pool_l7,radcl_l1,rvrbt_l3,rollr_l2,gs_lu4,strax_p7
+$mame
+If it says FACTORY SETTING, hit F3.
+
+Here are the key codes to enable play:
+
+Game                             NUM  Start game             End ball
+---------------------------------------------------------------------------------------------
+**** Williams ****
+Diner                            571  Hold CDE hit 1         CDE
+Rollergames                      576  Hold CDE hit 1         CDE
+**** Bally (Midway) ****
+The Bally Game Show             2003  Hold CD hit 1          CD
+Pool Sharks                     2014  Hold CD hit 1          CD
+Radical!                        2015  Hold CD hit 1          CD
+Dr Dude and his Excellent Ray   2016  Hold CDE hit 1         CDE
+Bugs Bunny's Birthday Ball     20009  Hold CD hit 1          CD
+**** Williams (WPC) ****
+Riverboat Gambler              50007  Hold CDE hit 1         CDE
+**** Krell Development ****
+Star Trax                        ---  X                      unknown
+
+Status:
+- All pinball machines are playable
+- Star Trax has no pinball, but instead has many ball bearings (800 was mentioned). Although it can be started, and a score attained, it will eventually say PUMP ERROR and stop responding.
+$end
+$info=httip_l1,lucky_l1,wldcp_l1,disco_l1,cntct_l1,phnix_l1,pkrno_l1
+$mame
+When first used, it appears frozen (the score should alternate). Press F3 to fix.
+$end
+$info=flash_l2,trizn_l1,tmwrp_l3,stlwr_l2
+$mame
+The first time run, the machine will display will show the model number. Press F3 to clear this.
+
+Pressing NUM-8 will select a different set of sounds.
+$end
+$info=lzbal_l2,scrpn_l1,blkou_l1,grgar_l1,frpwr_l6,algar_l1,alpok_l6
+$mame
+The first time run, the display will show the model number. Press F3 to clear this.
+
+Diagnostic actions:
+- You must be in game over mode. All buttons are in the number-pad. When you are finished, you must reboot.
+
+- Setup: NUM-2 must be in auto/up position. Press NUM-1 to enter setup mode, press NUM-2 to change direction.
+
+- Tests: NUM-2 must be in manual/down position. Press NUM-1 twice and tests will
+   begin. Press NUM-1 and NUM-2 together to get from test 1 to test 2. Press NUM-2
+   to switch between auto/manual stepping.
+
+- Auto Diag Test: Set Dips to SW6. Press NUM-0. Press NUM-ENTER. Press NUM-1. Tests will begin.
+
+- Other: Set Dips to SW7 or SW8. Press NUM-0. Press NUM-ENTER.
+
+Here are the key codes to enable play:
+
+Game              NUM  Start game                End ball
+-----------------------------------------------------------------------------------------------
+Scorpion          494  AX hit 1                  AX
+Firepower         497  ASD hit 1                 Hit X, hold D, hit X, hold S, hit X, hit A
+Others            ---  1                         X
+
+$end
+$info=bk_l4,csmic_l1,jngld_l2,pharo_l2,solar_l2,thund_p1,hypbl_l4,barra_l1,vrkon_l1,tmfnt_l5,wrlok_l3,dfndr_l4,jst_l2,lsrcu_l2,fpwr2_l2,strlt_l1,wldtexas
+$mame
+Diagnostic actions:
+- You must be in game over mode. All buttons are in the number-pad. When you are
+  finished, you must reboot.
+
+- Setup: NUM-2 must be in auto/up position. Press NUM-1 to enter setup mode, press
+   NUM-2 to change direction.
+
+- Tests: NUM-2 must be in manual/down position. Press NUM-1 twice and tests will
+   begin. Press NUM-1 and NUM-2 together to get from test 1 to test 2. Press NUM-2
+   to switch between auto/manual stepping.
+
+- Auto Diag Test: Set Dips to SW6. Press NUM-0. Press NUM-ENTER. Press NUM-1. Tests
+   will begin.
+
+- Other: see the manual
+
+
+When first started, it shows the game number and stops. Press F3 to initialise the
+nvram. In theory you can then press the diagnostic buttons; or you then enter coins
+and start playing.
+
+Most games are multiball - here are the key codes:
+
+Game                              NUM  Start game                End ball
+-----------------------------------------------------------------------------------------------
+Black Knight                      500  ASD hit 1                 Hit X, hold A, hit X, hold S, hit X, hit D
+Cosmic Gunfight (Dragonfly)       502  AS hit 1                  AS
+Jungle Lord                       503  AS hit 1                  Hit X, hold A, hit X, hit S
+Pharaoh                           504  AS hit 1                  AS
+Cyclone (unreleased)              505
+Black Knight Limited Edition      506  (600 produced)
+Solar Fire                        507  ASD hit 1                 ASD
+Thunderball                       508  1                         unknown
+HyperBall                         509  1                         unknown
+Barracora                         510  ASD hit 1                 ASD
+Varkon                            512  AX hit 1                  AX
+Spellbinder (unreleased)          513
+Reflex (unreleased)               514
+Time Fantasy                      515  1                         X
+Warlok                            516  1                         X
+Defender                          517  hold up,left,right,hit 1  Hit X, hold Left, hit X, hold Up, Hit X, hit Right.
+Joust                             519  ABCD hit 1                unknown
+Laser Cue                         520  1                         X
+Firepower II                      521  AS hit 1                  AS
+Wild Texas                      *(521) AS hit 1                  AS
+Guardian (unreleased)             523
+Star Fighter (unreleased)         524
+Light Speed (unreleased)          528
+Starlight                         530  AS hit 1                  AS
+
+*Wild Texas is a clone/bootleg of Firepower II, and shows the same game number.
+
+- Thunderball: turn Speech DIP off, or you get corrupt sound.
+$end
+$info=pfevr_l2
+$mame
+PENNANT FEVER
+=============
+The first time run, the display will show the model number. Press F3 to clear this.
+
+This is a baseball game where you aim for targets at the top of the playfield, and the
+  players advance towards a home run. There are no bumpers or other 'usual' pinball
+  items. 1 or 2 players.
+  Buttons: Pitch (Fast, Curve, Change Up), Bat.
+  How to play:
+  - Insert coin (credits shows in innings)
+  - Start game
+  - Player 1 is 'Visitors'; optional Player 2 is 'Home'
+  - To hit the ball and move to another base: Hit Y or U or I or O
+  - To get a home run: Hit B or N or M
+  - To miss (get a strike): Hit Alt or Space or LShift; then hit Z
+  - To get out immediately: Hit R or T.
+  - After that, wait for score to start flashing
+  - Press another key, etc
+  - When you have 3 Strikes, you are Out
+  - When you have 3 Outs, your Innings ends (other player gets a turn)
+  - After 3 Innings, it's game over.
+  - Match digit appears in Outs digit.
+$end
+$info=scrzy_l1
+$mame
+STILL CRAZY
+===========
+The first time run, the display will show the model number. Press F3 to clear this.
+
+A novelty game where the playfield is completely vertical. It has 4 flippers and the
+  idea is to get the ball up to the alcohol 'still' before the 'revenuers' do. The
+  idea didn't catch on, and the game was not officially released. 1 player.
+  The display shows Score and Batch. There is no credit display.
+  If the number of batches exceeds 9, the 'hidden digit' will show the tens.
+  You cannot get more than 99 batches.
+  The score only has 5 digits, but the game stores the 100,000 digit internally.
+
+How to play: Press 5, press 1, press Z. Add points by pressing F,G,H,J. Press J
+  a number of times to increment the batches. To end the game, hit X until the siren
+  is heard. If you scored > 99999 points, the high score will show 99999.
+$end
+$info=ratrc_l1
+$mame
+RAT RACE
+========
+The first time run, the display will show the model number. Press F3 to clear this.
+
+Rat Race is played in a cocktail cabinet, the player uses a joystick to tilt the
+  board, to coax the ball into following lit passages in a maze. After a successful
+  navigation, the maze changes to something else faster and harder. It's almost an
+  arcade game done mechanically. Obviously there is no way to emulate it in its intended
+  form. Probably would have been a nice game, but it never passed the prototype stage.
+
+How to play: Press 5, press 1. If you want 2 players, also press 2. The display flashes
+  the ball number. Press Z to get the ball into play. The display alternates between the
+  score and the seconds remaining to accomplish the task. After the series of passages
+  has been followed, a bonus flashes for a few seconds, which you must also run over.
+  While one player is playing, the other player's score shows what seem to be random
+  numbers (but probably are not). The real machine does this too.
+  If time runs out, the ball is over. After 3 balls, it's game over.
+$end
+$info=sorcr_l2,sshtl_l7,comet_l5
+$mame
+The first time run, the display will show the model number. Press F3 to clear this.
+
+
+Here are the key codes to enable play:
+
+Game              NUM  Start game                End ball
+-----------------------------------------------------------------------------------------------
+Sorcerer          532  ASD hit 1                 ASD
+Space Shuttle     535  ASD hit 1                 ASD
+Comet             540  1                         X
+$end
+$info=metalman,bushido,mach2,jolypark,vrnwrld,gunshot
+$mame
+Here are the key codes to enable play: (if the game says BOLA PERDIDA, it can't find a ball)
+
+Game             Start machine    Start game       Start Ball                 End ball
+--------------------------------------------------------------------------------------------------
+Metalman                          1                                           X
+Bushido          unknown          unknown          unknown                    unknown
+Mach 2           ASX              1                Hold ASD jiggle X and Z    Hold AS hit X
+Jolly Park       ASDX             1                Hold ASD, hit X and Q      Hold ASD hit X
+Verne's World    ASDX             1                Hold ASD, hit X and Z      very difficult, try jiggling ASDX
+Gun Shot         unknown          unknown          unknown (not a pinball)
+
+- Metal Man, Mach 2, Jolly Park, Verne's World are playable.
+$end
+$info=spectra
+$mame
+Setting up - if you do not set up the game, each player will get 255 balls.
+Turn test switch to Setup. Press 1 to advance to next set. Press 5 to adjust the
+set. Use the manual for a description of each set. After setting up set 16, do not
+press 1, instead turn the dipswitch to Play. Exit (to save nvram), and restart.
+Now the game is ready. Very quick guide to a reasonable setup:
+06 - 30000 (1st award score)
+07 - 50000 (2nd award score)
+08 - 70000 (3rd award score)
+09 - 90000 (high score)
+11 - 1 (1 coin 1 credit)
+13 - 3 (3 balls)
+15 - 1 (award is a free game)
+16 - 1 (match enabled)
+$end
+$info=meteorp,galaxypi,ali,cheetah,quicksil,biggame,seawitch,stargzr,dragfist,cue,nineball,lightnin,flight2k,freefall,spltsecp,catacomp,viperp,ironmaid,orbitor1,lazrlord,gamatron
+$mame
+Here are the key codes to enable play:
+
+Game              NUM  Start game                End ball
+-----------------------------------------------------------------------------------------------
+Nine Ball         125  X'; hit 1                 X';
+Lightning         126  X./ hit 1                 X./
+Flight 2000       128  X./ hit 1                 X./
+Freefall          134  X./ hit 1                 X./
+Split Second      144  X./ hit 1                 X./
+Catacomb          147  1                         unknown
+Viper             148  X./ hit 1                 X./
+Iron Maiden       151  X./ hit 1                 X./
+Orbitor 1         165  X. hit 1                  X. (last ball is difficult to end)
+Lazer Lord        ---  1                         unknown
+Gamatron          ---  X./ hit 1                 X./
+Others            ---  1                         X
+$end
+$info=spcship
+$mame
+At start of each ball, press Z to enable the playfield.
+$end
+$info=shock,obaoba,drakor,meteort,sureshop,cosmic,gemini2k,vortexp,zarza,sharkt,lunelle,rally,football,fireact,cavnegro,ladylukt,titan,hawkman,snake,voleybal,mrblack,sshuttle,polar,gork,fireactd
+$mame
+You need to have a ball in the outhole (hold down X) when starting a game.
+
+To activate setup mode, turn on both the Adjust and Service dipswitches. Service needs to
+be on to access any of the dipswitch functions.
+
+Status of each game:
+- shock, obaoba, obaoba1, obaobao, drakor, meteort, cosmic, vortexp, stest, rally,
+  snake, voleybal, polar, ladylukt, vegast, titan, gork:
+    Works, with various quality of sounds
+- sureshop:
+    Playable, but sound is just a buzzing noise (bad dump?). Can be interrupted by
+    a large '15', which is fatal.
+- sharkt:
+    Playable, ball randomly never ends
+- lunelle:
+    Works, but play can be interrupted by a large flashing '14', ball 5 never ends.
+- gemini2k, zarza, zarza1, cavnegro, hawkman, mrblack, sshuttle, fireactd:
+    Can insert a coin but cannot start a game
+- fireact:
+    Cannot insert a coin
+- mrblkz80:
+    Different hardware. Can insert a coin but not able to start a game. Dips don't work.
+- hawkman, titan:
+    These are the only machines that are known to talk.
+$end
+$info=break86,papillon
+$mame
+You need to hold X when starting a game.
+$end
+$info=topaz_l1,pomp_l1,arist_l1,taurs_l1,kingt_l1,omni_l1,bstrk_l1,tstrk_l1,szone_l5,alcat_l7,tts_l2,gmine_l2,tdawg_l1,shfin_l1
+$mame
+The first time run, the machine will show some numbers. Press F3 to clear this.
+
+Each game consists of a flat board with an air-driven puck and 10 bowling pins.
+ You must push the puck as if it was a bowling ball, and score strikes and spares.
+ The displays have 4 digits and 6 can play. The board has contactors to detect
+ the passage of the puck, and the machine will lift the bowling pins out of the
+ way, so in fact the puck never touches the pins at all.
+
+- To play: 5,1,(optional: 3 to select game type), any of keys A-W,Y,Z,comma,period
+    to activate puck detectors, X to signal end. Press it twice to end a frame.
+- To score a strike, press ABCDFGIX one at a time.
+$end
+$info=aftor
+$mame
+Press num-0 to enter service/selftest. Press 1 to step through the tests.
+When you reach the audit stages, press 6 to advance and 5 to clear.
+In the switch test, it will report any closed dip as a failure. You can
+ignore these.
+The game has 2 balls, for multiball feature, so the outhole doesn't
+work because it thinks the 2nd ball is in play somewhere.
+
+To activate the end-of-ball, hold down X then tap END.
+$end
+$info=apollo13,austin,elvisp,godzillp,gldneye,goldcue,gprix,gprixf,gprixg,gprixi,gprixl,harl_a13,harl_a40,hirolcas,id4,lostspc,monopolp,nascar,nfl,playboys,ripleys,rctycn,shrkysht,sprk_103,spacejam,swtril43,startrp,strikext,term3,lotr,jplstw22,simpprty,sopranos,xfilesp,twst_405,viprsega,monopred,titanic,wackadoo,ctchzdlx
+$mame
+Here are the key codes to enable play:
+- "End ball" code, if it says BALL SAVED you need to play a while longer.
+- May have to hold the key or hit it a few times
+
+Game                                   NUM    Start game                 End ball
+---------------------------------------------------------------------------------------------
+**** Sega ****
+Viper Night Drivin'                   5035    Hold FG, hit 1             DEFG
+Godzilla                              5040    Hold FG, hit 1             DF
+Twister                               5041    Hold FG, hit 1             DF
+Goldeneye                             5042    Hold FG, hit 2             DF
+Space Jam                             5043    Hold FG, hit 1             DG
+Apollo 13                             5044    Hold FG, hit 2             DFG
+Independence Day                      5045    Hold FG. hit 1             DF
+X Files                               5046    Hold FG, hit 1 then Shift  DG
+Cut The Cheese Deluxe (Redemption)      --    1
+Titanic (Coin dropper)                  --    (unknown)
+Wack-A-Doodle-Doo (Redemption)          --    1
+Lost World Jurassic Park              5053    Hold DEFG, hit 1 H A       DEFG (it can be difficult to start or end a ball)
+Star Wars Trilogy Special Edition     5056    Hold FG, hit 1             DG
+Starship Troopers                     5059    Hold DE, hit 1             DG
+Lost in Space                         5060    Hold DE, hit 1             FG
+Golden Cue                            5064    Hold DFG, hit 1 (unable to navigate setup menu)
+High Roller Casino                    5065    Hold FG, hit 1             D
+Harley-Davidson                       5067    Hold DG, hit 1             DEFG
+Harley-Davidson 2nd edition           5067    Hold DG, hit 1             DEFG
+South Park                            5071    Hold FG, hit 1             DEFG
+**** Stern ****
+Striker Xtreme                        5068    Hold CDEF, hit 1           CDEF
+Sharkey's Shootout                    5072    1 (won't start)
+NFL                                   5073    Hold CDEF, hit 1 then A    CDEF
+Austin Powers                         5074    Hold CDEF, hit 1           CDEF
+Monopoly (Coin dropper)               5075    Hold CDEF, hit 1           CDEF
+Playboy                               5076    Hold CDEF, hit 1           CDEF
+The Simpsons Pinball Party            5077    Hold BCDEF, hit 1          BCDEF
+Rollercoaster Tycoon                  5078    Hold CDE, hit 1            CDE
+Terminator 3: Rise of the Machines    5079    Hold CDE, hit 1            CDE
+Lord of the Rings                     5080    Hold CDEF, hit 1           CDEF
+Ripley's Believe it or not!           5081    Hold CDEF, hit 1           CDEF
+Elvis                                 5084    Hold CDEF, hit 1           CDEF
+The Sopranos                          5085    Hold CDEF, hit 1           CDEF
+NASCAR                                5086    Hold CDEF, hit 1           CDEF (unable to end ball)
+Harley-Davidson 3rd edition           5087    Hold DG, hit 1             DEFG
+Grand Prix                            5091    Hold CDEF, hit 1           CDEF (unable to end ball)
+Dale Jr NASCAR Special Edition        5097    Hold CDEF, hit 1           CDEF (unable to end ball)
+
+- Some machines are playable
+- Volume is quite low. On some machines it can be boosted by hitting NUM2 to get the volume menu, then hold NUM1 to max.
+$end
+$info=tf95_12,afm_113,cc_13,cv_14,congo_21,jy_12,mm_10,mb_10,nbaf_31,ngg_13,ph_04,sc_18,ss_15,totan_14,cp_16,ttt_10
+$mame
+If it says FACTORY SETTINGS, press F3, and wait for the game attract mode to commence.
+To increase the volume, open the coin door (NUM2), press NUM+, close coin door (NUM2).
+If coin door not closed, ball can't be ended.
+
+Here are the key codes to enable play:
+
+Game                             NUM  Start game              End ball
+-------------------------------------------------------------------------------------------
+Attack from Mars               50041  Hold QWER hit 1         QWER
+Tales of the Arabian Nights    50047  Hold QWER hit 1         QWER
+Scared Stiff                   50048  Hold QWER hit 1         QWER
+Congo                          50050  Hold QWER hit 1         QWER
+Junk Yard                      50052  Hold QWER hit 1         QWER
+NBA Fastbreak                  50053  Hold QWER hit 1         QWER
+Medievel Madness               50059  Hold QWER hit 1         QWER
+No Good Gofers                 50061  Hold QW hit 1           QW
+Cirqus Voltaire                50062  Hold QWER hit 1         QWER
+The Champion Pub               50063  Hold QWER hit 1         QWER
+Monster Bash                   50065  Hold QWER hit 1         QWER
+Cactus Canyon                  50066  Hold QWER hit 1         QWER
+Phantom Haus                   90001   (not a pinball, not working)
+Safe Cracker                   90003  Hold QWE hit 1          QWE (timed game)
+Ticket Tac Toe                 90005  Hold X hit 1            (n/a)
+
+Phantom Haus: This is a "payout machine" - it gives tokens as prizes - not a pinball.
+$end
+$info=tfa_13,fh_l9,hd_l3,bop_l7
+$mame
+Since NVRAM is not working, when it starts, factory settings will be applied.
+ Press F3, and wait for the game attract mode to commence.
+
+Here are the key codes to enable play:
+
+Game                              NUM  Start game                          End ball
+-----------------------------------------------------------------------------------------------
+Dr Dude and his Excellent Ray    2016  0 = credit, 1 = start               ET
+Harley Davidson                 20001  Hold BCD hit 1                      BCD
+The Machine: Bride of Pin-bot   50002  Hold EFG hit 1                      EFG
+Funhouse                        50003  Jiggle []YZ Space together, hit 1   ]Right Del
+
+Note for Dr Dude:
+- This is a WMS prototype, and the inputs are different to the other games
+- Credit buttons: S,B,W
+- Waiting for Pinballs: 0
+- Start: 1
+- Slam Tilt: C
+- Normal Tilt: Right Shift
+
+Note for Funhouse:
+- Pressing 6 keys at once is not fun, and you may have to try a few times.
+$end
+$info=dm_lx4,ij_l7,jd_l7,pop_lx5,sttng_l7,afv_l4
+$mame
+If it says FACTORY SETTINGS, press F3, and wait for the game attract mode to commence.
+To increase the volume, press NUM+.
+
+Here are the key codes to enable play:
+
+Game                                    NUM  Start game       End ball
+--------------------------------------------------------------------------------------------------
+**** Bally (Midway) ****
+Judge Dredd                           20020  1 or T           (untested) should be INP81-87
+**** Williams ****
+Indiana Jones: The Pinball Adventure  50017  1                (untested) should be INP81-86
+Popeye Saves the Earth                50022  1                Jiggle YZ,./Space until it registers
+Star Trek: The Next Generation        50023  1                Hold =-[]\Enter then release them
+Demolition Man                        50028  (not working)
+**** Novelty Games ****
+Addams Family Values                  60022  5 then 1 then the destination key
+$end
+$info=tfdmd_l3,gi_l9,hshot_p8,hurr_l2,pz_f4,sf_l1,t2_l8
+$mame
+Since NVRAM is not working, when it starts factory settings will be applied.
+ Press F3, and wait for the game attract mode to commence.
+
+Here are the key codes to enable play:
+
+Game                              NUM  Start game                         End ball
+-----------------------------------------------------------------------------------------------
+**** Bally (Midway) ****
+Gilligan's Island               20003  Hold BC hit 1                      BC
+The Party Zone                  20004  Hold PGDN PGUP END hit 1           PGDN PGUP END
+**** Williams ****
+Hurricane                       50012  Hold BCD hit 1                     BCD and wait
+Terminator 2: Judgement Day     50013  Hold ABC hit 1                     ABC
+**** Novelty Games ****
+Slugfest                        60001  O
+Hot Shot                        60017  1 then C then A. Keep hitting I to score a basket.
+$end
+$info=taf_l5
+$mame
+The Addams Family
+=================
+Since NVRAM is not working, when it starts factory settings will be applied.
+ Press F3, and wait for the game attract mode to commence.
+
+To start, hold ABC hit 1.
+To end the ball, Hold ABC until the bonuses have counted and the score starts flashing.
+$end
+$info=br_l4,drac_l1,cftbl_l4,dw_l2,ft_l5,tafg_lx3,gw_l5,tz_92,ww_l5,strik_l4,lc_l1,rush
+$mame
+Since NVRAM is not working, when it starts factory settings will be applied.
+ Press F3, and wait for the game attract mode to commence.
+
+Here are the key codes to enable play:
+
+Game                              NUM  Start game                         End ball
+-----------------------------------------------------------------------------------------------
+**** Shuffle Alley ****
+Strike Master                   10002  1                                  ,
+League Champ                    10007  1                                  ,
+**** Bally (Midway) ****
+Doctor Who                      20006  Hold EFG hit 1 then X              EFG
+Black Rose                      20013  Hold BCD hit 1                     BCD
+Creature from the Black Lagoon  20018  Hold /;' hit 1                     /;'
+**** Williams ****
+Bram Stoker's Dracula           50001  Hold QRST hit 1                    QRST
+The Getaway: High Speed II      50004  Hold /;' hit 1                     /;'
+Fish Tales                      50005  Hold BCD hit 1                     BCD
+White Water                     50018  Hold PGDN PGUP END hit 1           PGDN PGUP END
+Twilight Zone                   50020  Hold ABC hit 1                     ABC
+The Addams Family Special
+             Collectors Edition 50038  Hold ABC hit 1                     ABC
+Rush                                   Hold A hit 1                       Jiggle A and B
+$end
+$info=corv_21,dh_lx2,i500_11r,jb_10r,jm_12r,nf_23x,rs_l6,fs_lx5,ts_lx5,tom_13,wd_12,wcs_l2,tfs_12
+$mame
+The security PIC code is generally XYY 123456 12345 123 (where XYY = first,4th,5th digit of
+ the model number), but there are exceptions.
+
+If it says FACTORY SETTINGS, press F3, and wait for the game attract mode to commence.
+To increase the volume, open the coin door (NUM2), press NUM+, close coin door (NUM2).
+If coin door not closed, ball can't be ended.
+
+Here are the key codes to enable play:
+
+Game                             NUM  Start game              End ball
+--------------------------------------------------------------------------------------------------
+Red & Ted's Road Show          50024  Hold QWER hit 1         QWER
+No Fear Dangerous Sports       50025  Hold QWER hit 1         QWER
+Indianapolis 500               50026  Hold QWER hit 1         QWER
+The Flintstones                50029  Hold WER hit 1          WER then let go
+Dirty Harry                    50030  Hold QWER hit 1         QWER
+World Cup Soccer               50031  Hold QWER hit 1         QWER
+The Shadow                     50032  Hold QWERT hit 1        QWERT
+Corvette                       50036  Hold QWER hit 1         QWER
+Theatre of Magic               50039  Hold QWER hit 1         QWER
+Johnny Mnemonic                50042  Hold QWER hit 1         QWER
+Who Dunnit                     50044  Hold QWER hit 1         QWER
+Jack*Bot                       50051  Hold QWER hit 1         QWER
+$end
+$info=wsports,hod,futurwld,strapids,hotwheel,firemntn,stargod,sshtlzac,ewf,locomotp
+$mame
+Setup is via a menu - there are no dipswitches.
+
+If you see 6 and 9 flashing at start- this indicates the battery is flat, and a full setup is required before it can be used.
+
+At start, the highscore will be set to a random value. Beating this score will award a bonus. Tilting will cause the high score to advance by 100,000.
+
+If at any time you 'clock' the machine (ie exceed 999,990), the last digit will flash, indicating you have a million. All games have 6-digit displays - don't be fooled by the numerous videos of recreations on YouTube.
+
+All games:
+- To start, press 1
+- Press X to end ball
+- Ball counter runs backwards, so 1 = last ball.
+- Earth Wind Fire, Locomotion:
+    When on the last ball, scoring points racks up a bonus counter. At the end, you get an extra timed part, with infinite balls until the time runs out. Then press X.
+$end
+$info=socrking,pinchamp,tmachzac,farfalla,dvlrider,mcastle,robot,clown,poolcham,bbeltzac,mexico,zankor,spookyp,strsphnx,nstrphnx,thndrman,scram_tp
+$mame
+All games (except where noted below)
+- To start, press 1
+- Wait for score to flash before you can score (first ball can take a while, jiggle XZ to push things along)
+- Press X to end ball
+- Ball counter runs backwards, so 1 = last ball.
+- When on the last ball, scoring points racks up a bonus counter. At the end, you get an extra timed part, with infinite balls until the time runs out. Then press X.
+
+- Star's Phoenix (Multiball game: To start, hit 1, then jiggle ABX. To end ball, press AB)
+- New Star's Phoenix (same as Star's Phoenix)
+$end
+$info=strike,skijump,spacecty
+$mame
+After starting a game, press X, wait for the sound of the ball being ejected, then press Z. Now you can get a score.
+
+The ball number is how many balls are left. 1 = last ball.
+$end
+#
 #  The End
+#
