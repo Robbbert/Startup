@@ -37,7 +37,24 @@ When switched on, the display is blank with 4 flashing dots. Press 1 to start th
     To set the date, press 1 3 times, then press 2. The screen format is American (MM:DD:YY). Press 2 to set the year, then press 1 for the month, then the day, then a leap-year digit(?).
     To set the days to retirement, press 1 4 times.
     To set the time to retirement, press 1 5 times.
+$end
+$info=68ksbc
+$mame
+This computer has no sound, and no facility for saving or loading programs.
 
+When started, press ? key for a list of commands.
+$end
+$info=990189v
+$mame
+Demo programs for the 990189v: You can get impressive colour displays (with sprites) from the 4 included demos. Press the Enter key after each instruction, and wait for the READY prompt before proceeding to the next.
+
+NEW
+LOADx (where x = 0,1,2,3)
+RUN
+
+University BASIC fully supports the tms9918 videocard option. For example, enter COLOR x (where x = 1 to 15), to get a coloured background.
+
+Bug - The input buffer of character segments isn't fully cleared. If you press Shift, then Z enough times, garbage appears. This is because the boot process should have set 18C-1CB to FF, but only sets up to 1B3.
 $end
 $info=abc80,abc800c,abc802,abc806
 $mame
@@ -67,9 +84,12 @@ $end
 $info=ac1
 $mame
 
-L      to load a tape
-S a b  to save a region of memory (a to b) to tape
+The Z command will get you into BASIC, and BYE command takes you back to the Monitor.
 
+        S xxxx yyyy = to save memory to tape.
+        L  = to load it back in.
+
+        Since there is no motor control, type in L then mount the tape.
 $end
 $info=acrnsys1
 $mame
@@ -136,6 +156,14 @@ If you want to use the TTY, you must do these things:
 
 L to load a tape, and D to save. Answer the questions: OUT=T, FNAME=1, T=1, MORE=N, IN=T
 $end
+$info=al8800bt
+$mame
+Press space to input your command line (not return).
+
+D - Memory Dump
+J - Jump to address
+M - Modify memory
+$end
 $info=alphatro
 $mame
 ALPHATRONIC PC
@@ -156,6 +184,30 @@ $mame
     Test Paste:
         =11^22^33^44^55^66^77^88^99^-0000
         Now press up-arrow to confirm the data has been entered.
+$end
+$info=altos5
+$mame
+Only the diag disk works now. A regression broke booting of the CP/M disks.
+$end
+$info=amu880
+$mame
+Cassette considerations
+
+    - It operates at 4883 baud but may not be fully compatible with real hardware. A partial translation of the available text seems to indicate an overcomplicated and unreliable interface. The one implemented is 100% reliable at the same speed. Unable to locate any real recordings to compare against.
+    - To save a range of memory: S name start end
+    - To load it back: L name
+    - To save an unnamed file: S "" start end
+    - To load an unnamed file: L
+    - When loading, if the name doesn't match, there's no message, and no way to determine the name.
+    - For some reason, the system saves the file 3 times. Maybe it was an attempt to guard against the inherent unreliable design.
+$end
+$info=amust
+$mame
+Monitor Commands:
+-----------------
+B = Boot from floppy
+
+Not Working.
 $end
 $info=cpc464,cpc464p,gx4000,cpc6128p
 $mame
@@ -213,6 +265,15 @@ $info=apfimag
 $mame
 APF IMAGINATION MACHINE
 =======================
+The monitor
+-----------
+From Basic, do CALL 28672 to enter the monitor - you get a * prompt. Commands:
+D nnnn  - display memory
+G nnnn  - goto an address
+M nnnn  - modify memory
+Type the command letter, then all 4 digits, no need to hit Enter.
+To exit back to Basic, do G 8894 (Basic has no prompt).
+
 Tapes can only be processed through BASIC. So, load the basic cart from the software list,
 and then load the tape.
 
@@ -327,6 +388,198 @@ Here is a test program to turn on the LEDs.
 Copy the text and Paste into the emulator.
     =3E^=0F^=D3^=13^=3E^=07^=D3^=13^=3E^=00^=D3^=12^=76^-1000X
 $end
+$info=basf7120
+$mame
+The driver notes say: Runs the BOS operating system
+However it can't boot any disk, so it has probably regressed.
+$end
+$info=basic31,basic52
+$mame
+Press Space to make the machine start up.
+
+All input must be in uppercase. Read the manual to discover the special features of this Basic.
+
+Sound: BASIC-31 has sound, and BASIC-52 doesn't. The sound command is PWM. Example: PWM 800,200,900
+$end
+$info=bbcb,bbcm
+$mame
+*TAPE to enable the cassette module
+
+LOAD"" - to load a tape
+SAVE"x" - to save a tape (not working - just get a blank file)
+
+*CAT to list files on a tape
+*RUN to load and run a M/L program
+$end
+$info=bcs3a,bcs3b,bcs3c,bcs3d
+$mame
+At start, hit enter to allow Basic to start correctly.
+
+LOAD - load a Basic program from tape
+SAVE - save a Basic program to tape
+
+It doesn't work though.
+
+Don't try these commands on 'bcs3' - the emulated computer will crash.
+
+Cassette
+    - is hooked up according to the documentation, but doesn't work.
+    - on the real machine it overrides the video output, so the video will be lost during cassette operations.
+    - does not exist on "bcs3". The commands SAVE and LOAD will attempt to use a non-existing rom at 0800, and crash the system.
+    - When you start any cassette-based system it asks for the number of lines you'd like on the screen, or hit enter for the default. Depending on the number, the BASIC program starts in a different place. So, to LOAD a tape, you must know the same number of lines that the program was SAVED at.
+    - Recordings are not compatible between the versions of BASIC.
+
+Bugs:
+    - Tell it to PRINT ! (or any character it doesn't understand) and the screen fills up with zeroes. String are enclosed in single quotes. Double quotes will cause this bug.
+    - Undefined strings print as 0 instead of nothing.
+$end
+$info=beta
+$mame
+When first started, press G to begin.
+
+Pasting:
+        0-F : as is
+        M (inc) : ^
+        AD : -
+        DA : =
+        GO : X
+
+Test Paste:
+        X-0011=11^22^33^44^55^66^77^88^99^-0011
+        Now press M to confirm the data has been entered.
+$end
+$info=bigbord2
+$mame
+Turn it on, wait for cursor to appear in the top corner. Press Enter.
+Now you can enter commands.
+
+Monitor commands:
+B - boot from disk
+C - copy memory
+D - dump memory
+F - fill memory
+G - go
+I - in port
+M - modify memory
+O - out port
+R - read a sector
+T - test memory
+V - compare blocks of memory
+X - change banks
+
+Note: floppy-disk code is not complete.
+$end
+$info=binbug
+$mame
+All input must be in uppercase.
+
+Commands:
+A - See and alter memory
+B - Set breakpoint (2 permitted)
+C - Clear breakpoint
+D - cassette save  (Da b saves memory range a to b)
+G - Go to address, run
+L - cassette load
+S - See and alter registers
+$end
+$info=bk0010
+$mame
+Clone of the Terak 8510/a.
+
+BK0010-01 is marked as working, but like all its clones, it has issues.
+
+Computer starts in the Monitor (commands unknown), except BK0010-01 which starts in Vilnius Basic.
+
+For BK0010-01, in Basic, LOAD"x" to load the tape, and SAVE"x" to save it. Filenames are always Case Sensitive.
+
+BK0010FD - floppy disk version. Unknown how to interact with a floppy. BKD images are supposed to be supported but are rejected.
+
+BK0011 (not emulated), BK0011M not working at all.
+
+BK0010 monitor commands are not known.
+
+BK0010-01 and BK0010FD can sometimes load games from the software list via the monitor.
+If in Basic, enter MO to enter the monitor. Then M. You will be asked for the name - enter it (case sensitive). If you got it wrong the correct name will be displayed and the file skipped. If it was correct there is no acknowledgement, but the file loads. At the end, the game might start itself, or you might have to enter S. Due to bad emulation the computer will probably freeze at this point.
+
+One known working game is Tetris.
+$end
+$info=bmjr
+$mame
+HITACHI BMJR (aka L2)
+=====================
+
+
+File types
+----------
+B - binary, use the monitor
+S - basic
+
+
+Cassette
+--------
+
+LOAD - to load.
+SAVE - to save.
+
+
+Inufuto
+-------
+
+MON
+L
+(enter name of file)
+G
+(press space)
+
+Game will start.
+
+
+Other
+-----
+
+The Basic has a CALL instruction, but no USR.
+
+
+The monitor E command goes back to Basic.
+$end
+$info=bml3
+$mame
+HITACHI BML3
+============
+
+Cassette
+--------
+
+LOAD - basic
+
+LOADM - M/L
+
+Games marked with [mk5] will only work on bml3mk5.
+
+
+
+Inufuto
+-------
+
+LOADM"",,R
+
+
+Loads on the screen and won't run.
+$end
+$info=mbs1
+$mame
+HITACHI S1 (mbs1)
+=================
+
+Not working.
+
+Cassette
+--------
+
+LOAD - to load
+Cassette not detected in MAME, works in MAMEUI.
+Games still don't work because of missing graphics code.
+$end
 $info=bob85
 $mame
 Pasting:
@@ -338,6 +591,171 @@ Pasting:
 Test Paste:
         -0600^11^22^33^44^55^66^77^88^99^--0600^
         Now press up-arrow to confirm the data has been entered.
+$end
+$info=bullet
+$mame
+A boot disk must be present or you get a black unresponsive screen.
+Software-list items cpm30,wmate3,wmate4 will work. When asked to enter date and time, hit enter.
+$end
+$info=busicom
+$mame
+This is an early electronic calculator. Despite the not working indication, it works perfectly, if somewhat slowly.
+A manual for the similar Unicom 141P is available at AO.
+
+To add or subtract numbers, enter each number followed by the operation, then Enter (all keys are in the number pad).
+example: 12+ 56+ enter gives 68.    12+ 56- enter gives 44 in red (red indicates negative answer).
+
+To multiply or divide, it's like a conventional calculator.
+example: 12* 3 enter gives 36.   24/ 4 enter gives 6.
+
+Read the above manual for more information.
+$end
+$info=c80
+$mame
+Pasting:
+    0-F : as is
+    + (inc) : ^
+    - (dec) : V
+    M : -
+    GO : X
+
+Test Paste:
+    -800^11^22^33^44^55^66^77^88^99^-800
+    Now press up-arrow to confirm the data has been entered.
+
+Commands:
+    R : REGister
+    M : MEMory manipulation
+    G : GO
+  F10 : RESet
+  ESC : BRK
+
+Functions (press F1 then the indicated number):
+    0 : FILL
+    1 : SAVE
+    2 : LOAD
+    3 : LOADP
+    4 : MOVE
+    5 : IN
+    6 : OUT
+
+When REG is chosen, use UP to scroll through the list of regs, or press 0 thru C to choose one directly:
+    0 : SP
+    1 : PC
+    2 : AF
+    3 : BC
+    4 : DE
+    5 : HL
+    6 : AF'
+    7 : BC'
+    8 : DE'
+    9 : HL'
+    A : IFF
+    B : IX
+    C : IY
+
+When MEM is chosen, enter the address, press UP, enter data, press UP, enter data of next byte, and so on.
+
+Cassette SAVE: Press F1 1 aaaa DOWN bbbb UP
+Cassette LOAD: Press F1 2 aaaa DOWN bbbb UP
+(where aaaa = 4-digit beginning address, bbbb = 4-digit ending address)
+$end
+$info=cb308
+$mame
+All commands to be in uppercase.
+
+Press Enter twice. You will see the Monitor logo. To get into the BASIC, enter GE400. To return to the monitor, use the QUIT command followed by pressing Enter twice. All monitor commands must be in uppercase. The only storage is paper-tape.
+$end
+$info=ccs2810
+$mame
+SYSTEM OPERATION:
+Press Enter up to three times to start the system.
+Supported baud rates include 50, 75, 110, 134.5, 150, 200, 300, 600, 1200, 1800, 2000, 2400, 3600, 7200, 9600, 14400, 38400, 57600 and 115200.
+All commands are in uppercase.
+
+A    Assign logical device
+Dn,n Dump memory
+E    Punch End-of-File to paper tape
+F    Fill
+G    Go
+H    Hex arithmetic
+I    In
+L    Punch Leader to paper tape
+M    Move
+O    Out
+Q    Query logical devices
+R    Read a file from paper tape
+S    Edit memory
+T    Test memory
+V    Verify (compare 2 blocks of memory)
+W    Write a file to paper tape
+X    Examine Registers
+Y    Set Baud rate of i8250
+Z    Zleep (lock terminal). Press control+G twice to unlock.
+$end
+$info=cd2650
+$mame
+Commands (must be in uppercase):
+A    Examine memory; press C to alter memory
+B    Set breakpoint
+C    Clear unused breakpoint
+D    Dump to cassette (must save each block separately, then an empty block)
+E    Execute
+I    Inspect Registers after breakpoint
+L    Load from cassette
+R    Turn on cassette motor
+V    Verify cassette vs memory
+Press Esc to exit most commands.
+
+Cassette doesn't work. Saving is ok because the data can be loaded onto the Super-80, but this system has great difficulty loading its own programs.
+$end
+$info=chaos
+$mame
+With the DOS config switch turned off, the only accepted input is a line starting with '&'. The actual commands are unknown.
+
+With DOS enabled, a large number of commands become available.
+These are:
+    access, ask, ascdis, bpclr, bpset, close, control, copy, devfive, dir,
+    end, exec, execute, fill, find, goto, if, input, let, list, load, lowercase,
+    memdis, memset, open, port, read, reboot, runhex, run, save, type, typesl,
+    verify.
+    An example is: memdis 0 8 (memory dump starting at 0, show 8 lines)
+    Don't try 'fill' - it fills all memory with zeroes, crashing the system.
+$end
+$info=cortex
+$mame
+All input to be in uppercase. Note that "lowercase" is just smaller uppercase, and is not acceptable as input.
+
+There's no option in BASIC to produce sound. It will beep if an invalid key (usually a control key) is pressed.
+
+To clear the screen press Ctrl L.
+$end
+$info=cpu09
+$mame
+List of commands (must be in UPPERCASE):
+A - Memory transfer
+B - breakpoint management
+C - call a user subroutine
+D - Dump memory (^X to break)
+G - coding of indexed addresses
+I - memory initialisation
+L - Load cassette (Use L 0), where the number is an offset from the original address.
+M - examine/modify memory
+N - terminal adaptation (??)
+O - calculation of displacements
+P - Save cassette
+Q - printer activation
+R - Display/Alter Registers
+S - automatic inhibition of single-step
+T - single-step operation
+U - memory page change
+V - Verify cassette
+W - definition of a window
+X - DOS loading from TAVBUG09
+Y - launch of DOS since TAVBUG09
+Z - more scan lines per row (cursor is bigger)
+/ - fast memory exam
+  - multiple single-steps
 $end
 $info=cvicny
 $mame
@@ -357,6 +775,50 @@ Pasting:
 Test Paste:
     11^22^33^44^55^66^77^88^99^-0800
     Now press up-arrow to confirm the data has been entered.
+$end
+$info=d6800
+$mame
+CHIP-8 computer.
+
+The display only updates after each 4 digits is entered, and you can't see what you type as you change bytes. This is by design.
+
+The cassette has no checksum, header or blocks. It is simply a stream of pulses. The successful loading of a tape is therefore a matter of luck.
+
+To modify memory, press RST, then enter the 4-digit address (nothing happens until the 4th digit is pressed), then press FN, then 0, then the 2 digit data. It will enter the data (you won't see anything), then the address will increment. Enter the data for this new address. If you want to skip this address, press FN. When you're done, press RST. NOTE!!! Do NOT change any of these addresses:
+    0000,0001,0006-007F, or the system may crash. It's recommended to start all your programs at 0200.
+
+Function keys:
+FN 0 - Modify memory - see above paragraph.
+
+FN 1 - Tape load. You must have entered the start address at 0002, and the end address+1 at 0004 (big-endian).
+
+FN 2 - Tape save. You must have entered the start address at 0002, and the end address+1 at 0004 (big-endian).
+
+FN 3 - Run. To use, press RST, then enter the 4-digit start address (nothing happens until the 4th digit is pressed), then FN, then 3.
+
+All CHIP-8 programs load at 0200 (max size 4k), and exec address is C000.
+$end
+$info=datum
+$mame
+Sample program to paste in: Pick-up-sticks (Nim) All inputs are in HEX.
+1. Paste this in
+2. Enter number of sticks to begin with (2 digits)
+3. Enter max number of sticks to be removed per turn (1 digit)
+4. Your turn - remove some sticks
+5. After a pause, player's turn.
+6. Keep doing steps 4 and 5 till you lose (it says 10b3 3F)
+7. When tested, the game seems buggy - prepare to lose sooner than expected
+
+1000M
+BD^71^07^CE^00^10^86^7E^A7^01^A7^05^BD^71^5E^B7^12^00^BD^72^7D^97^10^BD^71^5E^
+B7^12^01^BD^72^7D^97^11^CE^12^00^BD^72^4D^B7^12^00^BD^71^5E^B7^12^02^BD^72^7D^
+97^15^BD^71^5E^B7^12^03^27^08^7C^12^02^B1^12^02^2B^18^CE^00^10^86^06^97^12^
+86^15^97^13^8D^61^CE^00^10^86^7F^A7^02^A7^03^20^D8^B6^12^00^B0^12^03^B7^12^00^
+BD^72^6E^D7^10^97^11^8D^44^B6^12^00^4A^27^3C^7F^12^05^7C^12^02^7C^12^05^
+B0^12^02^2E^F8^7A^12^05^5F^FB^12^02^7A^12^05^26^F8^B6^12^00^10^16^5A^
+26^02^C6^01^B6^12^00^10^B7^12^00^BD^72^6E^D7^10^97^11^B6^12^00^81^01^27^04^
+7E^10^36^3F^3F^86^80^B7^12^04^BD^71^DD^7A^12^04^26^F8^39^
+Z1000G
 $end
 $info=dauphin
 $mame
@@ -392,6 +854,166 @@ Test Paste:
     Paste this: 11^22^33^44^55^66^77^88^99^00-
     Now press up-arrow to review the data that was entered.
 $end
+$info=dg680
+$mame
+All input must be in uppercase.
+
+Monitor Commands:
+C (compare)*
+E (edit)*
+F (fill)*
+G - Go to address
+I - Inhibit CTC
+M (move)*
+P (clear screen)*
+R (read tape)*
+S (search)*
+T hhmm [ss] - Set the time
+W (write tape)*
+X - protection status
+XC - clear ram
+XD - same as X
+XE - enable facilities
+XF - disable facilities
+XP - protect block
+XU - unprotect block
+Z - go to 0000.
+
+* These commands are identical to the Microbee ones.
+$end
+$info=dms86
+$mame
+Monitor commands:
+A Display incoming terminal data in hex
+B boot to HiNet
+C copy memory
+D dump memory to screen
+F fill memory
+G go (eg G address [breakpoint])
+I in port
+M memory test
+O out port (e.g. O 84 77)
+P set segment
+S write a byte to memory
+T type ascii string into the address set by D or S
+X display registers
+? help
+: load intel hex format file
+$end
+$info=dps1
+$mame
+It needs to boot from floppy before anything appears on screen.
+$end
+$info=dsb46
+$mame
+Wait 10 seconds for the monitor program to begin.
+
+Commands: (no spaces allowed)
+B - Boot the disk
+D - Dump memory to screen
+F - Fill Memory
+G - Go To
+H - Help
+P - Alter port values
+S - Alter memory
+$end
+$info=eacc
+$mame
+Setting up: You need to enter the number of expected pulses from the fuel and distance sensors. Paste this: 5 6M123N 7M400N  (start, set litres cal to 123 pulses. set km cal to 400 pulses). Then paste this: 1950M0N 1845M0N (set petrol tank capacity to 50 litres, set current amount of petrol to 45). Now enter: 28M100N (the journey is 100km). Press 5 to start the journey. All settings are saved in nvram.
+
+Stats you can see while travelling:
+    0  - time elapsed
+    08 - time remaining
+    1  - fuel used
+    18 - fuel left
+    2  - km travelled
+    28 - km remaining
+    29 - km that could be travelled with the fuel you have left
+    3  - speed now
+    39 - average speed
+    4  - fuel consumption now (litres per 100km)
+    49 - fuel average consumption
+$end
+$info=elekscmp
+$mame
+To Use:
+- Press MINUS to enter data input mode
+- Press UP or DOWN to cycle through addresses
+
+Paste test:
+paste this in:  -0F0011^22^33^44^55^66^77^88^99^N-0F00
+Now press UP to verify the data that was entered.
+
+It seems the only way to exit each mode is to press NRST.
+$end
+$info=elektor
+$mame
+When booted you get the familiar 00 00 pattern. Pressing Q gives a display of IIII. Now, you enter a command.
+
+Key   Command    Purpose
+------------------------
+Q     Start      Boot up system
+L     RCAS       Load a tape
+S     WCAS       Save a tape
+W     BP1/2      Set a breakpoint
+R     REG        View/Set registers
+X     PC         Go
++pad  +          Enter data and do next thing
+-pad  -          Decrement
+-     MEM        Specify an address
+0-9   0-9        Hex digits
+A-F   A-F        Hex digits
+
+Keyboard layout when using the Monitor on real hardware (n/a = key not assigned)
+
+n/a    RCAS  WCAS  C    D  E  F
+Start  BP1/2 REG   8    9  A  B
+n/a    PC    MEM   4    5  6  7
+Reset  -     +     0    1  2  3
+
+This wouldn't fit too well on our keyboard with any chance of remembering it, so it's hooked up much the same as the Instructor.
+
+The Select key (Z) and the joystick don't actually exist, but they have been left in the keyboard matrix for now.
+
+
+Quickloads
+----------
+You can load pgm and tvc files with the quickload facility. The quickloads are meant for the ElektorTVGC, however with a bit a trickery they can be made to work on the vc4000 as well. Procedure:
+
+- Get a copy of the Elektor bios and rename it to ELEKTOR.BIN then save it with the rest of your vc4000 carts.
+
+- Start vc4000, and load ELEKTOR.BIN into the cartslot. Now your vc4000 thinks it is an Elektor.
+
+- Load a quickload file. Some of them will work, and in some cases, better than on the Elektor system.
+
+
+Pasting
+-------
+This system uses the standard trainer paste codes:
+        0-F : as is
+        +   : ^
+        -   : V
+        MEM : -
+        MON : Q
+
+Here's a sample from the manual, page 34/35 (down-arrow to escape)
+Q-0900^762005CA06CA0D4A00CD7F00FA780C1E88441099791F0000040005CA06CACD4A00FA7B04FFCC0AC8CC0AC90409CC0AC60402CC0AC01F0900
+-0A00^F15155757FFFFFC3A52480FF4FFF-0AC0^C018P0900^
+
+Another sample, from page 94 (Q to escape)
+Q-0900^76203F0161063005080E492DCD4890597877103F020E75105A0A0C1E89F4101879
+1F003877103F02CF75101B5A
+17A2A2A2A2A2A217
+17171000000D1717
+0A171100BC17000F
+17170D000E051717
+14150A0CBC120C0E
+0A171112BCBC110EP0900^
+$end
+$info=elf2
+$mame
+Although this machine is marked as working, it hasn't worked for many years.
+$end
 $info=emma2
 $mame
 Keys:
@@ -416,22 +1038,76 @@ data is saved.
 To load, press L, press play, while leader is playing press 0 or 1 as above.
 When a row of dots appears, the data has been loaded.
 $end
-$info=instruct
+$info=et3400
 $mame
-Quick usage:
-    - Look at memory: Press minus key. Enter an address. Press UP key to see the next.
-    - Look at registers: Press R. Press 0. Press UP key to see the next.
-    - Set PC register: Press R. Press C. Type in new address, Press UP.
-    - Load a tape: Press L, enter file number (1 digit), press UP. On
-      completion of a successful load, HELLO will be displayed.
-
-Pasting a test program: (page 2-4 of the user manual, modified)
-    - Paste this: QRF0^751120F005000620FA7EF97A84011F0003-0P
-    - You should see the LEDs flashing as they count upwards.
+- Navigating:
+    LED to Monitor: D1400
+    Monitor to Basic: G 1C00
+    Monitor to LED: G FC00
+    Basic to Monitor: BYE
+- All commands in Basic and Monitor are UPPERCASE only.
+- Terminal is defaulted to 9600 baud, 7 bits, 2 stop bits.
 $end
-$info=mcg85
+$info=eti660
 $mame
-Press Space to make the machine start up.
+Commands:
+    R - Reset (use this before any other instruction)
+    S - Step
+    0 - Enter modify memory mode
+    2 - Save memory to cassette
+    4 - Load memory from cassette
+    6 - start binary program
+    8 - start chip-8 program.
+
+To modify memory, press R, 0, enter 4-digit address, S, enter data, S, continue on. R to escape.
+
+To save a tape, enter the start address into 0400,0401 (big endian), and the end address into 0402,0403. Press R. Press record on the tape, press 2.
+
+To load a tape, enter the start and end addresses as above. Press R, 4. Screen goes black. Press play on tape. If the screen is still black after the tape ends, press R.
+
+All chip-8 programs start at 0600. The manual says the max end address is 7FF (gives 512 bytes), but you can fill up all of memory (gives 2560 bytes).
+$end
+$info=evmbug
+$mame
+Press any key to get it started. All input to be in uppercase.
+$end
+$info=exl100
+$mame
+You don't hold a modifier key; you hit and release, then hit the key being modified. Exel Basic will indicate if a modifier key is active.
+
+STATUS:
+* EXL 100
+  - Most games do something, see table below
+* EXELTEL can get to the inbuilt "cart" but stops with a black screen,
+    presumably because the I/O processor is not emulated
+
+STATUS OF SOFTWARE:
+
+SWList name      Status
+---------------------------------------------------------------------------
+exelbas          works
+exelbasp         Cyan screen, hangs at start
+exelmax          options 1-4 work, 5-7 do nothing
+exeldrum         can get to the menu, which seems useless
+exelogo          can type into it but the usual commands get error
+exeltext         works but weird
+exlpaint         works
+exlmodem         it might work, need instructions
+capmenkr         works, video corruptions
+guppy            works
+imagix           video corruptions, can't proceed
+pindo            video corruptions, can select a game, how to play?
+quizzy           works, video corruptions
+tennis           the demo works, didn't try playing
+virus            works, 2nd screen is corrupt, press 1 there.
+wizord           works
+
+
+Using the cassette:
+- You must be in Exel Basic. There's no motor control.
+- To save: SAVE"1"  hit enter, put player in Record, hit Esc, it saves.
+- To load: LOAD"1"  hit enter, hit esc, put player in Play, it loads.
+- The cassette output is connected to the audio section, so games could use it as a 1-bit dac.
 $end
 $info=exp85
 $mame
@@ -453,9 +1129,383 @@ where nnnn is the previous value of the stack pointer, and mmmm is the previous 
 
 BASIC will request the amount of RAM memory available, 8192 (bytes) must be entered.
 $end
-$info=elf2
+$info=fc100
 $mame
-Although this machine is marked as working, it hasn't worked for many years.
+Shift-Run to BREAK out of CLOAD.
+
+There is an inbuilt Monitor. MON to enter. Commands are D,G,M,R,S,X.
+$end
+$info=h8
+$mame
+This system uses Octal rather than the usual hexadecimal.
+
+Serial console works. You can make it visible by setting Video Options in settings.
+
+Meaning of LEDs:
+        PWR = power is turned on
+        MON = controls should work
+        RUN = CPU is running (not halted)
+        ION = Interrupts are enabled
+
+Pasting:
+        0-F : as is
+        + : ^
+        - : V
+        MEM : -
+        ALTER : =
+
+        Addresses must have all 6 digits entered.
+        Data must have all 3 digits entered.
+        System has a short beep for each key, and a slightly longer beep for each group of 3 digits. The largest number allowed is 377 (=0xFF).
+
+Test Paste:
+        -041000=123 245 333 144 255 366 077=-041000
+        Now press up-arrow to confirm the data has been entered.
+
+Official test program from pages 4 to 8 of the operator's manual:
+        -040100=076 002 062 010 040 006 004 041 170 040 021 013 040 016 011 176
+                022 043 023 015 302 117 040 016 003 076 377 315 053 000 015 302
+                131 040 005 302 112 040 076 062 315 140 002 076 062 315 053 000
+                076 062 315 140 002 303 105 040 377 262 270 272 275 377 222 200
+                377 237 244 377 272 230 377 220 326 302 377 275 272 271 271 373
+                271 240 377 236 376 362 236 376 362 236 376 362 R6=040100=4
+$end
+$info=hpz80unk
+$mame
+Commands:
+Axxxx         Disassemble (. to quit)
+DAxxxx,yyyy   Ascii Dump of memory
+DBxxxx,yyyy   Binary Dump of memory
+DHxxxx,yyyy   Hex Dump of memory
+DOxxxx,yyyy   Octal dump of memory
+G
+H
+L
+MMxxxx        Modify Memory (. to quit)
+Pxx           Binary Display of Port
+Pxx,xx        Write to port
+RC            ???
+RF            ???
+RM            ???
+RT            ???
+UC            Displays 11111111
+US            ???
+UZ            Displays FFFF
+W             Punch papertape
+X             choose Q,V,R,P (Q to quit; others ask for ram and prom ranges)
+Y nothing
+Z nothing
+$end
+$info=icebox
+$mame
+Commands:
+- At the main % prompt:
+-- A = Arcade
+-- C = Commercial
+-- D = Debug
+-- ^C = boot CP/M
+-- ^T = load data from disk to 0000
+-- ^X = new line
+- At the debug prompt: (to be done)   Q to quit
+$end
+$info=imsai
+$mame
+Press any key to start the monitor program.
+$end
+$info=instruct
+$mame
+Quick usage:
+    - Look at memory: Press minus key. Enter an address. Press UP key to see the next.
+    - Look at registers: Press R. Press 0. Press UP key to see the next.
+    - Set PC register: Press R. Press C. Type in new address, Press UP.
+    - Load a tape: Press L, enter file number (1 digit), press UP. On
+      completion of a successful load, HELLO will be displayed.
+
+Pasting a test program: (page 2-4 of the user manual, modified)
+    - Paste this: QRF0^751120F005000620FA7EF97A84011F0003-0P
+    - You should see the LEDs flashing as they count upwards.
+$end
+$info=ipb
+$mame
+When started, you must press Space, then it will start to work.
+
+Monitor commands:
+  A
+  Dn n - dump memory
+  E
+  Fn n n - fill memory
+  G
+  Hn n - hex arithmetic
+  Mn n n - move (copy) memory block
+  N
+  Q
+  R
+  Sn - modify a byte of memory
+  W - display memory in Intel? format
+  X - show and modify registers
+$end
+$info=isbc86
+$mame
+isbc86 commands: BYTE WORD REAL EREAL ROMTEST. ROMTEST works, the others hang.
+$end
+$info=isbc8605,isbc8630
+$mame
+Press capital-U to drop into the monitor on the isbc 86/05 and 86/30
+The 86/05 can boot floppies with the b command but appears to mostly be
+able to deal with 256byte sectors so fails to load the irmx 512byte secto
+$end
+$info=jade
+$mame
+Type HE to get a list of commands.
+
+If you hit a key as soon as it is started, the system will present a prompt and work. Otherwise it runs into the weeds because the rom banking isn't yet emulated.
+$end
+$info=junior
+$mame
+This is heavily based on the KIM-1, the keycodes and operation being identical.
+
+Pasting:
+        0-F : as is
+        + (inc) : ^
+        AD : -
+        DA : =
+        GO : X
+
+(note: DA only works when addressing RAM)
+
+Test Paste:
+        =11^22^33^44^55^66^77^88^99^-0000
+        Now press up-arrow to confirm the data has been entered.
+
+NMI and IRQ:
+- When NMI is activated, it jumps to the vector located at 1A7A.
+- When IRQ is activated, it jumps to the vector located at 1A7E.
+- The user needs to populate these vectors before use, or the system will crash when the debugging switches are used. Use RST to escape from this.
+$end
+$info=k8915
+$mame
+When it says DIAGNOSTIC RAZ P, press enter.
+$end
+$info=lc80
+$mame
+When first started, the screen is blank. Wait about 8 seconds for it to introduce itself, then you may use it or paste to it. The decimal points indicate which side of the display you will be updating.
+
+Pasting:
+    0-F : as is
+    +,- : as is
+    ADR : ,
+    DAT : .
+    EX : X
+
+Test Paste:
+    ,2000.11+22+33+44+55+66+77+88+99+,2000
+    Now press + to confirm the data has been entered.
+$end
+$info=llc1
+$mame
+Handy addresses: (Press X then the 4 digits then Enter)
+  0800 = BASIC cold start
+  0803 = BASIC warm start
+  13BE = display Monitor logo
+This machine has an 8-digit LED display with hex keyboard, and also a 64x16 monochrome screen with full keyboard.
+The monitor uses the hex keyboard, while Basic uses the full keyboard.
+Monitor output is on the digits, but the single-step command displays a running register dump on the main screen.
+There are no storage facilities, and no sound.
+BASIC is integer only (-32768 to 32767), about 6k of space, and all input is to be in uppercase. It does have minimal string capability, but there is no $ sign, so how to create a string variable is unknown.
+To exit back to the monitor, type BYE.
+The user instructions of the monitor (in German) are here:
+http://www.jens-mueller.org/jkcemu/llc1.html
+$end
+$info=llc2
+$mame
+The BEL character plays a short tune.
+In the monitor, it is case sensitive, most commands are uppercase, but some are lowercase.
+To start Basic, the command is b. To quit basic, use BYE.
+Inside Basic, it is not case-sensitive.
+$end
+$info=lnw80
+$mame
+Shift and Right-arrow will enable 32 cpl.
+
+SYSTEM commands:
+    - Press Break (End key) to quit
+    - Press Enter to exit with error
+    - xxxx to load program xxxx from tape.
+    - / to execute last program loaded
+    - /nnnnn to execute program at nnnnn (decimal)
+$end
+$info=lola8a
+$mame
+BASIC commands : (must be in UPPERcase)
+
+    LET NEXT IF GOTO GOSUB RETURN READ DATA FOR CLS INPUT DIM STOP END RESTORE
+    REM CLEAR PUSH POKE PRINT OUT ERROR USR CURSOR NORMAL INVERSE PLOT UNPLOT
+    ELSE WIPE COLOUR CENTRE RANGE DRAW CIRCLE LOAD SAVE VERIFY HLOAD HSAVE HVERIFY
+    DLOAD DSAVE DVERIFY MERGE CAT RUN NEW ON LIST DEF MON GWIND TWIND UNDER
+    SPC OFF TAB THEN TO STEP AND OR XOR NOT ABS LEN SQR INT ASC CHR VAL STR MID
+    ARG CALL RND LEFT RIGHT DOT SGN SIN FREE PI FN TAN COS POP PEEK INP LN EXP ATN
+
+Image display is mono, COLOUR x (x = 0 to 3) command switch drawing in mode
+    0 - nothing
+    1 - set 1 on drawn pixel
+    2 - set 0 on drawn pixel
+    3 - xor drawn pixel with current value
+
+Unknown how to produce sound - there's no commands.
+
+MON: (Guesswork by trying things)
+    - A0 : display addresses A0 to A7
+    - 0,FFF : display addresses 0 to FFE (yes it leaves one out)
+    - G,R : displays registers (R B=3 : set B register to 3)
+    - M,N,Q,T : display or set a specific "register"? (Q : display Q ; Q=6 : set Q to 6)
+    - SP : display or set SP (SP=3B00 : set SP)
+    - PC : display or set PC
+    - L : disassembler (L 0,FF : disassemble range 0 to FF)
+    - K : single-step? (address set by G) (K 99 : single-step at 99)
+
+Control Keys
+    - A : adds additional line for each char (making image higher)
+    - G : back to normal
+    - C : break? (only does a newline)
+    - L : clear screen
+    - M : same as pressing Enter
+    - Y : invert screen
+$end
+$info=lynx48k
+$mame
+Notes:
+- The screen doesn't scroll. This is normal.
+- Variable names are case-sensitive.
+- Break key is the Escape key.
+- Typing a line number doesn't delete the line, you are in a calculator mode (for example, typing 67-5 will print 62)
+- DEL line-number deletes the line.
+- To edit a line, press Ctrl-E, it asks for line number, type it in, then arrows to move left-right, backspace to delete, press keys to insert them
+- If you entered a line and got a syntax error, press Ctrl-Q to edit it.
+- Cassette tapes made on 128k are a different speed to 48k tapes. To load a 128k tape on a 48k system, enter TAPE 3 before loading. (2,3,4,5 all seem to work).
+- When loading, there's no wildcard; you must specify the name.
+- Info about disks:
+  - You must firstly do XROM to initialise the DOS ROM.
+  - Then do EXT DIR with a Lynx-formatted disk, or EXT BOOT with a CP/M disk.
+  - Then, on a Lynx-formatted disk, do EXT LOAD "name" or EXT MLOAD "name".
+$end
+$info=m3
+$mame
+Y to boot from floppy, ESC to enter monitor, any other key to boot from IDE.
+$end
+$info=mbc200
+$mame
+SBASIC:
+Running programs: the file names used within SBASIC must be in
+uppercase. For example, run "DEMO" .
+You can also run a basic program from CP/M: sbasic "GRAPHICS" .
+To Break, press either ^N or ^O (display freezes), then ^C .
+Some control keys: 0x14 = Home; 0x8 = Left/BS; 0xA = Down; 0xB = Up; 0xC = Right.
+$end
+$info=mbee
+$mame
+Commands to call up built-in roms (depends on the model):
+ NET - Jump to E000, usually the Telcom communications program.
+       This rom can be replaced with the Dreamdisk Chip-8 rom.
+        Note that Telcom 3.21 is 8k, it uses a rombank switch (by reading port 0A) to swap between the two halves.
+
+ MEM - same as NET.
+
+ EDASM - Jump to C000, usually the Editor/Assembler package.
+
+ MENU - Do a rombank switch to bank 5 and jump to C000 to start the Shell
+
+ PAK n - Do a rombank switch (write to port 0A) to bank "n" and jump to C000.
+$end
+$info=mcb216
+$mame
+All commands to be in uppercase.
+
+Press Enter twice. You will see the Basic OK prompt. To get into the monitor, use the QUIT command, and to return use the B command.
+
+The mcb216 can use an optional floppy-disk-drive unit. The only other storage is paper-tape, which is expected to be attached to the terminal.
+$end
+$info=mcg85
+$mame
+Press Space to make the machine start up.
+$end
+$info=mekd2
+$mame
+Enter the 4 digit address then the command key:
+
+  - M : Examine and Change Memory (example: E000M, then G to skip to next, ESC to exit)
+  - E : Escape (abort) operation (ESC key in our emulation)
+  - R : Examine Registers
+  - G : Begin execution at specified address
+  - P : Punch data from memory to magnetic tape
+  - L : Load memory from magnetic tape
+  - N : Trace one instruction
+  - V : Set (and remove) breakpoints
+
+The keys are laid out as:
+
+  P L N V
+
+  7 8 9 A  M
+  4 5 6 B  E
+  1 2 3 C  R
+  0 F E D  G
+
+
+Pasting:
+        0-F : as is
+        NEXT : ^
+        MEM : =
+        GO : ^
+
+Test Paste:
+        HA030=11^22^33^44^55^66^77^88^99^HA030=
+        Now press up-arrow to confirm the data has been entered.
+
+        If you wish to follow the tutorial in the manual, here is the test program that you need to enter in step 1:
+        H0020=8E^00^FF^4F^C6^04^CE^00^10^AB^00^08^5A^26^FA^97^15^3F^H
+
+        Save the above program to tape:
+        HA002=00^20^00^32^HP (A002 has start address, A004 has end address, big endian)
+$end
+$info=meritum1
+$mame
+There's no lowercase, so the shift key will select Polish characters if available, as well as the usual standard punctuation.
+The control key appears to do nothing.
+Serial printer (@1200bps) is supported by default after power-up by all variants.
+If parallel printer (centronics) is to be used press P while system starts (e.g. P and F3 to reset).
+This does not work for model 1 (no parallel printer support in ROM).
+
+On meritum1, type SYSTEM then /12288 to enter the Monitor.
+On meritum_net, type NET to activate the networking features.
+$end
+$info=micral
+$mame
+Commands must be in uppercase. Reboot to exit each command.
+Bx[,x]: ??
+Gxxxx : go (writes a jump @FFED then jumps to FFEB)
+T     : test
+*     : echo keystrokes
+enter : ??
+$end
+$info=microkit
+$mame
+Press CR or LF to get the * prompt.
+
+Commands (must be in UPPERcase):
+$Pxxxx - Jump to address xxxx
+?Mxxxx yyyy - Dump memory starting at xxxx for yyyy bytes
+!Mxxxx yyzz... - Write data (yy etc) to memory xxxx onwards.
+
+There's no sound or storage facilities, therefore no software.
+$end
+$info=mits680b
+$mame
+Monitor Commands:
+J
+L switch to terminal mode
+M
+N modify memory in a limited way
+P this does a rti and causes a momentary crash. Weird.
 $end
 $info=mk14
 $mame
@@ -477,11 +1527,6 @@ Example program: ("organ" from p82 of the manual)
 -F20=C4^0D^35^C4^00^31^C4^08^C8^F6^C5^01^E4^FF^98^08^8F^00^06^E4^07^07^90^EB^B8^E6^9C^EE^90^E5^-F20X
 Pressing keys will produce different tones.
 $end
-$info=pro80
-$mame
-Cassette start address is always 1000. The end address must be entered into 13DC/DD (little-endian).
-Then press W to save. To load, press L. If it says r at the end, it indicates a bad checksum.
-$end
 $info=mkit09
 $mame
 Pasting:
@@ -494,6 +1539,119 @@ Pasting:
 Test Paste:
     -0000 00^11^22^33^44^55^66^77^88^99^--0000
     Now press up-arrow to confirm the data has been entered.
+$end
+$info=mmd1
+$mame
+ It appears that you enter an 3 digit octal number and then hit a function key.
+ H - puts the number in the H register
+ L - puts the number in the L register
+ S - puts the number into memory pointed to by HL and then increments HL.
+ G - Loads the program counter with the contents of HL
+
+1) There is a 'working byte' which you can enter using the octal digits (just press them in order), and which is displayed on the port 2 LEDs when KEX is running.
+
+2) 'R' is a hardware reset
+
+3) 'H' and 'L' are used to load the address (high and low parts, and it really is the HL register of the 8080). So to enter a particular address, you type in the high half (in octal), press H. Then type in the low half and press L. The address is displayed on the port 0 and port 1 LEDs when KEX is running.
+
+4) 'S' is 'Step' or 'Store'. It stores the working byte at the current address (in HL), and then increments the address. It's used to enter bytes into memory
+
+5) 'G' is 'go'. It loads the 8080 PC with the address in HL, and thus executes a program at that address.
+
+OK, this is what I would try.
+
+1) Press 'R' to reset the 8080 and start KEX running.
+
+2) Type 004 H 000 L  to load the start address of your program. The bytes should appear on the rightmost 8 LEDs as you enter them and should then also appear on the left and middle sets of LEDs when you press H and L.
+
+3) Enter the program
+
+076 S 123 S 323 S 000 S 166S
+
+As you type each byte it should appear on the rightmost LEDs. When you press S, the address on the rest of the LEDs should increment by 1.
+
+4) Re-enter the start address
+004 H 000 L
+
+5) Press G to run the program. The left most LEDs should change to .*.*..** (. = off, * = on), I think. The keys will then do nothing (as the CPU is halted) until you press R again to re-run KEX.
+
+
+Cassette:
+- The only info available is that an unknown UART is used on ports 12/13.
+- Since MMD2 uses Kansas City format, I've used it here too. As there are no setup bytes, the UART is assumed to be the AY-3-1015 or equivalent. The result works perfectly.
+- To save: 001H 025L G (start recording) press 0-7 to indicate number of blocks to save (0 = 8 blocks). The start address is always 1800. When it's finished, control will return.
+- To load: 001H 000L (start playing), press G. When it's finished (cassette sound stops), press R. It always loads to 1800-up.
+$end
+$info=mmd2
+$mame
+DIP switches:
+
+    * WE 0 - Write enable for addresses $0000..$03FF
+    * WE 1 - Write enable for addresses $0400..$07FF
+    * WE 2 - Write enable for addresses $0800..$0BFF
+    * WE 3 - Write enable for addresses $0C00..$0FFF
+    * SPARE - ???
+    * HEX OCT - choose display and entry to be in Hexadecimal or Octal
+    * PUP RESET - ???
+    * EXEC USER - update binary LED's with data entry? Or not? (in either setting, outputs to ports 0,1,2 still show)
+
+Operation:
+
+    * Enter bytes on the keypad of hex digits
+    * Set MSByte of address by entering it on the keypad & pressing "HIGH".
+    * ... LSByte ... "LOW"
+    * Change contents of memory at the selected address by entering the new value & pressing "STORE".
+    * Look at adjacent memory locations with "NEXT" and "PREV".
+    * Execute the program at the selected address by pressing "GO".
+
+AUX functions:
+
+    * BRL HI # - OFF disables BRL LO
+    * BRL LO #
+    * STEP #
+    * SRC HI # - source for COPY/DUMP - OFF disables "DUMP" function
+    * DES HI # - destination for COPY/DUMP
+    * LEN HI # - length for COPY/DUMP
+    * CLR TST ON - test if PROM is empty
+    * POP PRM ON - program a PROM
+    * DUP TST ON - test if PROM duplicated okay
+    * PROM 2708/2716
+    * MEM MAP RAM/ROM
+    * BAUD 110/150/300/600/1200
+
+The memory map can be rearranged by the system by using IN5, IN6, IN7.
+A pair of undumped proms control what goes where on each map.
+Each set of ROMs also has its own pair of PROMs.
+
+
+I/O ports:
+IN0: user expansion
+IN1: 0-TTYIN, 1-CASSIN, 3-SW8(binary/ports), 4-SW7(reset/pup), 5-SW6(hex/oct), 6-(pup signal)
+IN3: 8279 status
+IN4: 8279 key
+IN5: set MAP1
+IN6: set MAP2
+IN7: set MAP3
+IN8: read eprom (in the eprom programmer)
+OUT0: PORT0 LEDs
+OUT1: PORT1 LEDs
+OUT2: PORT2 LEDs
+OUT3: 8279 control
+OUT4: 8279 7-segment LED data
+OUT5: TTYOUT, CASSOUT
+OUT9: turn pup signal off
+OUTA: programming pulse on/off (eprom programmer)
+
+Dips:
+SW1-4 hardware control of RAM being writable
+SW5 not used
+SW6 Control if the 7-segment displays show Octal (low) or Hex (high).
+SW7 Reset only causes the cpu to perform a warm start. PUP does a cold start (Power-UP).
+SW8 Control if the PORT displays echo the 7-segment displays (high), or just act as normal output ports (low).
+$end
+$info=modellot
+All input must in UPPER case.
+$mame
 $end
 $info=mpf1,cs113
 $mame
@@ -517,6 +1675,422 @@ Test Paste:
         -1800=11^22^33^44^55^66^77^88^99^-1800
         Now press up-arrow to confirm the data has been entered.
 $end
+$info=mycom
+$mame
+- Editing characters (hold down shift to get them):
+        a - shiftlock (toggle). You can then enter any lowercase character.
+        c - clear screen and home cursor
+        d - insert
+        f - vertical tab (cursor up) You can scroll backwards with this,
+            and you can reuse old input lines.
+        u - cursor right
+- There are switches on the right-hand side which are connected directly to one of the PIAs. The switches (not emulated):
+        s2 - ?unknown
+        s3 - ?unknown but must be high for the keyboard to function
+        s4 - cassette motor on/off
+        s5 - ?unknown
+- There is also switch s1 which it is not known what it connects to.
+- Please note: The Takeda 80-column monitor expects the enter key to be the line feed key. This is the numpad-enter in our emulation. Strangely, the standard monitor, and Basic, will also respond to this key.
+- The keyboard has a "English" key on the left, and a "Japan" key on the right. Pressing the appropriate key toggles the input language mode. Internally, this turns the Kana bit off/on. On our keyboard, the ALT key toggles between English and Kana.
+
+Basic:
+- To enter Basic, type BASIC. To quit, type EXIT.
+
+Cassette:
+- BIOS 0: you can SAVE and LOAD from the monitor, but not from Basic. (see ToDo)
+- BIOS 1: Doesn't seem to be supported.
+
+Sound:
+- BIOS 0: Sound is initialised with the volume turned off. In Basic, you can POKE 4382,144 to enable sound.
+- BIOS 1: Doesn't appear to support sound. The included Basic has a SOUND command (e.g SOUND 127,80), but no sound is heard.
+$end
+$info=okean240
+$mame
+If you leave out the CPM80 roms, the machine will start up in a machine-language monitor.
+
+Okean240: MONITOR 240/7  known commands:
+A ?
+B ?
+D dump
+F fill
+G go
+L load (via uart)
+M move
+R ?
+S substitute
+W ?
+X registers
+
+Okean240a: Turbo MONITOR by Alex Z. There are several emulation bugs noticed. Known commands:
+H hex arithmetic
+J Jamp (set address?)
+M move
+P ? (locks up)
+R read
+W write
+tab switches between the hex and ascii sides
+^C refresh display
+
+NOTE ABOUT THE TEST ROM (okean240t):
+- You need to press a key every so often, or hold down Insert.
+
+Keyboard:
+- okean240  - external ascii keyboard
+- okean240a - internal keyboard
+- okean240t - serial keyboard & screen
+$end
+$info=pcm
+$mame
+Commands:
+1 select memory bank 1
+2 select memory bank 2
+B
+C start cp/m from the inbuilt CCP
+D Debugger
+Fx Format disk A or B
+G  Jump to address
+I List files on tape
+L filename.typ  Load file from tape
+R read from disk
+S filename aaaa / bbbb save a file to tape
+V verify
+W write to disk
+X
+Z set tape baud (1200, 2400, 3600 (default), 4800)
+filename   start running this .COM file
+
+Therefore if you enter random input, it will lock up while trying to load up a file of that name. Filenames on disk and tape are of the standard 8.3 format. You must specify an extension.
+
+Here is an example of starting the debugger, executing a command in it, then exiting back to the monitor.
+
+D
+U
+Q
+
+In practice, the I and R commands produce an error, while all disk commands are directed to tape. The F command lists the files on a tape.
+$end
+$info=pegasus
+$mame
+The usual way of loading a new rom was to plug it into the board.
+We have replaced this with cartslots, to save having to recompile whenever a new rom is found. Single rom programs will usually work in any slot (if it is going to work at all). A working rom will appear in the menu. Press the first letter to run it.
+
+If a machine language program is loaded via cassette, do it in the Monitor (L command), when loaded press Enter, and it will be in the menu.
+
+Basic cassettes are loaded in the usual way, that is, start Basic, type LOAD, press Enter. When done, RUN or LIST as needed.
+$end
+$info=pencil2
+$mame
+SD-BASIC usage:
+All commands must be in uppercase, which is the default at boot.
+The 'capslock' is done by pressing Shift and Esc together, and the cursor will change to a checkerboard pattern.
+$end
+$info=pimps
+$mame
+Commands:
+A xxxx xxxx   - Assemble (from editor file): origin destination
+D xxxx,xxxx   - Dump memory to host port
+E             - Enter editor
+ A            - Append at end of file
+ C            - Clear memory file (reqires ESCAPE to confirm)
+ D xx         - Delete line number xx
+ I xx         - Insert at line xx
+ L xx xx      - List range of lines
+ Q            - Query: Display highest used address
+ X            - eXit editor (requires ESCAPE to confirm)
+ $ xxxx xxxx  - exit directly to assembler
+F             - set for Full-duplex host operation
+G xxxx        - Go (execute) at address
+H             - set for Half-duplex host operation
+M xxxx,xxxx   - Display a range of memory (hex dump)
+P xx xx-[xx.] - display/Edit I/O Port
+S xxxx        - Substitute data into memory
+T             - Transparent link to host (Ctrl-A exits)
+U             - set host Uart parameters (8251 control registers)
+V             - Virtual memory (Not used on PIMPS board)
+
+Notes:
+
+The 'D'ump command outputs memory to the host in some form of Intel HEX records, and waits for line-feed from the host before proceeding.
+
+The 'V'irtual memory function was to control an EPROM emulator which was part of the original design (see Chucks notes below) and was not used on the PIMPS board.
+
+Editor:
+- Operates in HEXADECIMAL line numbers. Only supports up to 256 lines (01-00). You must enter full two-digit number when prompted. You MUST 'C'lear the memory file before you begin, otherwise you will be editing random memory content.
+
+Assembler:
+- Comment is an INSTRUCTION! - this means that you need to put at least one space before and after ';' when entering a line comment.
+
+- Does not understand DECIMAL numbers. It understands character constants ('c' and 'cc') and hex numbers ($xx or $xxxx).
+
+- 8-bit values MUST contain two hex digits or one quoted character. 16-bit constants MUST contain four hex digits or two quoted characters.
+
+- Use 'S' instead of 'SP', eg: LXI S,$1000
+
+- Only EQU, DB, DW and END directives are supported. An END statement is REQUIRED (otherwise you get the message '?tab-ful' as it fills the symbol table with garbage occuring in memory after the end of the file).
+
+- RST instructions are implemented as 8 separate 'RST0'-'RST8' memonics.
+$end
+$info=pipbug
+$mame
+All input must be in UPPER case.
+
+Commands:
+A - See and alter memory
+B - Set breakpoint (2 permitted)
+C - Clear breakpoint
+D - Dump memory to paper tape
+G - Go to address, run
+L - Load memory from paper tape
+S - See and alter registers
+
+Cassette:
+This has been hooked up to the otherwise-useless L command. Baud rate = 110.
+After load completes, G440 to run.
+$end
+$info=plan80
+$mame
+Summary of Monitor commands:
+
+D - dump memory
+F - fill memory
+G - go (execute program at address)
+I - in from a port and display
+M - move?
+O - out to a port
+S - edit memory
+$end
+$info=pmi80
+$mame
+Notes:
+- The hex keys are 0 through 9, A through F on our keyboard
+- The function key labels are RE, I, EX, R, BR, M, L, S, =
+- The letter M shows as an inverted U in the display
+- Turn it on, it says ''PMI -80''
+- Press any key, it shows a ? at the left
+- Press the function key corresponding to what you want to do
+- Press the numbers to select an address or whatever
+- For example, press M then enter an address, press =, enter data, press =  to increment to next address or to scan through them.
+
+Paste test:
+    Paste --1C00^11^22^33^44^55^66^77^88^99^---1C00^
+    Press = to verify the data that was entered.
+$end
+$info=poly880
+$mame
+Initially the screen is blank. The CTC causes a NMI, this autoboots the system, and then the PIO releases the NMI line.
+
+Pasting:
+    0-F : as is
+    EXEC : X
+    BACK : K
+    MEM : M
+    GO : G
+
+Test Paste:
+    M4000X11X22X33X44X55X66X77X88X99XM4000
+    Now press X to confirm the data has been entered.
+
+
+The SC1 version is a modification that turns it into a chesscomputer.
+Not to be confused with the prequel to SC2, but more likely a different version of SLC1, without the "Lern" part. Just like SLC1, the chess engine was copied from Fidelity's Sensory Chess Challenger 8.
+
+SC1-SLC1 Keypad Reference:
+    1-8 = A1-H8
+    C = C (back)
+    D = O (option)
+    E = St (clear)
+    F = Z (enter)
+$end
+$info=pro80
+$mame
+Cassette start address is always 1000. The end address must be entered into 13DC/DD (little-endian).
+Then press W to save. To load, press L. If it says r at the end, it indicates a bad checksum.
+$end
+$info=proteus3
+$mame
+To use the serial keyboard, type in the command: PORT#1
+and to go back to the parallel keyboard type in: PORT#0
+
+The Basic seems rather buggy and does odd things from time to time.
+- bios 0 doesn't seem to have any way to backspace and type over
+- bios 0 is the only one to have the EDIT command, although no idea how to use it.
+- bios 2 is from a compatible system called "Micro Systemes 1", from the same company.
+$end
+$info=pulsarlb
+$mame
+The terminal must be set for 9600 baud, 7 bits, even parity, 1 stop bit.
+
+Monitor Commands:
+B - Boot from disk
+D - Dump memory
+F - Fill memory
+G - Go
+I - In port
+L - Load bootstrap from drive A to 0x80
+M - Modify memory
+O - Out port
+P - choose which rs232 channel for the console
+T - Test memory
+V - Move memory
+X - Test off-board memory banks
+
+Disks do not work.
+$end
+$info=pyl601
+$mame
+- PYL601 - command 'MODE80' does nothing
+- PYL601a - most software looks odd (unplayable) because of the different design of the screen.
+- PYL601A - command 'MODE40' doesn't go to 40-columns, instead there is a space between each letter.
+
+The BASIC
+- to get back to dos, enter SYSTEM
+- It has its own internal monitor: MON to enter, Q to exit.
+$end
+$info=radionic
+$mame
+Shift and Right-arrow will enable 32 cpl.
+
+SYSTEM commands:
+    - Press Break (End key) to quit
+    - Press Enter to exit with error
+    - xxxx to load program xxxx from tape.
+    - / to execute last program loaded
+    - /nnnnn to execute program at nnnnn (decimal)
+
+Inbuilt Monitor - its existence is not revealed to the user.
+    - SYSTEM then /12710 = enter machine-language monitor
+    Monitor commands:
+    - B : return to Basic
+    - Dnnnn : Dump hex to screen. Press down-arrow for more. Press enter to quit.
+    - Mnnnn : Modify memory. Enter new byte and it increments to next address. X to quit.
+    - Gnnnn : Execute program at nnnn
+    - Gnnnn,tttt : as above, breakpoint at tttt
+    - R : modify registers
+    The monitor appears to end at 33D3, however the rom contains more code through to 35EB.
+    But, the 34xx area is overwitten by the optional RS-232 expansion box.
+$end
+$info=ravens
+$mame
+Version 0.9 (ravens)
+-----------
+What is known:
+- Press NXT to read memory. Press NXT again to read the next address.
+- Press PC and it says PCxxxx
+- Press CMD, it says CND=, you can choose one of these:
+-- A displays value of a register. Press A again to see more registers.
+-- B sets a breakpoint
+-- C clears a breakpoint
+-- D dumps blocks to tape
+-- E examine tape file
+-- F fetch (load) from tape
+
+Quickload: Load the program then press Y. There are 6 that work and 6 that do nothing.
+
+Version V2.0 (ravens2)
+------------
+This used a terminal interface with a few non-standard control codes.
+The pushbuttons and LEDs appear to have been done away with.
+
+Commands (must be in uppercase):
+A    Examine memory; press C to alter memory
+B    Set breakpoint?
+C    View breakpoint?
+D    Dump to screen and tape (at the same time) D 00 04 dumps pages 0 to 4
+E    Execute
+I    Registers? (Esc to quit)
+L    Load
+R    ? (Esc to quit)
+V    Verify
+$end
+$info=rx78
+$mame
+BANDAI RX-78
+============
+
+Notes:
+- BS-BASIC v1.0 notes:
+  -- COLOR x doesn't do anything. It sets a memory location with x, but does nothing with it.
+  -- COLOR x,y where y sets the background colour. This part works.
+  -- When BASIC is first started, it sets the colours but doesn't save the information. So when COLOR x is entered, although x has no effect, it also sets the background colour, which not having been set, sets the background black.
+  -- At the first scroll, the display memory is disrupted in the logo area, probably another btanb. After that, scrolling works correctly.
+  -- Need a real machine to confirm these problems, but if true, one can only wonder how such obvious issues made it out the door.
+- To stop a cmt load, press STOP + SHIFT keys (this combination is the BREAK key).
+
+Summary of Monitor commands.
+- The monitor is entered at bootup. The prompt is the * character. This is followed by a command letter (upper case). Some commands require hex parameters. You must enter all 4 characters of these. No spaces allowed except where shown.
+- While in BASIC, you may enter the monitor by using the MON command. After you have finished, you can return to BASIC by entering the command *J2005.
+
+- Tape commands:
+*L Load a tape
+*V Verify a tape
+*S Save a block of memory to tape. You are asked for a filename (blank is allowed), the start address, the end address, and the Jump address (where it should begin execution)
+
+- Memory commands:
+*Dnnnn nnnn Displays a hex dump in the address range entered
+*Mnnnn      Allows you to examine and modify memory. Enter to skip to next, period (.) to quit.
+*Jnnnn      Transfer execution (Jump) to a program in memory at the specified address
+
+- Other:
+*R          This is a block transfer load from a mystery parallel device, using ports E0 and E1, using handshaking similar to a centronics printer. The incoming file is loaded into memory and it appears that the operator is not provided any information of what happened.
+
+Carts
+-----
+
+Run by themselves.
+
+
+
+
+Cassettes
+---------
+
+Firstly need to find out if the tape is for Basic, so load "basic" from swlist. Then use LOAD.
+
+If you get error 18 then it's a M/L program,
+so MON then L then the program name that Basic gave you.
+
+When it's finished you're back to Basic. RUN to start it.
+
+
+
+If you don't use the Basic cart, the system will start in Monitor and expect a tape, L is already printed for you to
+press enter. Note that a tape will immediately begin playing at start, even before you hit enter.
+
+At end it will say something like
+LOADING GRM0044 3780 01D4 2005
+2005 EC00
+
+Use the J command to run it, in this case (don't know)
+
+
+
+
+Note: GRM.wav is already converted to a cart (graphmaths in swlist)
+      Other wavs are test files and are loaded from Basic.
+$end
+$info=sacstate
+$mame
+All input to be in lowercase.
+The weird characters that show on screen are various escape sequences.
+These are different depending on the terminal type chosen. The codes
+need to be understood and emulated before this system makes sense.
+
+Known Monitor commands: (from the disassembly)
+!   write buffer to AD000
+*   set RAM036 flag
++   increment AD000 by 1
++n  increment AD000 by n
+-   decrement AD000 by 1
+-n  decrement AD000 by n
+:   clear RAM036 flag
+=   display AD000
+=nnn    set AD000 to nnn
+@   fill buffer with 026
+
+unknown commands: / & d e l r s t u z \ ^ | ~
+
+Other input will either result in '!' message, or halt.
+$end
 $info=savia84
 $mame
 Pasting:
@@ -528,6 +2102,69 @@ Pasting:
 Here is a test program. Copy the text and Paste into the emulator.
     -1800^3E^55^D3^F9^76^XX1800^
 $end
+$info=sb2m600b
+$mame
+Keyboard notes and BTANBs:
+
+- Keyboards on all models are identical, except on UK101 where ^ replaces LINE FEED.
+
+- When run for the first time, the keyboard is in lowercase. Shift will correctly select uppercase. Special keys do weird things, but come good when Shift pressed. Since all input MUST be uppercase, the first thing to do is press Capslock (which is SHIFT LOCK on the real machine). This is saved in your cfg file on exit.
+
+- After that, uppercase works correctly, as do the other keys. Pressing Shift will now do odd things to the letters, and they become random symbols.
+
+- Natural keyboard is set up to take advantage of these oddities and get the maximum symbols available, however lowercase is not available. Natural keyboard will only work correctly when the SHIFT LOCK is engaged.
+$end
+$info=sbc6510
+$mame
+Commands:
+A - (unknown)
+C - (unknown)
+E - (unknown)
+F - (unknown)
+G - (unknown)
+L - (unknown)
+R - (unknown)
+S - (unknown)
+
+Some commands expect a filename enclosed in double quotes. If the quotes are not there, it loops forever looking for them. Good example of bad programming. There is no help and no error messages.
+$end
+$info=sbrain
+$mame
+SUPERBRAIN
+==========
+
+This used to work, but it has regressed and does nothing now.
+$end
+$info=sc2
+$mame
+Keypad legend:
+R - Rückstellen (reset)
+K - Programmstufen (level)
+W - Figurenwahl (white/black)
+P - Problemeingabe (problem mode)
+T - Tonabschaltung (sound on/off)
+L - Löschen (clear)
+Q - Quittierung (enter)
+$end
+$info=scp300f
+$mame
+When started you must press Enter twice before anything happens.
+
+All commands must be in UPPER case.
+
+Known Commands:
+B : Boot from disk?
+D : Dump memory
+E : Edit memory
+F : Find
+G : Go?
+I : Input port
+M : Move
+O : Output port
+R : Display / Modify Registers
+S : Search
+T : Trace
+$end
 $info=selz80,dagz80
 $mame
 Test sequence: Press -, enter an address, press = to show contents, press
@@ -536,20 +2173,306 @@ Test sequence: Press -, enter an address, press = to show contents, press
 Paste test: -=11H22H33H44H55H66H77H88H99HK-1000=
 Now press UP to see that the data has been entered.
 $end
+$info=sdk85
+$mame
+An example is Press SUBST key, enter an address, press NEXT key, enter data, then press NEXT to increment the address.
+
+Warning: the default cold start routine fails to initialize SP properly, which will cause the GO command to fail. SP can be set to point to the end of onboard RAM by the following sequence of button presses: EXAM REG, 4, 2, 0, EXEC, EXAM REG, 5, F, F, EXEC. In TTY mode, use the "XS" command to change SP. Another option is to push the RESET button again, which will leave SP wherever it was in the monitor's scratchpad area.
+
+Using the Mastermind bios:
+Start up, press 0 to begin. Game shows ----. You need to guess a number between 0000 and 9999.
+Enter your guess, "computer" will answer showing on left with the number of found digits.
+On the right you'll get a "clue", slightly different than on the standard game (making it a bit more tricky and more intriguing).
+Once you find the number, you'll see it flashing.   Press the 2 key and you'll get your score (number of attempts before guessing).
+Press 0 to restart.
+$end
+$info=sdk86
+$mame
+Paste Test:
+       N0100^11^22^33^44^55^66^77^88^99^X0100^
+       Press UP to verify the data.
+
+User manual: http://www.bitsavers.org/pdf/intel/8086/9800698A_SDK-86_Users_Man_Apr79.pdf
+$end
+$info=sitcom
+$mame
+The idea of this device is that you write a 8085 program with an assembler on your PC.  You then compile it, and then send it to the SITCOM via a serial cable. The program then (hopefully) runs on the SITCOM.  With the 8255 expansion, you could wire up input devices or other hardware for your program to use.
+
+The SOD LED blinks slowly while waiting; stays on while downloading; and blinks quickly if an error occurs.
+
+After a successful upload, hit the Reset button to mirror RAM into the low 32kB of the address space in place of ROM and run the program.
+
+The null modem bitbanger should be configured for 9600 8N1 to upload a program.  The data should be in Intel HEX format.
+$end
+$info=slc1
+$mame
+This computer is both a Z80 trainer, and a chess computer. The keyboard is different between the two. So by default, the chess number buttons are on the main keyboard, and the one for the trainer are on the numpad.
+
+There is no chess board attached. You supply your own and you sync the pieces and the computer instructions.
+
+When started, it is in Chess mode. Press 11111 to switch to Trainer mode.
+
+Trainer Keys:
+    0-7 : hexadecimal numbers
+    Shift then 0-7 : Hexadecimal 8-F (decimal points will appear)
+    ADR : enter an address to work with. After the 4 digits are entered, the data at that address shows, and you can modify the data.
+    + (inc) : Enter the data into memory, and increment the address by 1.
+
+Pasting:
+    0-7 : as is
+    8-F : X, then 0-7
+    + : O
+    - : XO
+    ADR : Z
+
+Test Paste:
+    00000Z510011O22O33O44O55O66O77OX8X8OX9X9OZ5100
+    Now press O to confirm the data has been entered.
+$end
+$info=sol20
+$mame
+PTC SOL 20
+==========
+
+System Setup (to play games etc).
+    - In the Dipswitches (not the Configuration), turn cursor flashing OFF.
+    - Loading via wav files works, so load a tape image in the file manager
+    - In UPPER CASE, enter XE press enter, cassette will load.
+    - At the end, the program will start by itself.
+    - When it says use 2,4,6,8 keys, you can use the keyboard arrow keys.
+
+Monitor Commands:
+    - TE - return to terminal mode
+    - DU - dump memory
+    - EN - modify memory
+    - EX - Go (execute)
+    - CU - Insert or remove a custom command
+    - SE - Set parameters (eg tape speed)
+    - SA - Save
+    - GE - Load
+    - XE - Load and run
+    - CA - List the files on a tape
+
+How to use the music system:
+    1. Choose the "music" item from the software list
+    2. Type XEQ press Enter
+    3. When the program starts, press R, you are back in the monitor
+    4. Type GET press Enter
+    5. When this finishes loading, type EX 0 press Enter, there's no response
+    6. Press F, wait for numbers to appear
+    7. Press S, wait for numbers to appear
+    8. Press P, music will be heard (it isn't very loud)
+
+Cassette
+--------
+
+GE to load
+
+XE to load and run
+
+
+Info shows when load is finished
+
+progname progbyte start size
+
+If preceeded by ERROR, then a load error occurred
+
+
+
+If start address is 1AD9, then the game is for BASIC/5.
+
+If start address is 3C20, then it's for EXTENDED BASIC.
+
+
+
+
+In BASIC, use GET to load a file. Annoyingly you need to
+supply other parameters as well.
+
+GET name,type
+
+name is the progname
+type is C or S (not sure yet).
+
+
+
+
+Paste
+-----
+Most of the unsupported stuff is text and can be pasted in.
+$end
+$info=sorcerer
+$mame
+All input to be in UPPERcase.
+
+Disk system on sorcererd:
+- Uses a Micropolis controller. Top of RAM is BBFF.
+- To boot CP/M, insert the 325k disk, then type GO BC00 at the monitor prompt.
+- To try the video/disk unit, insert the 78k disk, then type GO BF00 at the monitor prompt.
+  (see notes below)
+
+Disk system on sorcerera:
+- Uses an almost-Microbee clone board called the Dreamdisk.
+- To boot, just insert the proper 841k disk. The bios will wait for it.
+
+Disk system on sorcererb:
+- SCUAMON will try using ports 30,32,34 and 38. Uses digitrio hardware (also a 841k disk).
+  scuamon64 requires you to enter DI to boot, and it doesn't work, confirmed buggy.
+  scuamon80 will successfully boot by itself, but the 80 column display is of course scrambled.
+
+Other disk-enabled bioses:
+- TVIMON uses ports 04,30-34. Type in BO to attempt to boot. Unknown hardware.
+- There's a bunch of 251k disks, also requiring unknown hardware.
+
+Exidy Sorcerer Video/Disk Unit:
+- Contains a screen and 2 floppy drives. No details available. Partial
+  emulation done but it's all guesswork. The unit contains 2 dipswitch units
+  (one has 4 switches and the other has 8), a 8 MHz crystal, 3 proms and a
+  FD1793-B01 fdc. Going by the code, it would appear to place the Z-80 into
+  WAIT while reading a sector. To try it out: GO BF00 at the monitor prompt.
+  Currently the CP/M sign-on message appears, followed by lockup due to a
+  fdc problem. Uses ports 28-2C. Run it under debug, when it gets stuck you'll
+  see the A register has 21. Change it to 24 and it will boot up and work.
+$end
+$info=tec1
+$mame
+Pasting:
+        0-F : as is
+        + (inc) : ^
+        - (dec) : V
+        AD : -
+        GO : X
+
+Keys:
+0 to 9, A to F are on the key of the same name.
+AD (input an address) is the '-' key.
++ and - (increment / decrement address) are the up and down-arrow keys.
+GO (execute program at current address) is the X key.
+SHIFT - later monitor versions utilised an extra shift button. Hold
+        it down and press another key (use Left Shift).
+
+Whenever a program listing mentions RESET, press Left-Alt key.
+
+Each key causes a beep to be heard. You may need to press more than once
+to get it to register.
+
+Inbuilt games - press the following sequence of keys:
+- Invaders:     RESET AD 0 0 0 8 GO GO (Paste: -0008XX)
+- Nim:          RESET AD 0 0 1 0 GO GO (Paste: -0010XX)
+- Lunar Lander: RESET AD 0 0 1 8 GO GO (Paste: -0018XX)
+Tunes:
+- Bealach An Doirin: RESET AD 0 0 2 8 GO GO (Paste: -0028XX)
+- Biking up the strand: RESET AD 0 0 3 0 GO GO (Paste: -0030XX)
+$end
 $info=tk80
 $mame
-When booted, the system begins at 0000 which is ROM. You need to change the
-address to 8000 before entering a program. Here is a test to paste in:
+When booted, the system begins at 0000 which is ROM. You need to change the address to 8000 before entering a program. Here is a test to paste in:
 8000-11^22^33^44^55^66^77^88^99^8000-
 Press the right-arrow to confirm data has been entered.
 
 Operation:
 4 digits at left is the address; 2 digits at right is the data.
 As you increment addresses, the middle 2 digits show the previous byte.
-You can enter 4 digits, and pressing 'ADRS SET' will transfer this info
-to the left, thus setting the address to this value. Press 'WRITE INCR' to
-store new data and increment the address. Press 'READ INCR' and 'READ DECR'
-to scan through data without updating it. Other keys unknown/not implemented.
+You can enter 4 digits, and pressing 'ADRS SET' will transfer this info to the left, thus setting the address to this value. Press 'WRITE INCR' to store new data and increment the address. Press 'READ INCR' and 'READ DECR' to scan through data without updating it. Other keys unknown/not implemented.
+$end
+$info=vcs80
+$mame
+Pasting:
+        0-F : as is
+        A+ : ^
+        A- : V
+        MA : -
+        GO : X
+
+When booted, the system begins at 0000 which is ROM. You need to change the address to 0400 before entering a program. Here is a test to paste in:
+0400-11^22^33^44^55^66^77^88^99^0400-
+Press the up-arrow to confirm data has been entered.
+
+Operation:
+4 digits at left is the address; 2 digits at right is the data.
+As you increment addresses, the middle 2 digits show the previous byte.
+You can enter 4 digits, and pressing 'MA' will transfer this info to the left, thus setting the address to this value. Press 'A+' to store new data and increment the address.
+$end
+$info=tk80bs
+$mame
+Use bios 0 only - others have issues.
+
+At start, type NEW to initialise Basic.
+$end
+$info=trs80dt1
+$mame
+To get into the setup menu: press Ctrl+Shift+Enter.
+$end
+$info=trs80m3
+$mame
+Shift and Right-arrow will enable 32 cpl.
+$end
+$info=unior,argo
+$mame
+The monitor will only allow certain characters to be typed, thus the modifier keys appear to do nothing. There is no need to use the enter key; using spacebar and the correct parameters is enough.
+
+If you press Shift, indicators for numlock and capslock will appear.
+
+Monitor commands:
+C - ?
+D - hex dump
+E - save
+F - fill memory
+G - go
+H - set register
+I - load
+J - modify memory
+K - ?
+L - list registers
+M - ?
+$end
+$info=v6809
+$mame
+Monitor commands:
+
+D boot from floppy (launch Flex OS)
+F relaunch Flex
+G go
+M modify memory (. to exit)
+$end
+$info=votrpss
+$mame
+Notes:
+- When Serial dip is chosen, you type the commands in, but you cannot see anything.
+  If you enter text via parallel, it is echoed but otherwise ignored.
+- When Parallel dip is chosen, you type the commands in, but again you cannot see anything.
+- These operations ARE BY DESIGN. Everything is working correctly.
+- Commands are case-sensitive.
+- Some tests...
+  - Say the time: EscT. (include the period)
+  - Play some notes: !T08:1234:125:129:125:130. (then press enter)
+$end
+$info=z80dev
+$mame
+Pasting:
+        0-F : as is
+        MEM --> (inc) : ^
+        MEM <-- (dec) : V
+        GO : X
+        To set an address, paste R0<address>, so R01040 to select 1040
+
+Example paste: R01040^11^22^33^44^55^66^77^88^99^^R01040^
+Press the up-arrow key to confirm data has been entered.
+$end
+$info=z9001
+$mame
+All input should be in UPPER case.
+
+For KC87_10/11/20/21, type BASIC to start Basic.
+
+The only other kind of acceptable input is a filename that is in 8.3 format and begins with a letter. It will say 'start tape'. You can press ^C here to escape, or any key to continue.
+
+Some other control keys:
+^B clear input line
+^C break
+^F toggle flashing attribute
+^H backspace
+^L clear screen
 $end
 $info=zapcomp
 $mame
@@ -567,6 +2490,21 @@ For more info, please check chapter 6 "Monitor software" in the book and/or the 
 Here is a test to paste in:
     -0400^11^22^33^44^55^66^77^88^99^X-0400
 You can confirm the entries by pressing UP
+$end
+$info=zsbc3
+$mame
+Monitor commands: [] indicates optional
+
+ Bx = Boot from device x (0 to 7)
+ Dx [y] = Dump memory (hex and ascii) in range x [to y]
+ Fx y z = Fill memory x to y with z
+ Gx = Execute program at address x
+ Ix = Display IN of port x
+ Ox y = Output y to port x
+ Sx = Enter memory editing mode, press enter for next address
+ Mx y = unknown (affects memory)
+ Tx = unknown (does strange things)
+ enter = dump memory from 9000 to 907F (why?)
 $end
 $info=hektor2
 $mame
@@ -1124,75 +3062,6 @@ Inufuto
 Load tape xx01, CLOAD
 Load tape xx02, RUN
 $end
-$info=bml3
-$mame
-HITACHI BML3
-============
-
-
-
-
-Cassette
---------
-
-LOAD - basic
-
-LOADM - M/L
-
-Games marked with [mk5] will only work on bml3mk5.
-
-
-
-Inufuto
--------
-
-LOADM"",,R
-
-
-Loads on the screen and won't run.
-$end
-$info=bmjr
-$mame
-
-HITACHI BMJR (aka L2)
-=====================
-
-
-
-File types
-----------
-B - binary, use the monitor
-S - basic
-
-
-
-Cassette
---------
-
-LOAD - to load.
-
-
-
-Inufuto
--------
-
-MON
-L
-(enter name of file)
-G
-(press space)
-
-Game will start.
-
-
-Other
------
-
-The Basic has a CALL instruction, but no USR.
-
-
-The monitor E command goes back to Basic.
-$end
 $info=hunter2
 $mame
 HUNTER 2
@@ -1537,15 +3406,6 @@ MORROW MICRO-DECISION 2 and 3
 
 Cannot boot any disk.
 $end
-$info=pulsarlb
-$mame
-PULSAR LITTLE BIG BOARD
-=======================
-
-
-
-No disks work.
-$end
 $info=super6
 $mame
 SUPER 6
@@ -1554,15 +3414,6 @@ SUPER 6
 
 
 Doesn't boot any disk.
-$end
-$info=sbrain
-$mame
-SUPERBRAIN
-==========
-
-
-
-I think this used to work, but it does nothing now.
 $end
 $info=wicat
 $mame
@@ -1692,7 +3543,10 @@ $mame
 EXCALIBUR 64
 ============
 
-
+- When booted it asks for a disk. Press enter to start ROM BASIC.
+- Control W then Enter will switch between 40 and 80 characters per line.
+- Control V turns cursor on
+- Graphics commands such as LINE, CIRCLE, HGRCLS, HGRSET etc only work with disk basic.
 
 Floppies
 --------
@@ -1738,29 +3592,6 @@ DUAL 68k
 
 
 MAME has no software interfaces configured.
-$end
-$info=dmax8000
-$mame
-DATAMAX 8000
-============
-
-
-
-MAME can't read the disk.
-$end
-$info=mbs1
-$mame
-HITACHI S1 (mbs1)
-=================
-
-
-
-Cassette
---------
-
-LOAD
-
-Doesn't detect any cassette, therefore useless.
 $end
 $info=fp200
 $mame
@@ -1854,6 +3685,43 @@ KRAMER MC
 Homebrew computer.
 
 No support for software at this time.
+
+Commands:
+A : Assembler
+B : Basic
+C : Copy
+D : Dump (Hex dump of memory)
+E : End-file
+F : Fill
+G : Go
+H : Hex Arithmetic
+I : Input device (IT or IL or IU)
+J : Jump ram
+K : Ram test
+L : List device (LT or LL or LU)
+M : Move
+O : Output device (OT or OL or OU)
+P : Disassemble
+R : Read external storage (expects intel format from the keyboard)
+S : Substitute (edit ram content)
+T : Text editor
+V : Verify
+W : Write (sends bits to the PIO port A)
+X : Show primary registers
+Z : Show secondary registers
+
+Device choices: T (terminal), L (cassette), U (user device)
+
+There's numerous bugs in the rom's keyboard routine. Shift has to be pressed
+and released before the key you want to shift. Lowercase cannot be input. The
+Ctrl key doesn't work. The . , / keys are incorrectly already shifted.
+
+Even though cassette and terminal support are supposed to exist, the device
+redirection commands do nothing.
+
+The natural keyboard has been added, although shifted characters will not
+work, or for paste either, because of the shift-key bug. Further, paste
+drops every second character.
 $end
 $info=xegs
 $mame
@@ -2325,11 +4193,10 @@ $mame
 B2M
 ===
 
+Load up a boot floppy, such as CP/M and then press any key.
+The cursor will change from flashing to steady while it boots.
 
-
-Uses floppies.
-
-At one time it could boot a floppy but that no longer works.
+It has regressed and will just freeze up instead.
 $end
 $info=apogee
 $mame
@@ -2502,54 +4369,8 @@ If you get a message at start about the nvram, let it init the system.
 
 BAS files
 ---------
-Normally these would simply be pasted in, but the shift key isn't working
-on the natural keyboard, so the programs end up as all rubbish.
+Normally these would simply be pasted in, but the shift key isn't working on the natural keyboard, so the programs end up as all rubbish.
 
-$end
-$info=rx78
-$mame
-BANDAI RX-78
-============
-
-
-
-Carts
------
-
-Run by themselves.
-
-
-
-
-Cassettes
----------
-
-Firstly need to find out if the tape is for Basic,
-so load "basic" from swlist. Then use LOAD.
-
-If you get error 18 then it's a M/L program,
-so MON then L then the program name that Basic gave you.
-
-When it's finished you're back to Basic. RUN to start it.
-
-
-
-If you don't use the Basic cart, the system will start in
-Monitor and expect a tape, L is already printed for you to
-press enter. Note that a tape will immediately begin playing
-at start, even before you hit enter.
-
-At end it will say something like
-LOADING GRM0044 3780 01D4 2005
-2005 EC00
-
-Use the J command to run it, in this case (don't know)
-
-
-
-
-Note: GRM.wav is already converted to a cart (graphmaths in swlist)
-      Other wavs are test files and are loaded from Basic.
 $end
 $info=jaguarcd
 $mame
@@ -3139,51 +4960,6 @@ How to set it up for the first time
 - Next time you start the console, the game will run by itself and you won't have to set up anything.
 
 $end
-$info=sol20
-$mame
-PTC SOL 20
-==========
-
-
-
-Cassette
---------
-
-GE to load
-
-XE to load and run
-
-
-Info shows when load is finished
-
-progname progbyte start size
-
-If preceeded by ERROR, then a load error occurred
-
-
-
-If start address is 1AD9, then the game is for BASIC/5.
-
-If start address is 3C20, then it's for EXTENDED BASIC.
-
-
-
-
-In BASIC, use GET to load a file. Annoyingly you need to
-supply other parameters as well.
-
-GET name,type
-
-name is the progname
-type is C or S (not sure yet).
-
-
-
-
-Paste
------
-Most of the unsupported stuff is text and can be pasted in.
-$end
 $info=pockstat
 $mame
 SONY POCKET STATION
@@ -3471,6 +5247,15 @@ To Load a tape: LOAD "" , then turn on Play in the media menu.
 
 
 Screen Squash: starts loading as Basic: Scruncher, then says No Dos.
+$end
+#
+# ARCADE
+#
+$info=wmg
+$mame
+Setting it up:
+
+    When you first start WMG, you need to initialise the NVRAM properly. Do this by starting wmg, pressing 1 to cycle through the games list, pressing 2 to run the game. When it says "FACTORY SETTINGS RESTORED", press F3 to return to the menu. Repeat this procedure for all 6 games. After that, quit wmg, then restart. On the Setup menu you can personalise the settings with the 1 and 2 keys. The inputs default to be the same as on the original hardware. You may change any input individually for each game. Note that the WMG hardware has the Flap and Inviso buttons wired together. JOUST can be played by 2 players at the same time, player 1 uses the left joystick and the Flap button, while player 2 uses the right joystick and the Fire button. SPLAT would normally require 4 joysticks, but since the WMG only has 2, it is limited to a one-player game. Cocktail mode is not supported, WMG must be played on an upright only. After playing a game, returning to the menu will return to the place you left from. You can force a return to the Setup by Auto Up and pressing F3. You can also clear out the menu's NVRAM (not the game's NVRAM), by holding down L and pressing F3.
 $end
 #
 # PINBALL
