@@ -14,6 +14,8 @@
 #
 #     In all cases, the information is only supplied where the operation is not obvious.
 #
+#     At this time, it is not planned to have information for terminals, synthesizers, or chess computers.
+#
 #  ----------------------------------------------------------------------------------------------------------------
 #
 #
@@ -27,16 +29,16 @@ $mame
 
 When switched on, the display is blank with 4 flashing dots. Press 1 to start the clock. The clock has 4 displays
 
-    1. Date
-    2. Days to retirement
-    3. Time
-    4. Time to retirement.
+1. Date
+2. Days to retirement
+3. Time
+4. Time to retirement.
 
-    To select a display, press 1, press 2, press 1 to choose the display. (0 = cycle through displays 1,2,3.)
-    To set the time, press 1 twice, press 2. Press 2 to set the hours (24 hour time), press 1, press 2 to set the minutes, press 1, press 2 to set the seconds, press 1.
-    To set the date, press 1 3 times, then press 2. The screen format is American (MM:DD:YY). Press 2 to set the year, then press 1 for the month, then the day, then a leap-year digit(?).
-    To set the days to retirement, press 1 4 times.
-    To set the time to retirement, press 1 5 times.
+- To select a display, press 1, press 2, press 1 to choose the display. (0 = cycle through displays 1,2,3.)
+- To set the time, press 1 twice, press 2. Press 2 to set the hours (24 hour time), press 1, press 2 to set the minutes, press 1, press 2 to set the seconds, press 1.
+- To set the date, press 1 3 times, then press 2. The screen format is American (MM:DD:YY). Press 2 to set the year, then press 1 for the month, then the day, then a leap-year digit(?).
+- To set the days to retirement, press 1 4 times.
+- To set the time to retirement, press 1 5 times.
 $end
 $info=68ksbc
 $mame
@@ -669,6 +671,12 @@ Cassette SAVE: Press F1 1 aaaa DOWN bbbb UP
 Cassette LOAD: Press F1 2 aaaa DOWN bbbb UP
 (where aaaa = 4-digit beginning address, bbbb = 4-digit ending address)
 $end
+$info=can09t
+$mame
+At start, press A to enter Basic
+
+Then, to save a tape: TSAVE, and to load a tape: TLOAD
+$end
 $info=canons80,canonts3
 $mame
 When the red warning screen appears, press enter a few times. Now you can type characters in.
@@ -786,7 +794,7 @@ $info=clcd
 $mame
 Although marked as working, this system has multiple issues. For example, Basic is unusable.
 $end
-$info=cms6502
+$info=cms6502,gs6502,gs6809,eurocom2
 $mame
 Input must be in UPPERcase.
 $end
@@ -1203,8 +1211,34 @@ Stats you can see while travelling:
     4  - fuel consumption now (litres per 100km)
     49 - fuel average consumption
 $end
+$info=ec65
+$mame
+If this system ever gets fully emulated, the command to boot a disk is: .b
+$end
+$info=einstein
+$mame
+Cassette can be added by going into the Slots menu, pipe, speculator.
+
+In MOS, the TAPE command is supposed to load a tape, but it gives what looks like an error.
+$end
+$info=electron
+$mame
+*TAPE to enable the cassette module
+
+CHAIN"" or LOAD"" - to load a tape
+SAVE"x" - to save a tape (not working - just get a blank file)
+
+*CAT to list files on a tape
+*RUN to load and run a M/L program
+$end
 $info=elekscmp
 $mame
+To save a tape: RRaaaabbbb (press RECORD) press DOWN (where aaaa = start address, bbbb = end address)
+
+To load a tape: R (press PLAY) wait for leader tone, press UP.
+
+To load a tape to somewhere else in memory: RRaaaa bbbb (press PLAY) wait for leader tone, press UP.
+
 To Use:
 - Press MINUS to enter data input mode
 - Press UP or DOWN to cycle through addresses
@@ -1283,6 +1317,14 @@ $info=elf2
 $mame
 Although this machine is marked as working, it hasn't worked for many years.
 $end
+$info=elwro800
+$mame
+Clone of Sinclair ZX Spectrum.
+
+To save a tape: SAVE"x" (this is done by pressing S right-shift-2 x right-shift-2)
+
+To load a tape: LOAD"" (this is done by pressing J right-shift-2 right-shift-2)
+$end
 $info=emma2
 $mame
 Keys:
@@ -1304,6 +1346,16 @@ To save, press S, enter beginning address, press S, enter end address+1, press S
 
 To load, press L, press play, while leader is playing press 0 or 1 as above. When a row of dots appears, the data has been loaded.
 $end
+$info=ep64
+$mame
+Use the Basic cartridge from the software list.
+
+To save a tape: SAVE (but it comes out blank)
+
+To load a tape: LOAD (but there's none to test with)
+
+TAP files are not supported.
+$end
 $info=et3400
 $mame
 - Navigating:
@@ -1313,6 +1365,15 @@ $mame
     Basic to Monitor: BYE
 - All commands in Basic and Monitor are UPPERCASE only.
 - Terminal is defaulted to 9600 baud, 7 bits, 2 stop bits.
+
+There's 2 ways to use the cassette.
+1. Use the keypad.
+-- To save a tape: Click D1A8F (it says Fr) Click the 4 digit start address (it says Ld) Press RECORD, then click the 4 digit end address. Recording starts as soon as you click the 4th digit. When it says CPU UP, it has finished.
+-- To load a tape: Click D1ABC (screen goes blank). Press PLAY and tape loads. The H LED flashes as data is processed. When it says CPU UP, it has finished.
+
+2. Use the TTY. Press 7 and it says MON>. All input must be in UPPERcase.
+-- To save a tape: T aaaa,bbbb (where aaaa = start address, and bbbb = end address. Press RECORD, then press Enter.
+-- To load a tape: L then press Enter then press PLAY. The H light will flash as above.
 $end
 $info=eti660
 $mame
@@ -1335,7 +1396,50 @@ All chip-8 programs start at 0600. The manual says the max end address is 7FF (g
 $end
 $info=evmbug
 $mame
-Press any key to get it started. All input to be in uppercase.
+Press any key to get it started. All input to be in UPPERcase.
+$end
+$info=excali64
+$mame
+EXCALIBUR 64
+============
+
+- When booted it asks for a disk. Press enter to start ROM BASIC.
+- Control W then Enter will switch between 40 and 80 characters per line.
+- Control V turns cursor on
+- Graphics commands such as LINE, CIRCLE, HGRCLS, HGRSET etc only work with disk basic.
+
+Floppies
+--------
+
+All RAW floppies work and are bootable to CP/M or ZCPR3.
+
+If DIR doesn't work, try L
+
+Disks with ext IMG.RAW are not bootable, so put them in Drive B.
+
+Most disks contain RUN.COM which is a Basic loader
+
+RUN (name-of-basic-program-without-ext). EG  RUN GAME runs GAME.BAS
+
+
+
+
+Cassettes
+---------
+
+Must be in Basic.
+
+To load a tape: CLOAD
+
+To save a tape: CSAVE"x"
+
+
+
+
+BAS files
+---------
+
+Paste them into Basic, then RUN.
 $end
 $info=exl100
 $mame
@@ -1368,7 +1472,7 @@ wizord           works
 
 
 Using the cassette:
-- You must be in Exel Basic. There's no motor control.
+- You must be in Exel Basic (exelbas from the software list). There's no motor control.
 - To save: SAVE"1"  hit enter, put player in Record, hit Esc, it saves.
 - To load: LOAD"1"  hit enter, hit esc, put player in Play, it loads.
 - The cassette output is connected to the audio section, so games could use it as a 1-bit dac.
@@ -1382,22 +1486,219 @@ The terminal must be set for
     - Format: 7E1
 If it isn't, adjust the settings, then restart the system.
 
-Once started, press Space. The system will start up.
-All input must be in upper case.
+Once started, press Space. The system will start up. All input must be in UPPERcase.
+
+To save a tape: Ra,b,c (where a = start address, b = end address, c = program number)
+
+To load a tape: Lc     (where c = program number)
+
+For test purposes, program number of 1 works fine.
 
 Microsoft Basic is executed entering the following 2 commands in the monitor prompt:
     .XS nnnn-F87F mmmm-C000 <CR>
     .G <CR>
 
-where nnnn is the previous value of the stack pointer, and mmmm is the previous value of the program counter.
+where nnnn is the previous value of the stack pointer, and mmmm is the previous value of the program counter. The system will fill in these values for you. All you need to do is enter F87F, space, C000 when prompted, then hit Enter.
 
 BASIC will request the amount of RAM memory available, 8192 (bytes) must be entered.
+You can't quit from Basic back to the monitor.
 $end
 $info=fc100
 $mame
+To load a tape: CLOAD
+
+To save a tape: CSAVE"x"
+
 Shift-Run to BREAK out of CLOAD.
 
 There is an inbuilt Monitor. MON to enter. Commands are D,G,M,R,S,X.
+$end
+$info=fm7
+$mame
+FUJITSU FM-7
+============
+
+
+
+Floppies
+--------
+
+Run themselves.
+
+MAME only accepts 341/682KB D77 disks.
+
+To access floppies: FILES "0:" for A drive, "1:" for B drive etc.
+                    RUN "(drive)file"
+
+Notes for FM77AV:
+- FM7 floppies seem to run, or at least start up.
+- None of the FM77AV-specific floppies can be used.
+
+
+
+Cassettes
+---------
+
+To save a tape: SAVE"x"
+
+If Basic, LOAD then RUN
+
+If M/L, LOADM"",,R  (LOADM followed by EXEC may work)
+
+You have to guess which one; Bad File Mode indicates it's wrong.
+
+The system is intolerant of imperfections, the load will be terminated by I/O Error.
+
+Not many tapes are accepted, and then only a few of those work.
+
+May need to use LOADM"CAS0:(file)", LOAD"CAS0:(file)" .
+If no disks, can RUN"(CAS0:)" .
+
+
+Inufuto games
+-------------
+
+LOADM"",,R  press Scroll-Lock, press F2. Game starts by itself.
+The fire button is continuously shooting.
+
+The D88 files don't work.
+
+
+
+Monitor
+-------
+
+G - go
+M - modify memory
+R - modify registers
+D - hex dump memory
+$end
+$info=fm8
+$mame
+FUJITSU FM-8
+============
+
+
+
+
+Cassette
+--------
+
+See FM7's usage.txt
+
+FM7 tapes will load but not run.
+
+
+
+
+Floppies
+--------
+
+
+None to test with. FM7 floppies won't run.
+$end
+$info=fp200
+$mame
+CASIO FP-200
+============
+
+MAME doesn't support any software.
+
+The system says there's no memory free, so unable to write a program.
+$end
+$info=fp1100
+$mame
+CASIO FP-1100
+=========================
+
+To fix the display, go to the DIP switches and change the Video Mode to 0, then restart.
+
+The keyboard doesn't work, so unable to do anything.
+
+The remainder of this entry will apply when the system is made working...
+- To save a tape: SAVE"CAS0:(F)FILENAME.BAS"
+- To load a tape: LOAD"CAS0:(F)FILENAME.BAS"[,R]
+- To save a binary file: SAVEM"CAS0:(F)BINARY", start-address, end-address, go-address
+- To load a binary file: LOADM"CAS0:(F)BINARY"[,R]
+- Turn motor on/off: MOTOR ON or MOTOR OFF
+
+where the option ,R parameter makes it run upon completion of loading, and (F) means 1200 baud, or (S) for 300 baud. The parenthises are required. If this parameter is omitted, then the speed is determined by the relevant dipswitch.
+
+Monitor commands
+----------------
+Use the MON command in Basic, to enter the Monitor.
+BA - return to Basic
+CM - change memory
+CR - change register
+DM - dump memory
+GO - go
+MM - move memory
+LT - load tape binary file - filename ignored - load a file created with SAVEM or ST
+ST - save tape binary file - no filename - example: ST start-address end-address
+$end
+$info=fp6000
+$mame
+To save a tape: SAVE
+
+To load a tape: LOAD
+$end
+$info=galaxy
+$mame
+Galaksija
+=========
+
+Programs may not be compatible between Galaksija and Galaksija-Plus.
+Make sure to use the correct system.
+
+To save a tape: SAVE
+
+To load a tape: OLD
+then RUN
+$end
+$info=galeb
+$mame
+First thing to do is Ctrl-A for capslock, since uppercase is required.
+
+Ctrl-B takes you into Basic. Not known how to quit.
+
+Ctrl-G turns on keyclick.
+
+To save a tape: SAVE (while in Basic)
+
+To load a tape: L, or LOAD (while in Basic)
+
+The process of tape saving doesn't seem to work correctly.
+$end
+$info=gcjp
+$mame
+NINTENDO GAME CUBE
+==================
+
+Although it looks like it might work, sadly it doesn't.
+$end
+$info=gigatron
+$mame
+5 changes the resolution.
+
+In the menu, use arrows to choose, then press ALT to start.
+
+To get back to the menu, press and hold 1 until the horn sounds.
+
+Menu choices that require a full keyboard (Apple 1, BASIC, MS BASIC) cannot be used.
+$end
+$info=gp32
+$mame
+Even though it's marked as not working, it runs quite well.
+
+Make sure you have a cartridge loaded.
+
+When it says GAME press 1.
+
+You get a menu with your game listed. Press 1 again.
+$end
+$info=gscpm
+$mame
+The option to load CP/M doesn't work.
 $end
 $info=h8
 $mame
@@ -2797,6 +3098,10 @@ Operation:
 As you increment addresses, the middle 2 digits show the previous byte.
 You can enter 4 digits, and pressing 'ADRS SET' will transfer this info to the left, thus setting the address to this value. Press 'WRITE INCR' to store new data and increment the address. Press 'READ INCR' and 'READ DECR' to scan through data without updating it. Other keys unknown/not implemented.
 $end
+$info=v4in1eg
+$mame
+Press 1,2,3 or 4 to make a selection. The appropriate LED will turn on.
+$end
 $info=vcs80
 $mame
 Pasting:
@@ -3459,128 +3764,6 @@ The demo bombs out with a syntax error.
 
 Graphics demo not tested.
 $end
-$info=fm8
-$mame
-FUJITSU FM-8
-============
-
-
-
-
-Cassette
---------
-
-See FM7's usage.txt
-
-FM7 tapes will load but not run.
-
-
-
-
-Floppies
---------
-
-
-None to test with. FM7 floppies won't run.
-$end
-$info=fm77av
-$mame
-FUJITSU FM-77AV
-===============
-
-
-
-Cassette
---------
-
-See FM7's usage.txt
-
-FM7 tapes will run.
-
-
-
-
-Floppies
---------
-
-FM7 floppies seem to run, or at least start up.
-
-
-None of the 77AV-specific floppies can be used.
-$end
-$info=fm7
-$mame
-FUJITSU FM-7
-============
-
-
-
-Floppies
---------
-
-Run themselves.
-
-MAME only accepts 341/682KB D77 disks.
-
-To access floppies: FILES "0:" for A drive, "1:" for B drive etc.
-                    RUN "(drive)file"
-
-
-
-Cassettes
----------
-
-If Basic, LOAD then RUN
-
-If M/L, LOADM"",,R  (LOADM followed by EXEC may work)
-
-You have to guess which one; Bad File Mode indicates it's wrong.
-
-The system is intolerant of imperfections, the load will be
-terminated by I/O Error.
-
-Not many tapes are accepted, and then only a few of those work.
-
-May need to use LOADM"CAS0:(file)", LOAD"CAS0:(file)" .
-If no disks, can RUN"(CAS0:)" .
-
-
-Inufuto games
--------------
-
-LOADM"",,R  press Scroll-Lock, press F2. Game starts by itself.
-The fire button is continuously shooting.
-
-The D88 files don't work.
-
-
-
-Monitor
--------
-
-G - go
-M - modify memory
-R - modify registers
-D - hex dump memory
-$end
-$info=fm16beta
-$mame
-FUJITSU FM-16b
-==============
-
-
-
-Black screen.
-$end
-$info=fm11
-$mame
-FUJITSU FM-11
-=============
-
-
-
-Black screen.
-$end
 $info=msx
 $mame
 MSX usage
@@ -3893,64 +4076,6 @@ Some disks don't have boot tracks, so need to be
 mounted in B drive. These are marked as [Bdrive].
 
 The older disks end with _b (bootable) or _nb (not bootable).
-$end
-$info=excali64
-$mame
-EXCALIBUR 64
-============
-
-- When booted it asks for a disk. Press enter to start ROM BASIC.
-- Control W then Enter will switch between 40 and 80 characters per line.
-- Control V turns cursor on
-- Graphics commands such as LINE, CIRCLE, HGRCLS, HGRSET etc only work with disk basic.
-
-Floppies
---------
-
-All RAW floppies work and are bootable to CP/M or ZCPR3.
-
-If DIR doesn't work, try L
-
-Disks with ext IMG.RAW are not bootable, so put them in Drive B.
-
-Most disks contain RUN.COM which is a Basic loader
-
-RUN (name-of-basic-program-without-ext). EG  RUN GAME runs GAME.BAS
-
-
-
-
-Cassettes
----------
-
-Start up RUN as above, press Ctrl-C.
-
-Now you can CLOAD and then load a tape.
-
-All tapes work.
-
-
-Another way - boot machine without any disks, hit enter, you are in Basic.
-
-
-
-
-BAS files
----------
-
-Paste them into Basic, then RUN.
-$end
-$info=fp200
-$mame
-CASIO FP-200
-============
-
-
-
-MAME doesn't support any software.
-
-
-The system says there's no memory free, so unable to write a program.
 $end
 $info=radio86
 $mame
@@ -4455,23 +4580,6 @@ Said to be compatible with GALEB tapes.
 
 Use orao103 - it's the only one that works.
 $end
-$info=galaxy
-$mame
-GALAXY
-======
-
-
-
-Programs may not be compatible between Galaxy and Galaxy-Plus.
-Make sure to use the correct system.
-
-
-OLD - to load
-
-then
-
-RUN
-$end
 $info=b2m
 $mame
 B2M
@@ -4713,14 +4821,6 @@ Make sure that WAV files don't start playing before CLOAD begins, or
 IO Error will keep happening.
 
 $end
-$info=gc
-$mame
-NINTENDO GAME CUBE
-==================
-
-
-Mame does not support any software.
-$end
 $info=oric1
 $mame
 TANGERINE Oric1, Atmos, Telstrat
@@ -4851,19 +4951,6 @@ Snaps
 -----
 
 These are .ace files. Just load it and in theory it should start.
-$end
-$info=fp1000,fp1100
-$mame
-CASIO FP-1000 and FP-1100
-=========================
-
-
-System not working.
-
-Bad text
-Bad keyboard
-
-Unable to do anything.
 $end
 $info=mc1000
 $mame
