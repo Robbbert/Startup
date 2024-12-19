@@ -893,7 +893,7 @@ $info=compclr2
 $mame
 Hold down the SHIFT key to type letters.
 $end
-$info=comx35
+$info=comx35p
 $mame
 To save a tape: PSAVE
 To load a tape: TLOAD
@@ -1845,13 +1845,6 @@ To load a tape: L, or LOAD (while in Basic)
 
 The process of tape saving doesn't seem to work correctly.
 $end
-$info=gcjp
-$mame
-NINTENDO GAME CUBE
-==================
-
-Although it looks like it might work, sadly it doesn't.
-$end
 $info=gigatron
 $mame
 5 changes the resolution.
@@ -2101,6 +2094,10 @@ Commands:
 -- ^T = load data from disk to 0000
 -- ^X = new line
 - At the debug prompt: (to be done)   Q to quit
+$end
+$info=imac,tenkai2b,thinkpad850,cjddzsp,lhfy,mghammer,scumimon,goldnjkra,hmxpro,nextc,gcjp,aplscar,ktx20t02,megapc,megapcpl,ochipvlp,pcd4nl,sm48650usc,atc1425a,cdibios,vs29815,vs29915,vs29915a,vs29915j,dragntr,dragntr2,mj1,wccf1dup,wccf2chk,vp415,wto2840sp,gj4000,gjmovie,gjrstar,gjrstar3,gln,gls,pcompelr,pitagjr,parcade,tagalaga,taspinv,taturtf,vbaby
+$mame
+This system doesn't work and may crash the emulator. Don't run it.
 $end
 $info=imsai
 $mame
@@ -2461,6 +2458,10 @@ Can boot CP/M but not see any files.
 Can boot some disks, but there's lots of retries.
 
 The disk is CP/M-80, but after it starts, a disk error occurs.
+$end
+$info=kovqhsgs
+$mame
+This game will freeze while in attract mode. All you can do is exit.
 $end
 $info=kramermc
 $mame
@@ -3213,7 +3214,7 @@ To save a tape: W up up up S high-start-address Enter up up S cc enter Record I 
 
 To load a tape: W O
 $end
-$info=mo5,m05nr,m06,t07,t0770,t08,t09,t09p
+$info=mo5,mo5nr,mo6,to7,to770,to8,to9,to9p
 $mame
 To save a tape: SAVE"x"
 
@@ -4066,17 +4067,17 @@ Inufuto
 Load tape xx01, CLOAD
 Load tape xx02, RUN
 $end
-$info=pb100
-$mame
-CASIO PB-100 PROGRAMMABLE CALCULATOR
-====================================
-
-
-Similar looking to the Sharp handheld calculators.
-
-
-Not emulated in MAME.
-$end
+# $info=pb100
+# $mame
+# CASIO PB-100 PROGRAMMABLE CALCULATOR
+# ====================================
+#
+#
+# Similar looking to the Sharp handheld calculators.
+#
+#
+# Not emulated in MAME.
+# $end
 $info=pc6001,pc6601
 $mame
 NEC PC-6001 and PC-6601
@@ -5532,7 +5533,7 @@ Use bios 0 only - others have issues.
 
 At start, type NEW to initialise Basic.
 $end
-$info=tmc600
+$info=tmc600s2
 $mame
 To save a tape: PSAVE
 
@@ -5639,6 +5640,15 @@ $end
 $info=uchroma68
 $mame
 System is marked as working, but the keyboard is completely crazy and unusable.
+$end
+$info=ultim809
+$mame
+Was developed during 2009-2011, but unknown if it was ever finished. Most of the claimed features don't seem to be there or are inaccessible.
+
+- When it says to press INTERRUPT, press F1. May need multiple presses to get over random errors.
+- Various commands starting with k are supposed to be valid, but nothing is acceptable.
+- If an error occurs it locks up and you have to press F1 again.
+- Even though it is suggested to use a dumb terminal, nothing ever shows on it.
 $end
 $info=unior,argo
 $mame
@@ -6181,7 +6191,40 @@ K - list
 
 Shift-0 = backspace
 $end
-$info=msx
+$info=ax150,ax170,ax230,cf1200,cf2000,cf2700,cf2700uk,cf3000,cf3300,cpc88,cx5f,cx5mu,fdpc200,dpc200e,dgnmsx,expert13,expertdp,expertpl,gsfc200,gsfc80u,fmx,fpc500,fs1300,fs4000,gfc1080,gfc1080a,hb101p,hb10p,hb201p,hb20p,hb501p,hb55p,hb701fd,hb75p,hb8000,hc7,jvchc7gb,hx10,hx20,hx21,hx22,hx32,hx51i,dpc200,mbh1,mbh2,mbh25,mbh50,ml8000,mlf110,mlf120,mlf48,mlf80,mlfx1,mpc10,mpc100,mpc200,mpc64,mx15,mx64,nms801,perfect1,phc2,phc28,phc28l,phc28s,pv16,piopx7,fspc800,spc800,svi728,sx100,canonv20,canonv8,vg8010,vg802020,yc64,yis503,cpc51,bruc100,ax200,cx5miib,svi738,ax350ii,ax370,ax500,cpc330k,cx7m128,expert20,fpc900,fs4500,fs4600f,fs4700f,fs5000f2,fs5500f2
+$mame
+MSX usage
+
+
+Need to use the LEFT shift key
+
+
+
+Cartridge
+---------
+Runs by itself
+
+
+Floppy Disk (use hbf1xdj)
+-----------
+Runs by itself
+
+
+
+
+Cassette (use vg8010)
+--------
+RUN "CAS:
+
+or
+
+CLOAD
+
+or
+
+BLOAD "CAS:" ,R
+$end
+$info=fsa1a,fsa1f,fsa1fm,fsa1mk2,fstm1,hotbit20,hbf1xd,hbf5,hbf500p,hbf700p,hbf900a,hbf9p,hbg900p,victhc80,victhc95,hx23f,hx34,cpc300,cpc300e,kmc5000,mbh3,mbh70,mlg1,mlg10,mlg3,mlg30,mlg30_2,mpc2300,mpc2500f,mpc25fd,mpc25fs,mpc27,nms8220,nms8245,nms8255,nms8260,nms8280,phc23,phc23jb,phc55fd2,phc77,tpc310,tpp311,tps312,ucv102,canonv25,canonv30f,vg8230,vg8235,vg8240,cpc400,cpc400s,y503iiir,yis604,y805256,cpc61,cpg120,expert3i,expert3t,expertac,expertdx,fsa1fx,fsa1wsx,fsa1wxa,hbf1xdj,hbf1xv,phc35j,phc70fd2,fsa1gt,fsa1st
 $mame
 MSX usage
 
@@ -6255,7 +6298,7 @@ Mystery Castle                            08    Hold CDE, hit 1                 
 Pistol Poker                              10    Hold CDE, hit 1                     (mnw)
 USA Football (redemption)                 11    Hold A, hit 1                       (mnw)
 $end
-$info=atarians,aavenger,midearth,specrider,time2000
+$info=atarians,aavenger,midearth,spcrider,time2000
 $mame
 Outhole for each game:
 - spcrider: M  (solenoid 5)
@@ -6270,7 +6313,7 @@ $mame
     Babypac: press O or P;
     Granny: press X.
 $end
-$info=eballchp,beatclk,ladyluck,motrdome,strngsci,specforc,blackblt,cityslck,hardbody,prtyanim,hvymetap,esclwrld,dungdrag,black100,trucksp3,atlantip
+$info=eballchp,beatclck,ladyluck,motrdome,strngsci,specforc,blackblt,cityslck,hardbody,prtyanim,hvymetap,esclwrld,dungdrag,black100,trucksp3,atlantip
 $mame
 Setting Up:
 - The default settings don't work on most machines. Use the number pad for all inputs.
@@ -6278,8 +6321,7 @@ Setting Up:
    Each number pair is entered as: first number, Enter, 2nd number, Enter, Enter.
    See the manual for more details.
 - 0B38: F1, 16 40, 17 1, 23 3, 24 3, 25 3, 26 3, 27 3, 29 1, 30 1, 47 1, esc.
-- 0C70: Press F1, 62 1, esc. Start again. F1, 62 0, 16 40, 17 1, 24 3, 25 3,
-    26 3, 27 3, 29 1, 30 1, esc. Start again.
+- 0C70: Press F1, 62 1, esc. Start again. F1, 62 0, 16 40, 17 1, 24 3, 25 3, 26 3, 27 3, 29 1, 30 1, esc. Start again.
 - 0E34: Press F1, 44 65, esc. Start again.
 - 0H05, 0H07, 2001, 2006: no setup necessary.
 - Others: Press F1, press / to choose Feature Options, Enter, 65, Enter, Enter, esc.
@@ -6444,7 +6486,7 @@ ToDo:
 - Display flickers a bit
 - tt_game: roms missing therefore no sound
 $end
-$info=smbp,smbmush,cueball,sfightii,teedoffp,gladiatp,wipeout,rescu911,wsoccer,stargatp,shaqattq,freddy,bighurt,waterwld,snspares,andretti,barbwire,brooks
+$info=smbp,smbmush,cueball,sfightii,teedoffp,gladiatp,wipeout,rescu911,wcsoccer,stargatp,shaqattq,freddy,bighurt,waterwld,snspares,andretti,barbwire,brooks
 $mame
 Setting up must be done before you can play. Press NUM-0, press Left Flipper 3 times, press Right
  Flipper, Press 1 to accept Factory Settings, press 1, quit and restart.
@@ -6545,7 +6587,7 @@ Status:
 - All games (except caveman) are playable
 - Lots of issues with the sound
 $end
-$info=bountyh,triplay,rock,tagteamp,raven,hlywoodh,genesisp,amazonh2,sprbreak,goldwing,mntecrlo,arena,victoryp,diamondp,txsector,bighouse,robowars,excalibr,badgirls,hotshots,bonebstr,nmoves,amazonh3,mmaster,topsound
+$info=bountyh,triplay,rock,tagteamp,raven,hlywoodh,genesisp,amazonh2,sprbreak,goldwing,mntecrlo,arena,victoryp,diamondp,txsector,bighouse,robowars,excalibr,badgirls,hotshots,bonebstr,nmoves,amazonh3,mmmaster,topsound
 $mame
 The test rom says U4 is faulty. Using MOS6532 fixes this error, but the games ramdomly slam-tilt instead.
 
@@ -6623,12 +6665,12 @@ $mame
 To play, either set game to free play, or insert a coin. Press start. Press letters A thru S to
 score. Press X to lose the ball (the outhole).
 $end
-$info=arizona,atla_ltd,discodan,hustlerp,marqueen,kkongltd,vikngkng,force,bhol_ltd,spcpoker,hhouse
+$info=arizona,atla_ltd,bhol_ltd,discodan,force,hhotel,hustlerp,kkongltd,marqueen,spcpoker,vikngkng
 $mame
 Status:
 - All games can accept coins and start up
 - System 3 2-players games are playable.
-- hhouse, press 2 to start
+- hhotel, press 2 to start
 
 System 3:
 - Games are 2 players, except zephy and cowboy which have 3.
@@ -6732,7 +6774,7 @@ Status:
 - Cerberus: not working (can't even coin up)
 - Hold down the outhole key (usually X), when starting a game.
 $end
-$info=spain82,megaaton,nautilus,theraid,ufo_x,kz26,rock2500,starfirp,trailer,fldragon,phntnshp,sklflite,flashman,ridersrf,ironball,terrlake,msdisco
+$info=spain82,megaaton,nautilus,theraid,ufo_x,kz26,rock2500,starfirp,trailer,fldragon,phntmshp,sklflite,flashman,ridersrf,ironball,terrlake,msdisco
 $mame
 First time:
 - The default settings are fine, so start with a clean slate
@@ -7291,7 +7333,7 @@ Since NVRAM is not working, when it starts factory settings will be applied.
 To start, hold ABC hit 1.
 To end the ball, Hold ABC until the bonuses have counted and the score starts flashing.
 $end
-$info=br_l4,drac_l1,cftbl_l4,dw_l2,ft_l5,tafg_lx3,gw_l5,tz_92,ww_l5,strik_l4,lc_l1,rush
+$info=br_l4,drac_l1,cftbl_l4,dw_l2,ft_l5,tafg_lx3,gw_l5,tz_92,ww_l5,strik_l4,lc_11,rush
 $mame
 Since NVRAM is not working, when it starts factory settings will be applied.
  Press F3, and wait for the game attract mode to commence.
