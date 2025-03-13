@@ -1,4 +1,4 @@
-﻿# MAME GAMEINIT.DAT v0.274   Latest Update: February 11, 2025
+﻿# MAME GAMEINIT.DAT v0.275   Latest Update:    March 12, 2025
 #                         Project started: September 10, 2015
 #          Merged to the file startup.dat:  December 17, 2024
 #
@@ -255,6 +255,14 @@ The game has 2 balls, for multiball feature, so the outhole doesn't
 work because it thinks the 2nd ball is in play somewhere.
 
 To activate the end-of-ball, hold down X then tap END.
+
+$end
+$info=aerofgtsg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
 
 $end
 $info=agat7
@@ -1772,6 +1780,14 @@ Robocop                               5006    Hold CDE, hit 1            CDE
 Monday Night Football                 5007    Hold CDE, hit 1            CDE
 Phantom of the Opera                  5008    Hold CDE, hit 1            CDE
 King Kong                              --     Hold CDE, hit 1            CDE
+
+$end
+$info=brvbladeg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
 
 $end
 $info=bubblem
@@ -3844,6 +3860,14 @@ SOURCE:
 http://wiki.mamedev.org/index.php/FAQ:Games
 
 $end
+$info=flamegung
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
+
+$end
 $info=fl7_50
 $mame
 INITIALIZATION:
@@ -4073,6 +4097,14 @@ To save a tape: SAVE
 To load a tape: LOAD
 
 $end
+$info=ftimpactg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
+
+$end
 $info=fvrpitch
 $mame
 INITIALIZATION:
@@ -4166,6 +4198,14 @@ Trivia games "No Coins" mode: if DSW "No Coins" is on, coin inputs are replaced 
 
 SOURCE:
 mameinfo.dat
+
+$end
+$info=gdariusg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
 
 $end
 $info=gepoker
@@ -9645,6 +9685,14 @@ V    Verify
 Quickload: This is meant to be only for "ravens" system.
 
 $end
+$info=raystormg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
+
+$end
 $info=rclimb_3
 $mame
 INITIALIZATION:
@@ -10484,6 +10532,14 @@ SOURCE:
 mameinfo.dat
 
 $end
+$info=shngmtkbg
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
+
+$end
 $info=sigma2k
 $mame
 INITIALIZATION:
@@ -11252,6 +11308,14 @@ Pressing Player 2 stick "down" in Tazz-Mania causes game to think level is compl
 
 SOURCE:
 mameinfo.dat
+
+$end
+$info=tblkkuzug
+$mame
+INITIALIZATION:
+
+Wait patiently for the two progress bars to end, press [ TAB ], choose "DIP Switches" and set "BIOS Flash" to "OFF".
+Now choose "Reset System," and on reboot the game will start correctly.
 
 $end
 $info=tbyahhoo
