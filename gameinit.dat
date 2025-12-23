@@ -1,9 +1,9 @@
-﻿# MAME GAMEINIT.DAT v0.282    Latest Update:      Nov 10, 2025
+﻿# MAME GAMEINIT.DAT v0.283    Latest Update:      Dec 19, 2025
 #                          Project started: September 10, 2015
 #           Merged to the file startup.dat:  December 17, 2024
 #
 # File designed and maintained by AntoPISA and Robbbert
-# Internal versione 11.08
+# Internal versione 11.09
 #
 # Homepage         : https://www.progettosnaps.net/gameinit.dat
 # Github repository: https://github.com/AntoPISA/MAME_SupportFiles
@@ -10598,6 +10598,13 @@ Spectrum 128
 Press enter on tape loader, Scroll-lock, F2
 
 $end
+$info=special7,special7a,special7b
+$mame
+INITIALIZATION:
+To initialize the game the first time, press BOOKS/STATS/SETUP [ 0 ] for a few seconds. When finish Release the [ 0 ] key and press it again.
+
+
+$end
 $info=special,anakonda,erik,kharkovsky,lik,pioner,specialp,specialm,specimx,unga
 $mame
 INITIALIZATION:
@@ -11531,6 +11538,11 @@ At first startup the game performs hardware tests (with the screen completely bl
 SOURCE:
 https://www.progettosnaps.net/gameinit.dat
 
+$end
+$info=turrett
+$mame
+TIPS:
+At start, when it says to press MENU button, hit F2.
 $end
 $info=tutor
 $mame
