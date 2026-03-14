@@ -1,14 +1,13 @@
-﻿# MAME GAMEINIT.DAT v0.285    Latest Update:      Feb 10, 2026
+﻿# MAME GAMEINIT.DAT v0.286    Latest Update:      Mar 12, 2026
 #                          Project started: September 10, 2015
 #           Merged to the file startup.dat:  December 17, 2024
 #
 # File designed and maintained by AntoPISA and Robbbert
-# Internal versione 12.01
+# Internal versione 12.02
 #
 # Homepage         : https://www.progettosnaps.net/gameinit.dat
 # Github repository: https://github.com/AntoPISA/MAME_SupportFiles
 # Verified with motoschifo's MDE, downloadable here: http://adb.arcadeitalia.net/?page=download
-#
 #
 #
 $info=3bagfull
@@ -5035,6 +5034,11 @@ NOTE for INUFUTO games
 MLOAD  (if using cassette)
 A=USR($900)
 
+$end
+$info=jspecter
+$mame
+TIPS:
+At start it asks to choose game A or B. A is the default, to choose B hold joystick right and press 1, wait for B to flash before letting go.
 $end
 $info=jtces88
 $mame
@@ -10646,9 +10650,7 @@ $end
 $info=special7,special7a,special7b
 $mame
 INITIALIZATION:
-To initialize the game the first time, press BOOKS/STATS/SETUP [ 0 ] for a few seconds. When finish Release the [ 0 ] key and press it again.
-
-
+If alarm sounds at start, press 0 twice.
 $end
 $info=special,anakonda,erik,kharkovsky,lik,pioner,specialp,specialm,specimx,unga
 $mame
