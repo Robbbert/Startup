@@ -1166,6 +1166,12 @@ SAVE"x" - to save a tape (not working - just get a blank file)
 * is shift-quote
 
 $end
+$info=bbcmet
+$mame
+INITIALIZATION:
+This machine takes 46 seconds to get itself started.
+
+$end
 $info=bbear,monkmonk
 $mame
 TIPS:
@@ -4635,6 +4641,12 @@ INITIALIZATION:
 This requires the NVRAM to be flashed via a terminal, which isn't implemented.
 
 MAME doesn't support any of the usual software formats.
+
+$end
+$info=hp9825a,hp9825b,hp9825t
+$mame
+INITIALIZATION:
+The display defaults to a blank white screen, which does nothing. The proper display is red digits, so go into the Video Options and select "32-char display". After this, the tab menu is unusable, so quit and start over. Now you can use the calculator functions in the number pad.
 
 $end
 $info=hpz80unk
@@ -8203,22 +8215,16 @@ Hard Drives
 Unknown how to access.
 
 $end
-$info=pc9821,pc9821ap2,pc9821as,pc9821ce,pc9821cx3,pc9821nr15,pc9821nr166,pc9821nw150,pc9821ra20,pc9821ra266,pc9821ra333,pc9821xa16,pc9821xv13
+$info=pc9821,pc9821ap2
 $mame
 TIPS:
-NEC PC-9821 series
-==================
+At start, there's a full-screen Japanese message. It requires a boot disk.
 
-
-Floppies
---------
-The only machines that can run floppies are pc9821, pc9821ap2, pc9821ce
-
-
-Hard Drives
------------
-
-Unknown how to access.
+$end
+$info=pc9821ce
+$mame
+TIPS:
+At start, there's a full-screen Japanese message. It requires a boot disk, but it doesn't work.
 
 $end
 $info=pce,sgx,tg16
@@ -8425,6 +8431,12 @@ The first time you run the game, it will say 'CALL ATTENDANT'. Press [ O ] for D
 
 SOURCE:
 mameinfo.dat
+
+$end
+$info=pes
+$mame
+INITIALIZATION:
+Before it can be used, use the Machine Config to change the serial baud rates to 4800. After that, pressing a key seems to only send one bit at a time, so after 10 bits a fragment of sound is heard. Letter G causes a beep. Needs serious work to get it back into shape.
 
 $end
 $info=pet2001,pet2001b,pet2001n,pet4016,pet4032,pet8032,cbm8296,cbm8296ed,cbm8296d,cbm8296d_de,cbm8296dgv_de,cbm8296gd,pet20018,cbm3032b,pet2001b16,pet2001b32,cbm3008,cbm3016,cbm3032,pet2001n16,pet2001n32,cbm4016,cbm4032,cbm4032f,pet4032f,pet4032b,cbm4032b,cbm8032,cbm8032_fr,cbm8032_de,cbm8032_se,cbm8096,mmf9000,mmf9000_se,superpet
@@ -11317,6 +11329,12 @@ SOURCE:
 http://wiki.mamedev.org/index.php/FAQ:Games
 
 $end
+$info=touchme
+$mame
+INITIALIZATION:
+Use the internal layout, as the photo layout does not work. Like all "simon" games, use the mouse but do not use the "-mouse" parameter.
+
+$end
 $info=tourtabl,tourtab2
 $mame
 INITIALIZATION:
@@ -11643,6 +11661,20 @@ $mame
 INITIALIZATION:
 In most games, press 5 to choose difficulty, or on multigame carts, which game. Press 1 to start.
 
+$end
+$info=vclock3
+$mame
+INITIALIZATION:
+This is an ordinary domestic 12-hour bedside clock. To adjust it:
+* Set the time: Hold S and tap [ and ] to set the hour, and - and = to set the minute.
+* Set the date: Hold D and tap [ and ] to set the month, and - and = to set the day of the month.
+* Set the alarm: Hold F1 for AL1, or F2 for AL2, then use [ and ] for the hour, and - and = for the minute.
+* Alarm on/off: Hit F1 or F2 to turn the AL1 or AL2 LED on/off.
+* Speak the current time: Hit T
+* Speak the current date: Hit D
+* When the alarm sounds, it speaks the date and makes a sound. Press D to snooze 10 minutes and say the time.
+
+Snooze: Hit D
 $end
 $info=vcs80
 $mame
