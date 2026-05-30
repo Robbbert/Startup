@@ -1,9 +1,9 @@
-﻿# MAME GAMEINIT.DAT v0.287    Latest Update:      May  4, 2026
+﻿# MAME GAMEINIT.DAT v0.288    Latest Update:      May 29, 2026
 #                          Project started: September 10, 2015
 #           Merged to the file startup.dat:  December 17, 2024
 #
 # File designed and maintained by AntoPISA and Robbbert
-# Internal versione 12.03
+# Internal versione 12.04
 #
 # Homepage         : https://www.progettosnaps.net/gameinit.dat
 # Github repository: https://github.com/AntoPISA/MAME_SupportFiles
@@ -594,7 +594,7 @@ $end
 $info=ampkr228,ampkr228,ampkr2b1,ampkr2b2,ampkr2b4,ampkr2jspb,ampoker2,piccolop,pkrdewin,sigma2k,sigmapkr,videomat
 $mame
 INITIALIZATION:
-Turn ON Operator Key [ 9 ]. Hit the DOOR key [ O ]. After a moment, the Operator Mode will appear. Turn OFF the Operator Key [ 9 ] to allow play, resetting with [ F3 ] if needed.
+Turn ON with Operator Key [ 9 ], then Door Switch [ O ] to enter the Operator Mode. Wait a few seconds, then press Hold 1 [ Z ] to clear page. Turn OFF with Operator Key [ 9 ]. If necessary, press [F3] to reset.
 
 SOURCE:
 http://wiki.mamedev.org/index.php/FAQ:Games
@@ -2634,6 +2634,15 @@ There is no avoiding the NVRAM initialization process. In order to use any game 
 SOURCE:
 http://wiki.mamedev.org/index.php/FAQ:Games
 
+$info=cptshark
+$mame
+
+TIP:
+Press INSERT COIN [ 5 ], then Select [ V ] to switch between the games 'Captain Shark' and 'Cannon Bingo'.
+
+SOURCE:
+mamenfo.dat
+
 $end
 $info=cpu09,ivg09
 $mame
@@ -4362,6 +4371,12 @@ Trivia games "No Coins" mode: if DSW "No Coins" is on, coin inputs are replaced 
 
 SOURCE:
 mameinfo.dat
+
+$end
+$info=geneve
+$mame
+INITIALIZATION:
+Start with -bios 1 (ROM V1.00). In Slot Devices, peb:slot8, choose "hfdc". In slot peb:slot8:hfdc:h1 choose "generic". In slot peb:slot8:hfdc:h2 choose "generic". In the same menu choose Reset System. There's no software lists, so you'' have to find floppy and hard drive images somewhere. The floppy disk "mdos650s.dsk" will boot. After mounting it, choose Reset System. The operating system has heaps of bugs and not much works.
 
 $end
 $info=gepoker
@@ -7825,7 +7840,7 @@ INITIALIZATION:
 Everything in the software list is rejected as unrecognised format.
 
 $end
-$info=nws1580,nws3260,nws3410,nws3720,nws3860
+$info=nws1250,nws1580,nws3260,nws3410,nws3720,nws3860
 $mame
 INITIALIZATION:
 Use the tab menu to enable all the keyboards. Type h or help to get a list of commands.
